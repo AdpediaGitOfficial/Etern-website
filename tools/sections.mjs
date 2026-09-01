@@ -92,6 +92,20 @@ export const DASHBOARD_PHOTO =
     .map((name) => `assets/img/${name}`)
     .find((path) => existsSync(join(ROOT, path))) ?? "assets/img/parent-child.svg";
 
+/**
+ * The artwork in the home hero.
+ *
+ * Drop a new illustration into assets/img/ named hero-scene.png (or .webp
+ * /.jpg) and the next build uses it in place of hero-world. The slot rounds
+ * its corners and fades into the sky behind it, so a cut-out with a
+ * transparent background and a full illustration with its own sky both sit
+ * correctly — see .scene__stage img.
+ */
+export const HERO_ART =
+  ["hero-scene.png", "hero-scene.webp", "hero-scene.jpg", "hero-world.webp", "hero-world.png"]
+    .map((name) => `assets/img/${name}`)
+    .find((path) => existsSync(join(ROOT, path))) ?? "assets/img/hero-world.webp";
+
 /** The five method moves. */
 const METHOD_STYLE = [
   { hue: "violet", emoji: "🔍" },

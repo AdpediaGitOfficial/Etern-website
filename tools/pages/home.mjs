@@ -1,6 +1,7 @@
 import { icon } from "../icons.mjs";
 import { esc, url, sectionHeading, demoCta, decor, rainbow } from "../layout.mjs";
 import {
+  HERO_ART,
   ageJourney,
   dashboardPreview,
   howEternWorks,
@@ -38,50 +39,26 @@ const FEATURES = [
 function hero() {
   const hotspots = HOTSPOTS.map(
     (h) => `<button type="button" class="hotspot" data-depth="${h.depth}"
-        style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%"
-        aria-label="${esc(h.label)}">
-        <span class="hotspot__label">${esc(h.label)}</span>
-      </button>`,
-  ).join("\n      ");
+          style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%"
+          aria-label="${esc(h.label)}">
+          <span class="hotspot__label">${esc(h.label)}</span>
+        </button>`,
+  ).join("\n        ");
 
   return `<section class="home-hero">
+  <span class="home-hero__sky" aria-hidden="true"></span>
   ${decor([
-    ["pink-soft", "pebble", 17, "left:-6rem;top:34%", "float-slow"],
-    ["violet-soft", "drop", 13, "left:2%;bottom:-3rem", "float-mid"],
-    ["teal-soft", "dot", 4.5, "left:16%;bottom:6%"],
-    ["amber", "star", 2.6, "left:3%;bottom:26%", "float-mid"],
-    ["blue-soft", "pebble", 20, "right:-7rem;top:-4rem", "float-slow"],
-    ["green-soft", "dot", 6, "right:3%;bottom:6%"],
+    ["violet-soft", "pebble", 16, "left:-7rem;top:52%", "float-slow"],
+    ["amber", "star", 2.4, "left:2%;top:58%", "float-mid"],
+    ["teal-soft", "dot", 5, "left:11%;bottom:9%"],
+    ["blue-soft", "pebble", 22, "right:-8rem;top:-6rem", "float-slow"],
+    ["pink-soft", "drop", 9, "right:2%;bottom:4%", "float-mid"],
   ])}
 
   <div class="shell home-hero__grid">
-    <div class="scene" data-scene>
-      <div class="scene__hint">
-        <span>${icon("mouse-pointer", { class: "i1" })} Drag to rotate</span>
-        <span>${icon("sparkles", { class: "i2" })} Hover an island</span>
-      </div>
-
-      <div class="scene__stage" data-scene-stage>
-        <picture>
-          <source srcset="assets/img/hero-world.webp" type="image/webp">
-          <img class="scene__img" src="assets/img/hero-world.png" width="1200" height="900"
-               alt="A floating world of tiny islands where children paint, read, code, dance, cook and play football around a treehouse"
-               fetchpriority="high" decoding="async">
-        </picture>
-        ${hotspots}
-      </div>
-
-      <div class="scene__controls" data-scene-controls hidden>
-        <div>
-          <button type="button" data-scene-nudge="-1" aria-label="Rotate left">${icon("chevron-left")}</button>
-          <button type="button" data-scene-nudge="1" aria-label="Rotate right">${icon("chevron-right")}</button>
-          <button type="button" data-scene-toggle aria-label="Pause animation" data-icon-pause="${esc(icon("pause"))}" data-icon-play="${esc(icon("play"))}">${icon("pause")}</button>
-          <button type="button" data-scene-reset aria-label="Reset view">${icon("rotate-ccw")}</button>
-        </div>
-      </div>
-    </div>
-
     <div class="home-hero__copy">
+      <p class="home-hero__eyebrow">${icon("sparkles")} Learning made playful, ages 3–7</p>
+
       <h1 class="display-1">
         A Little Curiosity.<br>
         A Lifetime of<br>
@@ -95,7 +72,7 @@ function hero() {
         <span class="k4">Grow.</span>
       </p>
 
-      <p class="lead" style="max-width:28rem">
+      <p class="lead" style="max-width:30rem">
         Etern Learning nurtures confident young minds through interactive learning, creative
         exploration, and meaningful real-world experiences for children aged 3–7.
       </p>
@@ -103,6 +80,33 @@ function hero() {
       <div class="hero-cta">
         <a class="btn btn--primary btn--xl" href="programs.html">Explore Learning ${icon("arrow-right")}</a>
         <a class="btn btn--soft btn--xl" href="book-demo.html">Book a Free Demo ${icon("calendar-days")}</a>
+      </div>
+    </div>
+
+    <div class="scene" data-scene>
+      <div class="scene__sky">
+        <span class="scene__ground" aria-hidden="true"></span>
+
+        <div class="scene__stage" data-scene-stage>
+          <img class="scene__img" src="${HERO_ART}" width="1200" height="900"
+               alt="A floating world of tiny islands where children paint, read, code, dance, cook and play football around a treehouse"
+               fetchpriority="high" decoding="async">
+          ${hotspots}
+        </div>
+      </div>
+
+      <div class="scene__bar">
+        <p class="scene__hint">
+          <span>${icon("mouse-pointer", { class: "i1" })} Drag to rotate</span>
+          <span>${icon("sparkles", { class: "i2" })} Hover an island</span>
+        </p>
+
+        <div class="scene__controls" data-scene-controls hidden>
+          <button type="button" data-scene-nudge="-1" aria-label="Rotate left">${icon("chevron-left")}</button>
+          <button type="button" data-scene-nudge="1" aria-label="Rotate right">${icon("chevron-right")}</button>
+          <button type="button" data-scene-toggle aria-label="Pause animation" data-icon-pause="${esc(icon("pause"))}" data-icon-play="${esc(icon("play"))}">${icon("pause")}</button>
+          <button type="button" data-scene-reset aria-label="Reset view">${icon("rotate-ccw")}</button>
+        </div>
       </div>
     </div>
   </div>

@@ -370,6 +370,28 @@ svg.shape { background: none; }
 .rainbow-text > span:nth-child(7n + 6) { color: var(--green); }
 .rainbow-text > span:nth-child(7n + 7) { color: var(--amber-ink); }
 
+/* The rainbow word: one gradient sweep across the whole word, falling back to
+   the per-letter colours below wherever text clipping is unsupported. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .rainbow-text {
+    background-image: linear-gradient(
+      96deg,
+      var(--violet) 0%,
+      var(--blue) 18%,
+      var(--teal-ink) 34%,
+      var(--green) 50%,
+      var(--amber-ink) 66%,
+      var(--orange) 82%,
+      var(--pink) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* :nth-child(n) matches the same specificity as the fallback rules above */
+  .rainbow-text > span:nth-child(n) { color: transparent; }
+}
+
 /* ------------------------------------------------------------ 6. buttons */
 
 .btn {
@@ -767,21 +789,54 @@ svg.shape { background: none; }
   padding-bottom: 2.5rem;
 }
 @media (min-width: 768px) {
-  .home-hero { padding-top: 9rem; padding-bottom: 4rem; }
+  .home-hero { padding-top: 8.5rem; padding-bottom: 4rem; }
+}
+
+/* A wash of sky behind the whole hero: warm at the horizon, cool where the
+   islands float, so the artwork sits in light rather than on flat cream. */
+.home-hero__sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(58% 52% at 76% 16%, oklch(0.945 0.045 232 / 0.85), transparent 68%),
+    radial-gradient(46% 46% at 10% 84%, oklch(0.955 0.032 318 / 0.7), transparent 70%),
+    radial-gradient(72% 58% at 52% 106%, oklch(0.965 0.035 150 / 0.5), transparent 72%),
+    linear-gradient(180deg, oklch(0.995 0.006 96), var(--cream) 64%);
+  pointer-events: none;
 }
 
 .home-hero__grid { position: relative; z-index: 1; display: grid; gap: 3rem; align-items: center; }
 @media (min-width: 1024px) {
-  .home-hero__grid { grid-template-columns: 45fr 55fr; gap: 2rem; }
+  .home-hero__grid { grid-template-columns: 45fr 55fr; gap: 2.5rem; }
 }
 
-.home-hero__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; order: 1; }
+.home-hero__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; order: 1; }
 @media (min-width: 1024px) { .home-hero__copy { padding-right: 1rem; } }
+
+.home-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid oklch(1 0 0 / 0.8);
+  border-radius: 999px;
+  background: oklch(1 0 0 / 0.72);
+  padding: 0.45rem 0.95rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--violet-ink);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+}
+.home-hero__eyebrow svg { width: 0.95rem; height: 0.95rem; color: var(--orange); }
+
+@media (max-width: 1023px) { .home-hero .shape--star { display: none; } }
 
 .home-hero__keywords {
   display: flex;
   flex-wrap: wrap;
   column-gap: 0.9rem;
+  row-gap: 0.25rem;
+  letter-spacing: -0.01em;
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 700;
@@ -797,6 +852,26 @@ svg.shape { background: none; }
 
 /* interactive scene */
 .scene { position: relative; order: 2; perspective: 1200px; z-index: 1; }
+
+/* the pool of light the islands float in; it fades out rather than ending on
+   an edge, so a cut-out illustration never looks boxed */
+.scene__sky {
+  position: relative;
+  border-radius: 2.75rem;
+  background: radial-gradient(62% 58% at 50% 42%, oklch(0.995 0.022 232 / 0.95), oklch(0.99 0.02 232 / 0) 72%);
+}
+.scene__ground {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  width: 56%;
+  height: 7%;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, oklch(0.45 0.09 280 / 0.2), transparent 72%);
+  filter: blur(9px);
+  pointer-events: none;
+}
 .scene__stage {
   position: relative;
   touch-action: pan-y;
@@ -808,22 +883,33 @@ svg.shape { background: none; }
 }
 .scene__stage:active { cursor: grabbing; }
 .scene__img {
+  position: relative;
   width: 100%;
-  filter: drop-shadow(0 40px 45px oklch(0.3 0.06 267 / 0.18));
+  /* rounded for an illustration that carries its own sky; invisible on a
+     cut-out, whose corners are transparent anyway */
+  border-radius: 2.25rem;
+  filter: drop-shadow(0 34px 42px oklch(0.3 0.06 267 / 0.16));
   user-select: none;
   -webkit-user-drag: none;
   animation: float-slow 9s ease-in-out infinite;
 }
-.scene__hint {
-  position: absolute;
-  top: -0.25rem;
-  left: 0.25rem;
+/* the hint and the controls share one line under the artwork */
+.scene__bar {
+  position: relative;
   z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+.scene__hint {
   display: none;
   align-items: center;
   gap: 1rem;
   border-radius: 999px;
-  background: oklch(1 0 0 / 0.75);
+  background: oklch(1 0 0 / 0.72);
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   font-weight: 600;
@@ -836,7 +922,7 @@ svg.shape { background: none; }
 .scene__hint svg { width: 0.875rem; height: 0.875rem; }
 .scene__hint .i1 { color: var(--violet); }
 .scene__hint .i2 { color: var(--orange); }
-@media (min-width: 768px) { .scene__hint { display: flex; } }
+@media (min-width: 768px) { .scene__hint { display: inline-flex; } }
 
 .hotspot {
   position: absolute;
@@ -877,16 +963,15 @@ svg.shape { background: none; }
 .hotspot:hover .hotspot__label,
 .hotspot:focus-visible .hotspot__label { opacity: 1; transform: translate(-50%, 0) scale(1); }
 
-.scene__controls { margin-top: 1rem; display: flex; justify-content: center; }
-.scene__controls > div {
+.scene__controls {
   display: flex;
   align-items: center;
   gap: 0.25rem;
   border-radius: 999px;
-  background: oklch(1 0 0 / 0.8);
-  padding: 0.375rem 0.75rem;
+  background: oklch(1 0 0 / 0.72);
+  padding: 0.3rem 0.5rem;
   box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(18px);
 }
 .scene__controls button {
   display: grid;
@@ -918,17 +1003,32 @@ svg.shape { background: none; }
 @media (min-width: 640px) {
   .feature-strip ul { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 2rem; }
 }
-@media (min-width: 1024px) {
-  .feature-strip ul { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  .feature-strip li { padding-inline: 1rem; border-left: 1px solid var(--border); }
+@media (min-width: 960px) {
+  .feature-strip ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1280px) {
+  .feature-strip ul { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; }
+  /* the icon moves above the title so a two-word title holds one line */
+  .feature-strip li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding-inline: 0.75rem;
+    border-left: 1px solid var(--border);
+  }
   .feature-strip li:first-child { border-left: 0; padding-left: 0; }
   .feature-strip li:last-child { padding-right: 0; }
+  .feature-strip .tile { width: 2.25rem; height: 2.25rem; border-radius: 0.7rem; }
+  .feature-strip .tile svg { width: 1.1rem; height: 1.1rem; }
+  .feature-strip b { font-size: 0.875rem; }
+  .feature-strip p { font-size: 0.78rem; }
 }
 .feature-strip li { display: flex; align-items: flex-start; gap: 0.85rem; }
 .feature-strip .tile { width: 2.85rem; height: 2.85rem; border-radius: var(--radius-sm); }
 .feature-strip .tile svg { width: 1.3rem; height: 1.3rem; }
 .feature-strip b {
   display: block;
+  text-wrap: balance;
   font-family: var(--font-display);
   font-size: 0.9375rem;
   font-weight: 700;

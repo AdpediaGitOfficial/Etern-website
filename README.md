@@ -113,6 +113,26 @@ request fails.
 Demo slots are published in India Standard Time (fixed UTC+5:30) and rendered
 in the visitor's own time zone.
 
+## The home hero artwork
+
+The hero shows `assets/img/hero-world.webp` in a soft pool of sky light, with a
+row of invisible hotspots over the islands that light up and label themselves on
+hover.
+
+To use a different illustration, drop it into `assets/img/` named
+`hero-scene.png` (or `.webp` / `.jpg`) and rebuild — `tools/sections.mjs`
+(`HERO_ART`) picks up the first one that exists and falls back to `hero-world`.
+
+- Both a **cut-out with a transparent background** and a **full illustration
+  with its own sky** work: the slot rounds the image's corners (invisible on a
+  cut-out) and the sky behind it fades out rather than ending on an edge.
+- Keep the artwork close to **4:3** (the current one is 1200 × 900) so the
+  column keeps its height.
+- The hotspots are percentages of the image box, listed in `HOTSPOTS` at the top
+  of `tools/pages/home.mjs`. A new illustration puts its islands somewhere else,
+  so move those `x` / `y` values to match — or delete the list to drop the
+  hover labels entirely.
+
 ## The parent-dashboard photo
 
 The violet dashboard band on the home and parents pages gives its whole
