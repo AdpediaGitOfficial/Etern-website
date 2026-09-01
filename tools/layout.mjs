@@ -178,11 +178,6 @@ function footer(depth) {
     .join("\n          ");
 
   return `<footer class="site-footer">
-  ${decor([
-    ["violet-soft", "pebble", 13, "left:-4rem;top:2rem"],
-    ["amber-soft", "pebble", 9, "right:-2rem;bottom:1rem"],
-    ["pink-soft", "dot", 4, "right:22%;top:3rem"],
-  ])}
   <div class="shell">
     <div class="footer-grid">
       <div class="stack stack-5">

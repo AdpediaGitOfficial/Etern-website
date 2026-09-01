@@ -653,8 +653,8 @@ svg.shape { background: none; }
 
 /* ------------------------------------------------------------- 10. footer */
 
-.site-footer { position: relative; overflow: hidden; border-top: 1px solid var(--border); background: var(--surface); }
-.site-footer > .shell { position: relative; padding-block: 4rem; }
+.site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+.site-footer > .shell { padding-block: 4rem; }
 
 .footer-grid { display: grid; gap: 3rem; }
 @media (min-width: 1024px) {
