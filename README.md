@@ -116,7 +116,8 @@ in the visitor's own time zone.
 ## The parent-dashboard photo
 
 The violet dashboard band on the home and parents pages has a picture slot on
-its right edge. It currently uses `assets/img/parent-child.webp`, a
+its right edge, which appears from 1280px up (below that the band stacks and the
+picture is dropped). It currently uses `assets/img/parent-child.webp`, a
 transparent cut-out of a parent and child, cropped to the slot's portrait box.
 `assets/img/parent-child.svg` is a flat illustration kept as the fallback.
 
@@ -128,7 +129,7 @@ and finally the illustration.
 - A **cut-out with a transparent background** (PNG or WebP) sits best on the
   violet; a photo with its own background will show that background as a
   rectangle.
-- The slot crops to a **portrait 320 × 380 box** with `object-fit: cover`, so a
+- The slot crops to a **portrait 640 × 760 box** with `object-fit: cover`, so a
   landscape photo keeps the exact same column width and alignment but loses its
   outer edges. Crop the subjects to roughly 4:5 first for the best result.
 - To shift what survives the crop, change `object-position` on
