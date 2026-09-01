@@ -68,10 +68,10 @@ export const hueFor = (map, key, fallback = "violet") => map[key] ?? fallback;
 
 /** The four age stages, in the reference's colour order. */
 const STAGE_STYLE = [
-  { hue: "violet", emoji: "🧸" },
-  { hue: "orange", emoji: "🔤" },
-  { hue: "green", emoji: "🧱" },
-  { hue: "blue", emoji: "🚀" },
+  { hue: "violet", art: "stage-discover.webp", ratio: "460 / 517" },
+  { hue: "amber", art: "stage-explore.webp", ratio: "460 / 721" },
+  { hue: "green", art: "stage-build.webp", ratio: "460 / 685" },
+  { hue: "blue", art: "stage-grow.webp", ratio: "460 / 738" },
 ];
 
 /**
@@ -202,16 +202,18 @@ export function journalCard(post, depth = 0) {
  * panel for the chosen one. With JavaScript off, every panel is shown.
  */
 export function ageJourney(depth = 0) {
-  const tabs = AGE_STAGES.map((stage, i) => {
+  const cards = AGE_STAGES.map((stage, i) => {
     const style = STAGE_STYLE[i] ?? STAGE_STYLE[0];
-    return `<button type="button" class="stage-tab accent-${style.hue} reveal"
-      data-stage-tab="${stage.id}" aria-pressed="${i === 0}" aria-controls="stage-${stage.id}">
-      <span class="stage-tab__emoji" aria-hidden="true">${style.emoji}</span>
-      <span class="stage-tab__age">${stage.ageLabel}</span>
-      <span class="stage-tab__name">${esc(stage.stage)}</span>
-      <span class="stage-tab__line">${esc(stage.headline)}</span>
-    </button>`;
-  }).join("\n      ");
+    return `<button type="button" class="stage-card stage-card--${i + 1} accent-${style.hue} reveal"
+        data-stage-tab="${stage.id}" aria-pressed="${i === 0}" aria-controls="stage-${stage.id}">
+        <span class="stage-card__age">${stage.ageLabel}</span>
+        <span class="stage-card__name">${esc(stage.stage)}</span>
+        <span class="stage-card__line">${esc(stage.headline)}</span>
+        <img class="stage-card__art" src="${url(`assets/img/${style.art}`, depth)}"
+             style="aspect-ratio:${style.ratio}" alt="" loading="lazy" decoding="async">
+      </button>`;
+  });
+  const [firstCard, ...restCards] = cards;
 
   const panels = AGE_STAGES.map((stage, i) => {
     const style = STAGE_STYLE[i] ?? STAGE_STYLE[0];
@@ -267,16 +269,25 @@ export function ageJourney(depth = 0) {
   ${decor([
     ["pink-soft", "pebble", 12, "left:-4rem;top:14%", "float-slow"],
     ["blue-soft", "dot", 5, "right:6%;top:8%", "float-mid"],
+    ["amber", "drop", 3.2, "right:22%;top:11%", "float-slow"],
+    ["green-soft", "pebble", 9, "right:-3rem;bottom:16%", "float-mid"],
+    ["violet-soft", "diamond", 1.6, "left:31%;top:9%"],
   ])}
   <div class="shell">
-    ${sectionHeading({
-      eyebrow: "Age journey",
-      title: "Personalised Learning for Every Age & Stage",
-      description:
-        "From curious beginners to confident learners, the age-based journey grows with your child. Pick a stage to see what learning looks like.",
-    })}
-    <div class="stage-tabs">
-      ${tabs}
+    <div class="stage-grid">
+      <div class="stage-col">
+        <div class="stage-intro">
+          <p class="eyebrow">Age journey</p>
+          <h2>Personalised Learning<br>for Every Age &amp; Stage</h2>
+          <p class="lead">From curious beginners to confident learners, the age-based journey grows
+            with your child. Pick a stage to see what learning looks like.</p>
+          <a class="link-arrow" href="${url("programs.html", depth)}">View all programs ${icon("arrow-right")}</a>
+        </div>
+
+        ${firstCard}
+      </div>
+
+      ${restCards.join("\n      ")}
     </div>
 
     ${panels}

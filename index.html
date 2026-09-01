@@ -166,41 +166,57 @@
       style="--shape-fill:var(--pink-soft);width:12rem;height:12rem;left:-4rem;top:14%"></span>
   <span class="shape shape--dot float-mid" aria-hidden="true"
       style="--shape-fill:var(--blue-soft);width:5rem;height:5rem;right:6%;top:8%"></span>
+  <span class="shape shape--drop float-slow" aria-hidden="true"
+      style="--shape-fill:var(--amber);width:3.2rem;height:3.2rem;right:22%;top:11%"></span>
+  <span class="shape shape--pebble float-mid" aria-hidden="true"
+      style="--shape-fill:var(--green-soft);width:9rem;height:9rem;right:-3rem;bottom:16%"></span>
+  <span class="shape shape--diamond " aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:1.6rem;height:1.6rem;left:31%;top:9%"></span>
   <div class="shell">
-    <div class="section-heading">
-  <span class="eyebrow">Age journey</span>
-  <h2>Personalised Learning for Every Age & Stage</h2>
-  <p class="lead">From curious beginners to confident learners, the age-based journey grows with your child. Pick a stage to see what learning looks like.</p>
-</div>
-    <div class="stage-tabs">
-      <button type="button" class="stage-tab accent-violet reveal"
-      data-stage-tab="discover" aria-pressed="true" aria-controls="stage-discover">
-      <span class="stage-tab__emoji" aria-hidden="true">🧸</span>
-      <span class="stage-tab__age">3–4</span>
-      <span class="stage-tab__name">Discover</span>
-      <span class="stage-tab__line">Everything is new, and that is the point.</span>
-    </button>
-      <button type="button" class="stage-tab accent-orange reveal"
-      data-stage-tab="explore" aria-pressed="false" aria-controls="stage-explore">
-      <span class="stage-tab__emoji" aria-hidden="true">🔤</span>
-      <span class="stage-tab__age">4–5</span>
-      <span class="stage-tab__name">Explore</span>
-      <span class="stage-tab__line">Questions arrive faster than answers.</span>
-    </button>
-      <button type="button" class="stage-tab accent-green reveal"
-      data-stage-tab="build" aria-pressed="false" aria-controls="stage-build">
-      <span class="stage-tab__emoji" aria-hidden="true">🧱</span>
-      <span class="stage-tab__age">5–6</span>
-      <span class="stage-tab__name">Build</span>
-      <span class="stage-tab__line">From recognising to actually doing.</span>
-    </button>
-      <button type="button" class="stage-tab accent-blue reveal"
-      data-stage-tab="grow" aria-pressed="false" aria-controls="stage-grow">
-      <span class="stage-tab__emoji" aria-hidden="true">🚀</span>
-      <span class="stage-tab__age">6–7</span>
-      <span class="stage-tab__name">Grow</span>
-      <span class="stage-tab__line">Confidence becomes the real subject.</span>
-    </button>
+    <div class="stage-grid">
+      <div class="stage-col">
+        <div class="stage-intro">
+          <p class="eyebrow">Age journey</p>
+          <h2>Personalised Learning<br>for Every Age &amp; Stage</h2>
+          <p class="lead">From curious beginners to confident learners, the age-based journey grows
+            with your child. Pick a stage to see what learning looks like.</p>
+          <a class="link-arrow" href="programs.html">View all programs <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <button type="button" class="stage-card stage-card--1 accent-violet reveal"
+        data-stage-tab="discover" aria-pressed="true" aria-controls="stage-discover">
+        <span class="stage-card__age">3–4</span>
+        <span class="stage-card__name">Discover</span>
+        <span class="stage-card__line">Everything is new, and that is the point.</span>
+        <img class="stage-card__art" src="assets/img/stage-discover.webp"
+             style="aspect-ratio:460 / 517" alt="" loading="lazy" decoding="async">
+      </button>
+      </div>
+
+      <button type="button" class="stage-card stage-card--2 accent-amber reveal"
+        data-stage-tab="explore" aria-pressed="false" aria-controls="stage-explore">
+        <span class="stage-card__age">4–5</span>
+        <span class="stage-card__name">Explore</span>
+        <span class="stage-card__line">Questions arrive faster than answers.</span>
+        <img class="stage-card__art" src="assets/img/stage-explore.webp"
+             style="aspect-ratio:460 / 721" alt="" loading="lazy" decoding="async">
+      </button>
+      <button type="button" class="stage-card stage-card--3 accent-green reveal"
+        data-stage-tab="build" aria-pressed="false" aria-controls="stage-build">
+        <span class="stage-card__age">5–6</span>
+        <span class="stage-card__name">Build</span>
+        <span class="stage-card__line">From recognising to actually doing.</span>
+        <img class="stage-card__art" src="assets/img/stage-build.webp"
+             style="aspect-ratio:460 / 685" alt="" loading="lazy" decoding="async">
+      </button>
+      <button type="button" class="stage-card stage-card--4 accent-blue reveal"
+        data-stage-tab="grow" aria-pressed="false" aria-controls="stage-grow">
+        <span class="stage-card__age">6–7</span>
+        <span class="stage-card__name">Grow</span>
+        <span class="stage-card__line">Confidence becomes the real subject.</span>
+        <img class="stage-card__art" src="assets/img/stage-grow.webp"
+             style="aspect-ratio:460 / 738" alt="" loading="lazy" decoding="async">
+      </button>
     </div>
 
     <div class="stage-panel accent-violet" id="stage-discover" data-stage-panel="discover">
@@ -249,7 +265,7 @@
       </div>
     </div>
 
-    <div class="stage-panel accent-orange" id="stage-explore" data-stage-panel="explore" hidden>
+    <div class="stage-panel accent-amber" id="stage-explore" data-stage-panel="explore" hidden>
       <div class="stack stack-4">
         <p class="leading-relaxed muted">Children start connecting ideas: letters make sounds, numbers mean quantity, feelings have names. Sessions get slightly longer and more hands-on.</p>
         <div>

@@ -129,6 +129,18 @@ somewhere quiet to sit; 16:9 keeps the hero's proportions.
 loads. `1.png`–`4.png` are the character cut-outs that were tried in the hero
 and taken back out; nothing loads them.
 
+## The age-stage cards
+
+The four stage cards on the home page each carry a child illustration,
+`assets/img/stage-discover.webp`, `stage-explore.webp`, `stage-build.webp` and
+`stage-grow.webp` — transparent cut-outs of the supplied `1.png`–`4.png`,
+keyed off their white backgrounds and cropped to the subject.
+
+Each card is also the selector for the stage detail below it. To change a
+picture, replace the file and keep the name; its aspect ratio is written into
+the card markup by `STAGE_STYLE` in `tools/sections.mjs`, so update the `ratio`
+there to match a differently shaped file.
+
 ## The parent-dashboard photo
 
 The violet dashboard band on the home and parents pages gives its whole
