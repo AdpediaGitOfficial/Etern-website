@@ -888,19 +888,20 @@ svg.shape { background: none; }
    heading takes the first cell and its card sits under it, so cards two to
    four stand taller — the arrangement in the reference. */
 .stage-grid { display: grid; gap: 1rem; }
-/* the loose shapes have nowhere to sit once the section is one column wide */
-@media (max-width: 767px) {
+/* the small scattered pieces only have room once the cards sit in one row */
+@media (max-width: 1099px) {
+  [data-stages] svg.shape,
   [data-stages] .shape--dot,
-  [data-stages] .shape--drop,
-  [data-stages] .shape--diamond { display: none; }
+  [data-stages] .shape--star { display: none; }
 }
-@media (min-width: 640px) { .stage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; } }
+@media (min-width: 640px) { .stage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; } }
 /* the copy and the first card share the opening column; below 1100px the
    wrapper steps out of the way and everything stacks */
 .stage-col { display: contents; }
 @media (min-width: 1100px) {
   .stage-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
     align-items: end;
   }
   .stage-col { display: flex; flex-direction: column; gap: 1.75rem; }
@@ -922,28 +923,49 @@ svg.shape { background: none; }
 
 .stage-card {
   position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.3rem;
-  min-height: 17rem;
+  min-height: 15rem;
   border-radius: var(--radius-2xl);
-  background: var(--accent-solid, var(--violet));
-  padding: 1.5rem 1.5rem 8.5rem;
+  /* the hue lit from the top left and deepened at the bottom right, as in the
+     design; the child spills past the corner, so nothing is clipped */
+  background-color: var(--accent-solid, var(--violet));
+  background-image:
+    linear-gradient(152deg, oklch(1 0 0 / 0.2) 0%, oklch(1 0 0 / 0) 52%),
+    linear-gradient(152deg, oklch(0 0 0 / 0) 46%, oklch(0.25 0.05 280 / 0.14) 100%);
+  padding: 1.5rem 1.5rem 5.5rem;
   text-align: left;
   color: oklch(1 0 0);
+  box-shadow: 0 18px 40px -24px oklch(0.3 0.06 267 / 0.5);
   transition: transform 0.3s var(--spring), box-shadow 0.3s;
 }
 @media (min-width: 1100px) {
-  .stage-card { min-height: 24rem; padding-bottom: 10rem; }
-  .stage-col .stage-card { min-height: 20rem; }
+  .stage-card { padding-bottom: 6rem; }
+  .stage-card--1 { min-height: 16rem; }
+  .stage-card--2 { min-height: 17.25rem; }
+  .stage-card--3 { min-height: 18.25rem; }
+  .stage-card--4 { min-height: 19.25rem; }
 }
 .stage-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lift); }
 .stage-card[aria-pressed="true"] {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lift), 0 0 0 4px var(--surface), 0 0 0 7px var(--accent-solid);
 }
+
+.stage-card__spark {
+  position: absolute;
+  left: 1.6rem;
+  bottom: 1.4rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: oklch(1 0 0 / 0.55);
+  clip-path: polygon(50% 0%, 62% 36%, 100% 38%, 69% 60%, 80% 96%, 50% 74%, 20% 96%, 31% 60%, 0% 38%, 38% 36%);
+}
+.stage-card--2 .stage-card__spark { left: auto; right: 42%; bottom: 2.2rem; width: 0.85rem; height: 0.85rem; }
+.stage-card--3 .stage-card__spark { bottom: 2.6rem; }
+.stage-card--4 .stage-card__spark { left: 1.4rem; bottom: 3rem; }
 
 .stage-card__age {
   position: relative;
@@ -956,33 +978,37 @@ svg.shape { background: none; }
 .stage-card__name {
   position: relative;
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 .stage-card__line {
   position: relative;
-  max-width: 62%;
-  font-size: 0.875rem;
+  max-width: 47%;
+  font-size: 0.8125rem;
   line-height: 1.5;
-  color: oklch(1 0 0 / 0.88);
+  color: oklch(1 0 0 / 0.9);
 }
 
 /* the child stands on the bottom edge of the card */
 .stage-card__art {
   position: absolute;
-  right: 0.4rem;
-  bottom: 0;
-  /* sized by height so a tall child and a wide one both clear the copy */
-  height: 62%;
+  right: 0.25rem;
+  bottom: -1.25rem;
+  /* sized by height so a tall child and a wide one both clear the copy, and
+     standing past the card's bottom edge the way the design does */
+  height: 96%;
   width: auto;
-  max-width: 76%;
+  max-width: 58%;
   object-fit: contain;
   object-position: bottom right;
-  filter: drop-shadow(0 12px 18px oklch(0.3 0.06 267 / 0.28));
+  filter: drop-shadow(0 16px 20px oklch(0.3 0.06 267 / 0.26));
   pointer-events: none;
 }
 @media (min-width: 1100px) {
-  .stage-col .stage-card__art { height: 52%; }
+  .stage-card__art { height: 104%; }
+  /* the second child is the widest: a touch smaller keeps her clear of the copy */
+  .stage-card--2 .stage-card__art { height: 97%; right: -0.35rem; }
+  .stage-col .stage-card__art { height: 100%; }
 }
 
 .stage-panel {

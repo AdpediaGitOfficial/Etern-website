@@ -209,6 +209,7 @@ export function ageJourney(depth = 0) {
         <span class="stage-card__age">${stage.ageLabel}</span>
         <span class="stage-card__name">${esc(stage.stage)}</span>
         <span class="stage-card__line">${esc(stage.headline)}</span>
+        <span class="stage-card__spark" aria-hidden="true"></span>
         <img class="stage-card__art" src="${url(`assets/img/${style.art}`, depth)}"
              style="aspect-ratio:${style.ratio}" alt="" loading="lazy" decoding="async">
       </button>`;
@@ -267,12 +268,32 @@ export function ageJourney(depth = 0) {
 
   return `<section class="section section--surface" data-stages>
   ${decor([
-    ["pink-soft", "pebble", 12, "left:-4rem;top:14%", "float-slow"],
-    ["blue-soft", "dot", 5, "right:6%;top:8%", "float-mid"],
-    ["amber", "drop", 3.2, "right:22%;top:11%", "float-slow"],
-    ["green-soft", "pebble", 9, "right:-3rem;bottom:16%", "float-mid"],
-    ["violet-soft", "diamond", 1.6, "left:31%;top:9%"],
+    ["green-soft", "pebble", 11, "right:-3.5rem;top:-2rem", "float-slow"],
+    ["pink-soft", "pebble", 9, "left:-4rem;bottom:4%", "float-slow"],
+    ["blue", "dot", 1.5, "right:14%;top:21%", "float-mid"],
+    ["teal", "star", 1.2, "right:17.5%;top:29%"],
+    ["amber", "dot", 1, "left:47%;top:22%"],
   ])}
+
+  <svg class="shape float-mid" aria-hidden="true" viewBox="0 0 120 54"
+       style="width:6rem;height:2.7rem;left:53%;top:11%" fill="none">
+    <path d="M8 34c10-22 22-22 32 0s22 22 32 0 22-22 32 0" stroke="var(--pink)"
+          stroke-width="14" stroke-linecap="round" opacity="0.85"/>
+  </svg>
+
+  <svg class="shape float-slow" aria-hidden="true" viewBox="0 0 90 110"
+       style="width:5.4rem;height:6.6rem;right:22%;top:6%" fill="none">
+    <path d="M64 4a54 54 0 1 0 18 92A44 44 0 0 1 64 4z" fill="var(--amber)" opacity="0.9"/>
+  </svg>
+
+  <svg class="shape" aria-hidden="true" viewBox="0 0 70 46"
+       style="width:4.4rem;height:2.9rem;left:38%;top:20%" fill="var(--orange)">
+    <g opacity="0.55">
+      ${[0, 1, 2, 3]
+        .flatMap((row) => [0, 1, 2, 3, 4].map((col) => `<circle cx="${7 + col * 14}" cy="${7 + row * 11}" r="2.6"/>`))
+        .join("")}
+    </g>
+  </svg>
   <div class="shell">
     <div class="stage-grid">
       <div class="stage-col">
