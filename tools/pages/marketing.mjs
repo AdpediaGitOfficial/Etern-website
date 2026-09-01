@@ -1,20 +1,22 @@
 import { icon } from "../icons.mjs";
-import { esc, url, pageHero, sectionHeading, faqList, demoCta } from "../layout.mjs";
+import { esc, url, pageHero, sectionHeading, faqList, demoCta, decor } from "../layout.mjs";
 import {
   dashboardPreview,
   howEternWorks,
+  hueFor,
   methodSection,
   testimonialsSection,
+  TOPIC_HUE,
 } from "../sections.mjs";
 import { BRAND, FAQS, HOW_IT_WORKS_STEPS, VIDEOS, VIDEO_CATEGORIES } from "../content-etern.mjs";
 
 /* ------------------------------------------------------------------ about */
 
 const PILLARS = [
-  { icon: "lightbulb", title: "Curiosity first", body: "A child who wants to know something learns it faster than a child who is told to." },
-  { icon: "compass", title: "Structure without pressure", body: "Clear progression across four stages, with no race and no comparison." },
-  { icon: "heart", title: "Feelings count as learning", body: "Emotional skills sit beside letters and numbers, not after them." },
-  { icon: "shield-check", title: "Safety, taught calmly", body: "Body safety and healthy habits, in language a young child can actually use." },
+  { hue: "violet", icon: "lightbulb", title: "Curiosity first", body: "A child who wants to know something learns it faster than a child who is told to." },
+  { hue: "blue", icon: "compass", title: "Structure without pressure", body: "Clear progression across four stages, with no race and no comparison." },
+  { hue: "pink", icon: "heart", title: "Feelings count as learning", body: "Emotional skills sit beside letters and numbers, not after them." },
+  { hue: "green", icon: "shield-check", title: "Safety, taught calmly", body: "Body safety and healthy habits, in language a young child can actually use." },
 ];
 
 const DIFFERENCES = [
@@ -26,6 +28,7 @@ const DIFFERENCES = [
 
 export function aboutPage() {
   const body = `${pageHero({
+    accent: "violet",
     eyebrow: "Our story",
     title: "Building strong foundations for confident young learners.",
     description: esc(BRAND.description),
@@ -50,8 +53,8 @@ export function aboutPage() {
 
       <div class="grid grid--2">
         ${PILLARS.map(
-          (p) => `<div class="card stack stack-3 accent-primary reveal">
-          <span class="tile tile--sm">${icon(p.icon)}</span>
+          (p) => `<div class="card card--tint stack stack-3 accent-${p.hue} reveal">
+          <span class="tile tile--sm tile--solid">${icon(p.icon)}</span>
           <h3 class="h3" style="font-size:1.125rem">${esc(p.title)}</h3>
           <p class="small leading-relaxed muted">${esc(p.body)}</p>
         </div>`,
@@ -66,7 +69,7 @@ export function aboutPage() {
     ${sectionHeading({ eyebrow: "Our approach", title: "What makes Etern different.", center: true })}
     <div class="grid grid--2 mt-12">
       ${DIFFERENCES.map(
-        (item, i) => `<div class="card card--pad-lg numbered-card reveal">
+        (item, i) => `<div class="card card--pad-lg numbered-card reveal accent-${["violet", "orange", "green", "blue"][i % 4]}">
         <span class="num">0${i + 1}</span>
         <div>
           <h3 class="h3" style="font-size:1.25rem">${esc(item.title)}</h3>
@@ -118,6 +121,7 @@ const WEEK = [
 
 export function howItWorksPage() {
   const body = `${pageHero({
+    accent: "blue",
     eyebrow: "How it works",
     title: "Twenty quiet minutes. Then the real thing.",
     description:
@@ -129,7 +133,7 @@ export function howItWorksPage() {
     ${sectionHeading({ eyebrow: "The flow", title: "Four steps, every session." })}
     <div class="grid grid--4 mt-12">
       ${HOW_IT_WORKS_STEPS.map(
-        (step, i) => `<div class="card stack stack-3 reveal">
+        (step, i) => `<div class="card card--tint stack stack-3 reveal accent-${["blue", "green", "pink", "amber"][i % 4]}">
         <span class="numbered-card"><span class="num">0${i + 1}</span></span>
         <h3 class="h3" style="font-size:1.125rem">${esc(step.title)}</h3>
         <p class="small leading-relaxed muted">${esc(step.description)}</p>
@@ -150,8 +154,8 @@ ${methodSection()}
     })}
     <div class="grid grid--3 mt-12">
       ${WEEK.map(
-        (item) => `<div class="card flex items-start gap-4 reveal" style="border-radius:1.75rem">
-        <span class="tile accent-primary" style="font-family:var(--font-sans);font-size:0.875rem;font-weight:600">${item.day}</span>
+        (item, i) => `<div class="card card--tint flex items-start gap-4 reveal accent-${["violet", "blue", "green", "pink", "amber", "orange"][i % 6]}" style="border-radius:1.75rem">
+        <span class="tile tile--solid" style="font-family:var(--font-display);font-size:0.875rem;font-weight:700">${item.day}</span>
         <div>
           <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600">${esc(item.focus)}</h3>
           <p class="small leading-relaxed muted mt-2">${esc(item.detail)}</p>
@@ -196,10 +200,10 @@ ${demoCta(0)}`;
 /* ---------------------------------------------------------------- parents */
 
 const BENEFITS = [
-  { icon: "clock", title: "Short by design", body: "Sessions end on purpose, so screen time never quietly becomes an hour." },
-  { icon: "eye", title: "You can see everything", body: "Each session shows what was covered and what to try together next." },
-  { icon: "bar-chart", title: "Progress without pressure", body: "Gentle streaks and milestones — encouragement, not scoreboards." },
-  { icon: "shield-check", title: "Safe content, always", body: "No ads, no open comments, no recommendations pulling your child elsewhere." },
+  { hue: "violet", icon: "clock", title: "Short by design", body: "Sessions end on purpose, so screen time never quietly becomes an hour." },
+  { hue: "blue", icon: "eye", title: "You can see everything", body: "Each session shows what was covered and what to try together next." },
+  { hue: "green", icon: "bar-chart", title: "Progress without pressure", body: "Gentle streaks and milestones — encouragement, not scoreboards." },
+  { hue: "amber", icon: "shield-check", title: "Safe content, always", body: "No ads, no open comments, no recommendations pulling your child elsewhere." },
 ];
 
 const ROUTINE = [
@@ -211,6 +215,7 @@ const ROUTINE = [
 
 export function parentsPage() {
   const body = `${pageHero({
+    accent: "green",
     eyebrow: "For parents",
     title: "You stay in the loop, without becoming the teacher.",
     description:
@@ -226,8 +231,8 @@ export function parentsPage() {
     ${sectionHeading({ eyebrow: "Why parents choose us", title: "Four things we refuse to compromise." })}
     <div class="grid grid--4 mt-12">
       ${BENEFITS.map(
-        (b) => `<div class="card stack stack-3 accent-primary reveal">
-        <span class="tile tile--sm">${icon(b.icon)}</span>
+        (b) => `<div class="card card--tint stack stack-3 accent-${b.hue} reveal">
+        <span class="tile tile--sm tile--solid">${icon(b.icon)}</span>
         <h3 class="h3" style="font-size:1.125rem">${esc(b.title)}</h3>
         <p class="small leading-relaxed muted">${esc(b.body)}</p>
       </div>`,
@@ -236,7 +241,7 @@ export function parentsPage() {
   </div>
 </section>
 
-${dashboardPreview()}
+${dashboardPreview(0)}
 
 <section class="section section--cream">
   <div class="shell">
@@ -249,8 +254,8 @@ ${dashboardPreview()}
       })}
       <ol class="stack stack-3">
         ${ROUTINE.map(
-          (step, i) => `<li class="card flex items-start gap-4 reveal" style="border-radius:1.75rem">
-          <span class="tile tile--sm" style="border-radius:999px;background:var(--primary);color:var(--primary-foreground);font-size:0.875rem;font-weight:600;width:2.25rem;height:2.25rem">${i + 1}</span>
+          (step, i) => `<li class="card flex items-start gap-4 reveal accent-${["violet", "orange", "green", "blue"][i % 4]}" style="border-radius:1.75rem">
+          <span class="tile tile--sm tile--solid" style="border-radius:999px;font-family:var(--font-display);font-size:1rem;font-weight:700;width:2.4rem;height:2.4rem">${i + 1}</span>
           <p class="leading-relaxed">${esc(step)}</p>
         </li>`,
         ).join("\n        ")}
@@ -287,7 +292,7 @@ ${demoCta(0)}`;
 
 export function videosPage() {
   const cards = VIDEOS.map(
-    (video) => `<article class="card card-link stack-4 reveal"
+    (video) => `<article class="card card-link stack-4 reveal accent-${hueFor(TOPIC_HUE, video.category)}"
       data-video
       data-title="${esc(video.title.toLowerCase())}"
       data-keywords="${esc(video.description.toLowerCase())}"
@@ -306,6 +311,7 @@ export function videosPage() {
   ).join("\n      ");
 
   const body = `${pageHero({
+    accent: "pink",
     eyebrow: "Video library",
     title: "Watch, then go and do it.",
     description: "Every video is short and ends with something to try away from the screen.",
@@ -461,7 +467,7 @@ export function notFoundPage() {
   const body = `<section class="section section--cream" style="padding-top:6rem">
   <div class="shell">
     <div class="text-center" style="max-width:32rem;margin-inline:auto">
-      <p class="display-1 gradient-text">404</p>
+      <p class="display-1 gradient-text" style="font-size:6rem">404</p>
       <h1 class="h3 mt-4">Page not found</h1>
       <p class="muted mt-2">The page you're looking for doesn't exist or has been moved.</p>
       <div class="flex flex-wrap justify-center gap-3 mt-8">

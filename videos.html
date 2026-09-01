@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&amp;family=Plus+Jakarta+Sans:wght@400..700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/etern.css">
 
 <script>document.documentElement.classList.remove("no-js");</script>
@@ -78,9 +78,15 @@
 </div>
 
 <main id="main">
-<section class="page-hero">
-  <div class="blob" style="width:24rem;height:24rem;background:var(--primary-soft);left:-5rem;top:-6rem"></div>
-  <div class="blob" style="width:18rem;height:18rem;background:color-mix(in oklab, var(--sun) 50%, transparent);right:0;top:2.5rem"></div>
+<section class="page-hero accent-pink">
+  <span class="shape shape--pebble float-slow" aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:22rem;height:22rem;left:-7rem;top:-5rem"></span>
+  <span class="shape shape--drop float-mid" aria-hidden="true"
+      style="--shape-fill:var(--amber-soft);width:14rem;height:14rem;right:4%;top:16%"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:5rem;height:5rem;right:26%;top:8%"></span>
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--teal-soft);width:10rem;height:10rem;right:-2rem;bottom:-3rem"></span>
   <div class="shell">
     <div class="page-hero__inner reveal">
       <span class="eyebrow">Video library</span>
@@ -112,7 +118,7 @@
     <p class="small muted mt-6" data-filter-count aria-live="polite"></p>
 
     <div class="grid grid--3 mt-6" data-filter-results>
-      <article class="card card-link stack-4 reveal"
+      <article class="card card-link stack-4 reveal accent-orange"
       data-video
       data-title="colour hunt around the house"
       data-keywords="a five-minute guided hunt that turns any room into a colour lesson."
@@ -128,7 +134,7 @@
       <h2 class="h3" style="font-size:1.125rem">Colour Hunt Around the House</h2>
       <p class="small leading-relaxed muted">A five-minute guided hunt that turns any room into a colour lesson.</p>
     </article>
-      <article class="card card-link stack-4 reveal"
+      <article class="card card-link stack-4 reveal accent-blue"
       data-video
       data-title="letter sounds: m, s and a"
       data-keywords="first three sounds, introduced with movement and objects."
@@ -144,7 +150,7 @@
       <h2 class="h3" style="font-size:1.125rem">Letter Sounds: M, S and A</h2>
       <p class="small leading-relaxed muted">First three sounds, introduced with movement and objects.</p>
     </article>
-      <article class="card card-link stack-4 reveal"
+      <article class="card card-link stack-4 reveal accent-blue"
       data-video
       data-title="count with me to twenty"
       data-keywords="counting real objects with one-to-one matching, not rote chanting."
@@ -160,7 +166,7 @@
       <h2 class="h3" style="font-size:1.125rem">Count With Me to Twenty</h2>
       <p class="small leading-relaxed muted">Counting real objects with one-to-one matching, not rote chanting.</p>
     </article>
-      <article class="card card-link stack-4 reveal"
+      <article class="card card-link stack-4 reveal accent-blue"
       data-video
       data-title="big feelings, small words"
       data-keywords="a short story that gives children language for anger and disappointment."
@@ -176,7 +182,7 @@
       <h2 class="h3" style="font-size:1.125rem">Big Feelings, Small Words</h2>
       <p class="small leading-relaxed muted">A short story that gives children language for anger and disappointment.</p>
     </article>
-      <article class="card card-link stack-4 reveal"
+      <article class="card card-link stack-4 reveal accent-pink"
       data-video
       data-title="make a paper sculpture"
       data-keywords="fold, cut and balance — fine motor practice disguised as art."
@@ -192,7 +198,7 @@
       <h2 class="h3" style="font-size:1.125rem">Make a Paper Sculpture</h2>
       <p class="small leading-relaxed muted">Fold, cut and balance — fine motor practice disguised as art.</p>
     </article>
-      <article class="card card-link stack-4 reveal"
+      <article class="card card-link stack-4 reveal accent-teal"
       data-video
       data-title="my trusted adults"
       data-keywords="calm, age-appropriate personal safety with no fear attached."
@@ -208,7 +214,7 @@
       <h2 class="h3" style="font-size:1.125rem">My Trusted Adults</h2>
       <p class="small leading-relaxed muted">Calm, age-appropriate personal safety with no fear attached.</p>
     </article>
-      <article class="card card-link stack-4 reveal"
+      <article class="card card-link stack-4 reveal accent-violet"
       data-video
       data-title="routines that actually stick"
       data-keywords="for parents: building bedtime and morning routines without a battle."
@@ -224,7 +230,7 @@
       <h2 class="h3" style="font-size:1.125rem">Routines That Actually Stick</h2>
       <p class="small leading-relaxed muted">For parents: building bedtime and morning routines without a battle.</p>
     </article>
-      <article class="card card-link stack-4 reveal"
+      <article class="card card-link stack-4 reveal accent-orange"
       data-video
       data-title="shape detectives"
       data-keywords="spotting circles, squares and triangles in the real world."
@@ -271,7 +277,8 @@
 <section class="demo-cta" id="contact">
   <div class="shell">
     <div class="demo-panel reveal">
-      <div class="blob" style="width:18rem;height:18rem;background:color-mix(in oklab, var(--sun) 50%, transparent);right:-2.5rem;top:-4rem"></div>
+      <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.12);width:20rem;height:20rem;right:-4rem;top:-6rem"></span>
+      <span class="shape shape--dot" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.1);width:9rem;height:9rem;left:-3rem;bottom:-3rem"></span>
       <div class="demo-panel__grid">
         <div class="stack stack-6">
           <span class="demo-panel__tag"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M8 2.5v4"/><path d="M16 2.5v4"/><path d="M3 10h18"/><path d="M9 15.5l2 2 4-4"/></svg> Free demo session</span>
@@ -307,6 +314,12 @@
 </main>
 
 <footer class="site-footer">
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:13rem;height:13rem;left:-4rem;top:2rem"></span>
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--amber-soft);width:9rem;height:9rem;right:-2rem;bottom:1rem"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:4rem;height:4rem;right:22%;top:3rem"></span>
   <div class="shell">
     <div class="footer-grid">
       <div class="stack stack-5">
@@ -358,6 +371,19 @@
           <a href="https://play.google.com/store/apps/details?id=com.eternlearning" target="_blank" rel="noreferrer noopener">Google Play</a>
         </div>
       </div>
+
+      <div class="stack stack-4">
+        <h2 class="label">Stay updated</h2>
+        <p class="small muted">Occasional ideas and activities for your child's learning — no more than once a month.</p>
+        <form class="newsletter" data-newsletter novalidate>
+          <div class="newsletter__row">
+            <label class="visually-hidden" for="newsletter-email">Email address</label>
+            <input id="newsletter-email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </div>
+          <p class="newsletter__note" data-newsletter-note role="status"></p>
+        </form>
+      </div>
     </div>
 
     <div class="footer-bottom">
@@ -371,6 +397,10 @@
   </div>
 </footer>
 </div>
+
+<button type="button" class="to-top" data-to-top aria-label="Back to top">
+  <svg style="transform:rotate(-90deg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+</button>
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/filters.js" defer></script>
 </body>

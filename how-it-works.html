@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&amp;family=Plus+Jakarta+Sans:wght@400..700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/etern.css">
 
 <script>document.documentElement.classList.remove("no-js");</script>
@@ -78,9 +78,15 @@
 </div>
 
 <main id="main">
-<section class="page-hero">
-  <div class="blob" style="width:24rem;height:24rem;background:var(--primary-soft);left:-5rem;top:-6rem"></div>
-  <div class="blob" style="width:18rem;height:18rem;background:color-mix(in oklab, var(--sun) 50%, transparent);right:0;top:2.5rem"></div>
+<section class="page-hero accent-blue">
+  <span class="shape shape--pebble float-slow" aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:22rem;height:22rem;left:-7rem;top:-5rem"></span>
+  <span class="shape shape--drop float-mid" aria-hidden="true"
+      style="--shape-fill:var(--amber-soft);width:14rem;height:14rem;right:4%;top:16%"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:5rem;height:5rem;right:26%;top:8%"></span>
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--teal-soft);width:10rem;height:10rem;right:-2rem;bottom:-3rem"></span>
   <div class="shell">
     <div class="page-hero__inner reveal">
       <span class="eyebrow">How it works</span>
@@ -99,22 +105,22 @@
   
 </div>
     <div class="grid grid--4 mt-12">
-      <div class="card stack stack-3 reveal">
+      <div class="card card--tint stack stack-3 reveal accent-blue">
         <span class="numbered-card"><span class="num">01</span></span>
         <h3 class="h3" style="font-size:1.125rem">Watch</h3>
         <p class="small leading-relaxed muted">A short guided lesson, calm pacing, no noisy distractions.</p>
       </div>
-      <div class="card stack stack-3 reveal">
+      <div class="card card--tint stack stack-3 reveal accent-green">
         <span class="numbered-card"><span class="num">02</span></span>
         <h3 class="h3" style="font-size:1.125rem">Do</h3>
         <p class="small leading-relaxed muted">The screen goes away and the activity begins with real objects.</p>
       </div>
-      <div class="card stack stack-3 reveal">
+      <div class="card card--tint stack stack-3 reveal accent-pink">
         <span class="numbered-card"><span class="num">03</span></span>
         <h3 class="h3" style="font-size:1.125rem">Create</h3>
         <p class="small leading-relaxed muted">The child makes something of their own from the idea they just learned.</p>
       </div>
-      <div class="card stack stack-3 reveal">
+      <div class="card card--tint stack stack-3 reveal accent-amber">
         <span class="numbered-card"><span class="num">04</span></span>
         <h3 class="h3" style="font-size:1.125rem">Share</h3>
         <p class="small leading-relaxed muted">They show a parent and explain it — the step that locks the learning in.</p>
@@ -123,17 +129,93 @@
   </div>
 </section>
 
-<section class="section section--dark">
-  <div class="blob" style="width:26rem;height:26rem;background:color-mix(in oklab, var(--primary) 40%, transparent);right:-6rem;top:2.5rem"></div>
-  <div class="blob" style="width:20rem;height:20rem;background:color-mix(in oklab, var(--accent) 40%, transparent);left:-4rem;bottom:0"></div>
+<section class="section section--cream">
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:18rem;height:18rem;left:-6rem;bottom:-4rem"></span>
+  <span class="shape shape--drop float-slow" aria-hidden="true"
+      style="--shape-fill:var(--amber-soft);width:11rem;height:11rem;right:-3rem;top:12%"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--teal-soft);width:4rem;height:4rem;left:12%;top:9%"></span>
   <div class="shell">
-    <div class="section-heading">
+    <div class="section-heading section-heading--center">
   <span class="eyebrow">The Etern method</span>
   <h2>From Curiosity to Confidence.</h2>
-  <p class="lead"><span style="color:color-mix(in oklab, var(--background) 70%, transparent)">Five moves repeated in every session. It is a rhythm, not a curriculum a child has to keep up with.</span></p>
+  <p class="lead">Five moves repeated in every session. It is a rhythm, not a curriculum a child has to keep up with — tap a move to see it.</p>
 </div>
-    <div class="mt-14">
-      <div class="method-row reveal">
+
+    <div class="wheel" data-wheel>
+      <div class="wheel__ring">
+        <div class="wheel__hub">
+          <b>Etern<br>Method</b>
+          <span>5 moves</span>
+        </div>
+      <button type="button" class="wheel__node" data-move="01"
+        aria-pressed="true" aria-controls="move-detail"
+        style="--angle:0deg;--node-ink:var(--violet-ink);--node-solid:var(--violet)">
+        <span aria-hidden="true">🔍</span>
+        Curious
+      </button>
+      <button type="button" class="wheel__node" data-move="02"
+        aria-pressed="false" aria-controls="move-detail"
+        style="--angle:72deg;--node-ink:var(--blue-ink);--node-solid:var(--blue)">
+        <span aria-hidden="true">🤲</span>
+        Explore
+      </button>
+      <button type="button" class="wheel__node" data-move="03"
+        aria-pressed="false" aria-controls="move-detail"
+        style="--angle:144deg;--node-ink:var(--pink-ink);--node-solid:var(--pink)">
+        <span aria-hidden="true">🎨</span>
+        Create
+      </button>
+      <button type="button" class="wheel__node" data-move="04"
+        aria-pressed="false" aria-controls="move-detail"
+        style="--angle:216deg;--node-ink:var(--amber-ink);--node-solid:var(--amber)">
+        <span aria-hidden="true">💬</span>
+        Communicate
+      </button>
+      <button type="button" class="wheel__node" data-move="05"
+        aria-pressed="false" aria-controls="move-detail"
+        style="--angle:288deg;--node-ink:var(--green-ink);--node-solid:var(--green)">
+        <span aria-hidden="true">🌱</span>
+        Grow
+      </button>
+      </div>
+      <div id="move-detail">
+      <div class="wheel__detail accent-violet" data-move-panel="01">
+        <span class="num">01</span>
+        <h3>Curious</h3>
+        <p class="lead">Every session opens with something worth wondering about — a sound, a question, a small mystery.</p>
+        <p class="wheel__outcome">Attention given freely, not demanded.</p>
+      </div>
+      <div class="wheel__detail accent-blue" data-move-panel="02" hidden>
+        <span class="num">02</span>
+        <h3>Explore</h3>
+        <p class="lead">Children investigate with their hands and their voice, using objects already in the house.</p>
+        <p class="wheel__outcome">Understanding built from real experience.</p>
+      </div>
+      <div class="wheel__detail accent-pink" data-move-panel="03" hidden>
+        <span class="num">03</span>
+        <h3>Create</h3>
+        <p class="lead">They make something: a drawing, a model, a rhythm, a short story of their own.</p>
+        <p class="wheel__outcome">A finished piece of work they are proud of.</p>
+      </div>
+      <div class="wheel__detail accent-amber" data-move-panel="04" hidden>
+        <span class="num">04</span>
+        <h3>Communicate</h3>
+        <p class="lead">They show it and talk about it — what they made, why, and what was tricky.</p>
+        <p class="wheel__outcome">Language and confidence, together.</p>
+      </div>
+      <div class="wheel__detail accent-green" data-move-panel="05" hidden>
+        <span class="num">05</span>
+        <h3>Grow</h3>
+        <p class="lead">Skills are revisited across weeks so learning settles instead of disappearing.</p>
+        <p class="wheel__outcome">Steady, visible progress over time.</p>
+      </div>
+      </div>
+    </div>
+
+    <div class="mt-12" data-wheel-fallback hidden>
+      <div class="method-row accent-violet">
         <span class="method-row__num">01</span>
         <div>
           <h3>Curious</h3>
@@ -141,7 +223,7 @@
         </div>
         <p class="outcome">Attention given freely, not demanded.</p>
       </div>
-      <div class="method-row reveal">
+      <div class="method-row accent-blue">
         <span class="method-row__num">02</span>
         <div>
           <h3>Explore</h3>
@@ -149,7 +231,7 @@
         </div>
         <p class="outcome">Understanding built from real experience.</p>
       </div>
-      <div class="method-row reveal">
+      <div class="method-row accent-pink">
         <span class="method-row__num">03</span>
         <div>
           <h3>Create</h3>
@@ -157,7 +239,7 @@
         </div>
         <p class="outcome">A finished piece of work they are proud of.</p>
       </div>
-      <div class="method-row reveal">
+      <div class="method-row accent-amber">
         <span class="method-row__num">04</span>
         <div>
           <h3>Communicate</h3>
@@ -165,7 +247,7 @@
         </div>
         <p class="outcome">Language and confidence, together.</p>
       </div>
-      <div class="method-row reveal">
+      <div class="method-row accent-green">
         <span class="method-row__num">05</span>
         <div>
           <h3>Grow</h3>
@@ -185,43 +267,43 @@
   <p class="lead">Nothing here needs printing, buying or planning.</p>
 </div>
     <div class="grid grid--3 mt-12">
-      <div class="card flex items-start gap-4 reveal" style="border-radius:1.75rem">
-        <span class="tile accent-primary" style="font-family:var(--font-sans);font-size:0.875rem;font-weight:600">Mon</span>
+      <div class="card card--tint flex items-start gap-4 reveal accent-violet" style="border-radius:1.75rem">
+        <span class="tile tile--solid" style="font-family:var(--font-display);font-size:0.875rem;font-weight:700">Mon</span>
         <div>
           <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600">Creative session</h3>
           <p class="small leading-relaxed muted mt-2">Music, rhythm or art — the week starts loose.</p>
         </div>
       </div>
-      <div class="card flex items-start gap-4 reveal" style="border-radius:1.75rem">
-        <span class="tile accent-primary" style="font-family:var(--font-sans);font-size:0.875rem;font-weight:600">Tue</span>
+      <div class="card card--tint flex items-start gap-4 reveal accent-blue" style="border-radius:1.75rem">
+        <span class="tile tile--solid" style="font-family:var(--font-display);font-size:0.875rem;font-weight:700">Tue</span>
         <div>
           <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600">Early concepts</h3>
           <p class="small leading-relaxed muted mt-2">Letters, numbers or patterns in a short lesson.</p>
         </div>
       </div>
-      <div class="card flex items-start gap-4 reveal" style="border-radius:1.75rem">
-        <span class="tile accent-primary" style="font-family:var(--font-sans);font-size:0.875rem;font-weight:600">Wed</span>
+      <div class="card card--tint flex items-start gap-4 reveal accent-green" style="border-radius:1.75rem">
+        <span class="tile tile--solid" style="font-family:var(--font-display);font-size:0.875rem;font-weight:700">Wed</span>
         <div>
           <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600">Off-screen build</h3>
           <p class="small leading-relaxed muted mt-2">A hands-on activity using household objects.</p>
         </div>
       </div>
-      <div class="card flex items-start gap-4 reveal" style="border-radius:1.75rem">
-        <span class="tile accent-primary" style="font-family:var(--font-sans);font-size:0.875rem;font-weight:600">Thu</span>
+      <div class="card card--tint flex items-start gap-4 reveal accent-pink" style="border-radius:1.75rem">
+        <span class="tile tile--solid" style="font-family:var(--font-display);font-size:0.875rem;font-weight:700">Thu</span>
         <div>
           <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600">Feelings &amp; words</h3>
           <p class="small leading-relaxed muted mt-2">Naming emotions, storytelling, conversation.</p>
         </div>
       </div>
-      <div class="card flex items-start gap-4 reveal" style="border-radius:1.75rem">
-        <span class="tile accent-primary" style="font-family:var(--font-sans);font-size:0.875rem;font-weight:600">Fri</span>
+      <div class="card card--tint flex items-start gap-4 reveal accent-amber" style="border-radius:1.75rem">
+        <span class="tile tile--solid" style="font-family:var(--font-display);font-size:0.875rem;font-weight:700">Fri</span>
         <div>
           <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600">Life &amp; safety skills</h3>
           <p class="small leading-relaxed muted mt-2">Practical habits taught calmly.</p>
         </div>
       </div>
-      <div class="card flex items-start gap-4 reveal" style="border-radius:1.75rem">
-        <span class="tile accent-primary" style="font-family:var(--font-sans);font-size:0.875rem;font-weight:600">Sat</span>
+      <div class="card card--tint flex items-start gap-4 reveal accent-orange" style="border-radius:1.75rem">
+        <span class="tile tile--solid" style="font-family:var(--font-display);font-size:0.875rem;font-weight:700">Sat</span>
         <div>
           <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600">Free explore</h3>
           <p class="small leading-relaxed muted mt-2">Your child picks any activity they liked.</p>
@@ -231,7 +313,9 @@
   </div>
 </section>
 
-<section class="section section--surface">
+<section class="section">
+  <span class="shape shape--pebble float-mid" aria-hidden="true"
+      style="--shape-fill:var(--green-soft);width:14rem;height:14rem;right:-4rem;top:20%"></span>
   <div class="shell">
     <div class="section-heading section-heading--center">
   <span class="eyebrow">How Etern works</span>
@@ -240,59 +324,63 @@
 </div>
 
     <div class="step-grid" data-steps>
-      <button type="button" class="step-card accent-sky reveal"
+      <button type="button" class="step-card accent-blue reveal"
         data-step="watch" aria-pressed="true" aria-controls="step-detail">
         <span class="label">Step 1</span>
-        <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg></span>
+        <span class="tile tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg></span>
         <span class="step-card__title">Watch</span>
         <span class="small leading-relaxed muted">A short guided lesson, calm pacing, no noisy distractions.</span>
       </button>
-      <button type="button" class="step-card accent-leaf reveal"
+      <button type="button" class="step-card accent-green reveal"
         data-step="do" aria-pressed="false" aria-controls="step-detail">
         <span class="label">Step 2</span>
-        <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 11.5V6.2a1.5 1.5 0 0 0-3 0"/><path d="M15 10.5V4.2a1.5 1.5 0 0 0-3 0v6.3"/><path d="M12 10.5V5.2a1.5 1.5 0 0 0-3 0v8.6"/><path d="M9 13.8l-1.4-2a1.7 1.7 0 0 0-2.8 1.9l3 5.1A6 6 0 0 0 18 16v-4.5"/></svg></span>
+        <span class="tile tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 11.5V6.2a1.5 1.5 0 0 0-3 0"/><path d="M15 10.5V4.2a1.5 1.5 0 0 0-3 0v6.3"/><path d="M12 10.5V5.2a1.5 1.5 0 0 0-3 0v8.6"/><path d="M9 13.8l-1.4-2a1.7 1.7 0 0 0-2.8 1.9l3 5.1A6 6 0 0 0 18 16v-4.5"/></svg></span>
         <span class="step-card__title">Do</span>
         <span class="small leading-relaxed muted">The screen goes away and the activity begins with real objects.</span>
       </button>
-      <button type="button" class="step-card accent-coral reveal"
+      <button type="button" class="step-card accent-pink reveal"
         data-step="create" aria-pressed="false" aria-controls="step-detail">
         <span class="label">Step 3</span>
-        <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span>
+        <span class="tile tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span>
         <span class="step-card__title">Create</span>
         <span class="small leading-relaxed muted">The child makes something of their own from the idea they just learned.</span>
       </button>
-      <button type="button" class="step-card accent-sun reveal"
+      <button type="button" class="step-card accent-amber reveal"
         data-step="share" aria-pressed="false" aria-controls="step-detail">
         <span class="label">Step 4</span>
-        <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
+        <span class="tile tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
         <span class="step-card__title">Share</span>
         <span class="small leading-relaxed muted">They show a parent and explain it — the step that locks the learning in.</span>
       </button>
     </div>
 
     <div class="step-detail" id="step-detail" aria-live="polite">
-      <div data-step-panel="watch" class="flex items-center justify-between gap-6 full" style="flex-wrap:wrap">
+      <div data-step-panel="watch"
+        class="flex items-center justify-between gap-6 full accent-blue" style="flex-wrap:wrap">
         <div>
           <h3 class="h3" style="font-size:1.25rem">Watch</h3>
           <p class="muted mt-2">5–8 minutes of screen time, designed to end cleanly.</p>
         </div>
         <p class="step-detail__outcome">Watch a lesson.</p>
       </div>
-      <div data-step-panel="do" hidden class="flex items-center justify-between gap-6 full" style="flex-wrap:wrap">
+      <div data-step-panel="do" hidden
+        class="flex items-center justify-between gap-6 full accent-green" style="flex-wrap:wrap">
         <div>
           <h3 class="h3" style="font-size:1.25rem">Do</h3>
           <p class="muted mt-2">Everything needed is usually already at home.</p>
         </div>
         <p class="step-detail__outcome">Complete an activity.</p>
       </div>
-      <div data-step-panel="create" hidden class="flex items-center justify-between gap-6 full" style="flex-wrap:wrap">
+      <div data-step-panel="create" hidden
+        class="flex items-center justify-between gap-6 full accent-pink" style="flex-wrap:wrap">
         <div>
           <h3 class="h3" style="font-size:1.25rem">Create</h3>
           <p class="muted mt-2">Drawing, building, moving, storytelling.</p>
         </div>
         <p class="step-detail__outcome">Create something.</p>
       </div>
-      <div data-step-panel="share" hidden class="flex items-center justify-between gap-6 full" style="flex-wrap:wrap">
+      <div data-step-panel="share" hidden
+        class="flex items-center justify-between gap-6 full accent-amber" style="flex-wrap:wrap">
         <div>
           <h3 class="h3" style="font-size:1.25rem">Share</h3>
           <p class="muted mt-2">Parents see the work, not just a completion tick.</p>
@@ -347,7 +435,8 @@
 <section class="demo-cta" id="contact">
   <div class="shell">
     <div class="demo-panel reveal">
-      <div class="blob" style="width:18rem;height:18rem;background:color-mix(in oklab, var(--sun) 50%, transparent);right:-2.5rem;top:-4rem"></div>
+      <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.12);width:20rem;height:20rem;right:-4rem;top:-6rem"></span>
+      <span class="shape shape--dot" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.1);width:9rem;height:9rem;left:-3rem;bottom:-3rem"></span>
       <div class="demo-panel__grid">
         <div class="stack stack-6">
           <span class="demo-panel__tag"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M8 2.5v4"/><path d="M16 2.5v4"/><path d="M3 10h18"/><path d="M9 15.5l2 2 4-4"/></svg> Free demo session</span>
@@ -383,6 +472,12 @@
 </main>
 
 <footer class="site-footer">
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:13rem;height:13rem;left:-4rem;top:2rem"></span>
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--amber-soft);width:9rem;height:9rem;right:-2rem;bottom:1rem"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:4rem;height:4rem;right:22%;top:3rem"></span>
   <div class="shell">
     <div class="footer-grid">
       <div class="stack stack-5">
@@ -434,6 +529,19 @@
           <a href="https://play.google.com/store/apps/details?id=com.eternlearning" target="_blank" rel="noreferrer noopener">Google Play</a>
         </div>
       </div>
+
+      <div class="stack stack-4">
+        <h2 class="label">Stay updated</h2>
+        <p class="small muted">Occasional ideas and activities for your child's learning — no more than once a month.</p>
+        <form class="newsletter" data-newsletter novalidate>
+          <div class="newsletter__row">
+            <label class="visually-hidden" for="newsletter-email">Email address</label>
+            <input id="newsletter-email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </div>
+          <p class="newsletter__note" data-newsletter-note role="status"></p>
+        </form>
+      </div>
     </div>
 
     <div class="footer-bottom">
@@ -447,6 +555,10 @@
   </div>
 </footer>
 </div>
+
+<button type="button" class="to-top" data-to-top aria-label="Back to top">
+  <svg style="transform:rotate(-90deg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+</button>
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>

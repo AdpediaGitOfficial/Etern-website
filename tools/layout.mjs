@@ -56,6 +56,27 @@ export function url(to, depth = 0) {
   return "../".repeat(depth) + to;
 }
 
+/** Wrap each letter in its own span so the stylesheet can colour the word. */
+export function rainbow(word) {
+  return `<span class="rainbow-text">${[...word]
+    .map((letter) => (letter === " " ? " " : `<span>${esc(letter)}</span>`))
+    .join("")}</span>`;
+}
+
+/**
+ * Scatter pastel shapes behind a section.
+ * Each entry: [hue, form, size in rem, css position, extra classes]
+ */
+export function decor(shapes) {
+  return shapes
+    .map(
+      ([hue, form, size, position, extra = ""]) =>
+        `<span class="shape shape--${form} ${extra}" aria-hidden="true"
+      style="--shape-fill:var(--${hue});width:${size}rem;height:${size}rem;${position}"></span>`,
+    )
+    .join("\n  ");
+}
+
 /* ------------------------------------------------------------------ shell */
 
 function head({ title, description, canonical, depth, extraHead = "" }) {
@@ -81,7 +102,7 @@ function head({ title, description, canonical, depth, extraHead = "" }) {
 <link rel="apple-touch-icon" href="${p}assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&amp;family=Plus+Jakarta+Sans:wght@400..700&amp;display=swap">
 <link rel="stylesheet" href="${p}assets/css/etern.css">
 ${extraHead}`;
 }
@@ -157,6 +178,11 @@ function footer(depth) {
     .join("\n          ");
 
   return `<footer class="site-footer">
+  ${decor([
+    ["violet-soft", "pebble", 13, "left:-4rem;top:2rem"],
+    ["amber-soft", "pebble", 9, "right:-2rem;bottom:1rem"],
+    ["pink-soft", "dot", 4, "right:22%;top:3rem"],
+  ])}
   <div class="shell">
     <div class="footer-grid">
       <div class="stack stack-5">
@@ -183,6 +209,19 @@ function footer(depth) {
           <a href="${BRAND.apps.ios}" target="_blank" rel="noreferrer noopener">App Store</a>
           <a href="${BRAND.apps.android}" target="_blank" rel="noreferrer noopener">Google Play</a>
         </div>
+      </div>
+
+      <div class="stack stack-4">
+        <h2 class="label">Stay updated</h2>
+        <p class="small muted">Occasional ideas and activities for your child's learning — no more than once a month.</p>
+        <form class="newsletter" data-newsletter novalidate>
+          <div class="newsletter__row">
+            <label class="visually-hidden" for="newsletter-email">Email address</label>
+            <input id="newsletter-email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </div>
+          <p class="newsletter__note" data-newsletter-note role="status"></p>
+        </form>
       </div>
     </div>
 
@@ -239,6 +278,10 @@ ${page.body}
 
 ${footer(depth)}
 </div>
+
+<button type="button" class="to-top" data-to-top aria-label="Back to top">
+  ${icon("arrow-right").replace("<svg", '<svg style="transform:rotate(-90deg)"')}
+</button>
 ${scripts}
 </body>
 </html>
@@ -247,10 +290,14 @@ ${scripts}
 
 /* ------------------------------------------------------- shared sections */
 
-export function pageHero({ eyebrow, title, description, actions = "" }) {
-  return `<section class="page-hero">
-  <div class="blob" style="width:24rem;height:24rem;background:var(--primary-soft);left:-5rem;top:-6rem"></div>
-  <div class="blob" style="width:18rem;height:18rem;background:color-mix(in oklab, var(--sun) 50%, transparent);right:0;top:2.5rem"></div>
+export function pageHero({ eyebrow, title, description, actions = "", accent = "violet" }) {
+  return `<section class="page-hero accent-${accent}">
+  ${decor([
+    ["violet-soft", "pebble", 22, "left:-7rem;top:-5rem", "float-slow"],
+    ["amber-soft", "drop", 14, "right:4%;top:16%", "float-mid"],
+    ["pink-soft", "dot", 5, "right:26%;top:8%"],
+    ["teal-soft", "pebble", 10, "right:-2rem;bottom:-3rem"],
+  ])}
   <div class="shell">
     <div class="page-hero__inner reveal">
       <span class="eyebrow">${esc(eyebrow)}</span>
@@ -293,7 +340,8 @@ export function demoCta(depth = 0) {
   return `<section class="demo-cta" id="contact">
   <div class="shell">
     <div class="demo-panel reveal">
-      <div class="blob" style="width:18rem;height:18rem;background:color-mix(in oklab, var(--sun) 50%, transparent);right:-2.5rem;top:-4rem"></div>
+      <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.12);width:20rem;height:20rem;right:-4rem;top:-6rem"></span>
+      <span class="shape shape--dot" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.1);width:9rem;height:9rem;left:-3rem;bottom:-3rem"></span>
       <div class="demo-panel__grid">
         <div class="stack stack-6">
           <span class="demo-panel__tag">${icon("calendar-check")} Free demo session</span>

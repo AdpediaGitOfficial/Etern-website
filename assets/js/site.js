@@ -89,6 +89,144 @@
     });
   }
 
+  /* --------------------------------------------------------- age stages */
+
+  const stageRoot = document.querySelector("[data-stages]");
+  if (stageRoot) {
+    stageRoot.addEventListener("click", (event) => {
+      const tab = event.target.closest("[data-stage-tab]");
+      if (!tab) return;
+      const id = tab.dataset.stageTab;
+      stageRoot.querySelectorAll("[data-stage-tab]").forEach((el) => {
+        el.setAttribute("aria-pressed", String(el === tab));
+      });
+      stageRoot.querySelectorAll("[data-stage-panel]").forEach((panel) => {
+        panel.hidden = panel.dataset.stagePanel !== id;
+      });
+    });
+  }
+
+  /* -------------------------------------------------------- method wheel */
+
+  const wheel = document.querySelector("[data-wheel]");
+  if (wheel) {
+    wheel.addEventListener("click", (event) => {
+      const node = event.target.closest("[data-move]");
+      if (!node) return;
+      const id = node.dataset.move;
+      wheel.querySelectorAll("[data-move]").forEach((el) => {
+        el.setAttribute("aria-pressed", String(el === node));
+      });
+      wheel.querySelectorAll("[data-move-panel]").forEach((panel) => {
+        panel.hidden = panel.dataset.movePanel !== id;
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------- carousels */
+
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector("[data-carousel-track]");
+    const dotHost = carousel.querySelector("[data-carousel-dots]");
+    if (!track || !dotHost) return;
+
+    /* Dots are scroll pages, not cards: how many cards fit at once depends on
+       the viewport, and the last cards can never be scrolled to the start. Each
+       dot maps onto an even step along the range the track can actually scroll. */
+    const pageCount = () => Math.max(1, Math.ceil(track.scrollWidth / track.clientWidth));
+    const scrollRange = () => Math.max(0, track.scrollWidth - track.clientWidth);
+    let dots = [];
+
+    function buildDots() {
+      const count = pageCount();
+      if (count === dots.length) return;
+      dotHost.hidden = count < 2;
+      dotHost.innerHTML = Array.from(
+        { length: count },
+        (_, i) => `<button type="button" aria-label="Page ${i + 1} of ${count}" aria-current="false"></button>`,
+      ).join("");
+      dots = [...dotHost.children];
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          track.scrollTo({ left: (i / (dots.length - 1)) * scrollRange() });
+        });
+      });
+      sync();
+    }
+
+    function sync() {
+      if (dots.length < 2) return;
+      const range = scrollRange();
+      const page = range === 0 ? 0 : Math.round((track.scrollLeft / range) * (dots.length - 1));
+      dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === page)));
+    }
+
+    track.addEventListener("scroll", sync, { passive: true });
+    addEventListener("resize", buildDots);
+    buildDots();
+  });
+
+  /* ------------------------------------------------------- stat counters */
+
+  const counters = document.querySelectorAll("[data-count-to]");
+  if (counters.length && "IntersectionObserver" in window) {
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const run = (el) => {
+      const target = Number(el.dataset.countTo);
+      // only whole numbers animate; anything else (like "4h 30m") stands as written
+      if (!Number.isFinite(target) || reduced) return;
+      const started = performance.now();
+      const tick = (now) => {
+        const progress = Math.min(1, (now - started) / 900);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = String(Math.round(target * eased));
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      el.textContent = "0";
+      requestAnimationFrame(tick);
+    };
+
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          run(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.5 },
+    );
+    counters.forEach((el) => counterObserver.observe(el));
+  }
+
+  /* ---------------------------------------------------------- newsletter */
+
+  const newsletter = document.querySelector("[data-newsletter]");
+  if (newsletter) {
+    const note = newsletter.querySelector("[data-newsletter-note]");
+    newsletter.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const email = newsletter.querySelector("input").value.trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      note.className = `newsletter__note ${valid ? "is-ok" : "is-bad"}`;
+      note.textContent = valid
+        ? "Thanks — we'll be in touch."
+        : "That email doesn't look right.";
+      if (valid) newsletter.reset();
+    });
+  }
+
+  /* --------------------------------------------------------- back to top */
+
+  const toTop = document.querySelector("[data-to-top]");
+  if (toTop) {
+    const onScroll = () => toTop.classList.toggle("is-on", window.scrollY > 700);
+    onScroll();
+    addEventListener("scroll", onScroll, { passive: true });
+    toTop.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
+  }
+
   /* ------------------------------------------------------------ footer year */
 
   document.querySelectorAll("[data-year]").forEach((el) => {

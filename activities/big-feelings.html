@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="../assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&amp;family=Plus+Jakarta+Sans:wght@400..700&amp;display=swap">
 <link rel="stylesheet" href="../assets/css/etern.css">
 
 <script>document.documentElement.classList.remove("no-js");</script>
@@ -78,8 +78,11 @@
 </div>
 
 <main id="main">
-<section class="page-hero accent-coral">
-  <div class="blob" style="width:24rem;height:24rem;background:var(--primary-soft);left:-6rem;top:-5rem"></div>
+<section class="page-hero accent-pink">
+  <span class="shape shape--pebble float-slow" aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:18rem;height:18rem;left:-5rem;top:-4rem"></span>
+  <span class="shape shape--dot float-mid" aria-hidden="true"
+      style="--shape-fill:var(--teal-soft);width:4.5rem;height:4.5rem;right:16%;bottom:18%"></span>
   <div class="shell">
     <div class="page-hero__inner">
       <a class="back-link" href="../activities.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg> All activities</a>
@@ -105,9 +108,9 @@
       </div>
 
       <aside class="stack stack-5">
-        <div class="card card--surface card--pad-lg">
+        <div class="card card--tint card--pad-lg">
           <h2 class="label">Skills practised</h2>
-          <ul class="dot-list mt-3 accent-primary">
+          <ul class="dot-list mt-3">
             <li>Emotional literacy</li>
             <li>Empathy</li>
             <li>Vocabulary</li>
@@ -122,7 +125,7 @@
           </p>
         </div>
 
-        <div class="card card--pad-lg" style="background:var(--primary-soft)">
+        <div class="card card--pad-lg accent-violet card--tint">
           <h2 class="h3" style="font-size:1.125rem">Want the full library?</h2>
           <p class="small mt-2">Book a free demo and we will match your child to the right stage.</p>
           <a class="btn btn--primary btn--block mt-4" href="../book-demo.html">Book a Free Demo</a>
@@ -176,7 +179,8 @@
 <section class="demo-cta" id="contact">
   <div class="shell">
     <div class="demo-panel reveal">
-      <div class="blob" style="width:18rem;height:18rem;background:color-mix(in oklab, var(--sun) 50%, transparent);right:-2.5rem;top:-4rem"></div>
+      <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.12);width:20rem;height:20rem;right:-4rem;top:-6rem"></span>
+      <span class="shape shape--dot" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.1);width:9rem;height:9rem;left:-3rem;bottom:-3rem"></span>
       <div class="demo-panel__grid">
         <div class="stack stack-6">
           <span class="demo-panel__tag"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M8 2.5v4"/><path d="M16 2.5v4"/><path d="M3 10h18"/><path d="M9 15.5l2 2 4-4"/></svg> Free demo session</span>
@@ -212,6 +216,12 @@
 </main>
 
 <footer class="site-footer">
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:13rem;height:13rem;left:-4rem;top:2rem"></span>
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--amber-soft);width:9rem;height:9rem;right:-2rem;bottom:1rem"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:4rem;height:4rem;right:22%;top:3rem"></span>
   <div class="shell">
     <div class="footer-grid">
       <div class="stack stack-5">
@@ -263,6 +273,19 @@
           <a href="https://play.google.com/store/apps/details?id=com.eternlearning" target="_blank" rel="noreferrer noopener">Google Play</a>
         </div>
       </div>
+
+      <div class="stack stack-4">
+        <h2 class="label">Stay updated</h2>
+        <p class="small muted">Occasional ideas and activities for your child's learning — no more than once a month.</p>
+        <form class="newsletter" data-newsletter novalidate>
+          <div class="newsletter__row">
+            <label class="visually-hidden" for="newsletter-email">Email address</label>
+            <input id="newsletter-email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </div>
+          <p class="newsletter__note" data-newsletter-note role="status"></p>
+        </form>
+      </div>
     </div>
 
     <div class="footer-bottom">
@@ -276,6 +299,10 @@
   </div>
 </footer>
 </div>
+
+<button type="button" class="to-top" data-to-top aria-label="Back to top">
+  <svg style="transform:rotate(-90deg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+</button>
 <script src="../assets/js/site.js" defer></script>
 <script src="../assets/js/activity-player.js" defer></script>
 </body>

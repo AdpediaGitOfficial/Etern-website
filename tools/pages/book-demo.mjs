@@ -14,6 +14,7 @@ export function bookDemoPage() {
   ).join("\n      ");
 
   const body = `${pageHero({
+    accent: "orange",
     eyebrow: "Free demo",
     title: "Let's find the right starting point.",
     description: "Six quick questions. No payment details, no obligation.",
@@ -118,7 +119,7 @@ export function bookDemoPage() {
     <!-- confirmation --------------------------------------------------- -->
     <div class="wizard" data-wizard-done hidden>
       <div class="card text-center" style="border-radius:2.5rem;padding:2.5rem;box-shadow:var(--shadow-lift)">
-        <span class="tile accent-primary" style="width:4rem;height:4rem;border-radius:999px;margin-inline:auto">${icon("party-popper")}</span>
+        <span class="tile tile--solid accent-green" style="width:4rem;height:4rem;border-radius:999px;margin-inline:auto">${icon("party-popper")}</span>
         <h2 class="display-2 mt-6" style="font-size:clamp(1.75rem,1.2rem+1.6vw,2.25rem)">Your request is ready to send.</h2>
         <p class="leading-relaxed muted mt-4" data-done-summary></p>
         <div class="flex flex-wrap justify-center gap-3 mt-8">

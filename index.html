@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&amp;family=Plus+Jakarta+Sans:wght@400..700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/etern.css">
 
 <script>document.documentElement.classList.remove("no-js");</script>
@@ -79,8 +79,18 @@
 
 <main id="main">
 <section class="home-hero">
-  <div class="blob" style="width:26rem;height:26rem;background:var(--primary-soft);left:-8rem;top:2rem"></div>
-  <div class="blob" style="width:20rem;height:20rem;background:color-mix(in oklab, var(--sun) 45%, transparent);right:-4rem;bottom:-4rem"></div>
+  <span class="shape shape--pebble float-slow" aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:17rem;height:17rem;left:-6rem;top:34%"></span>
+  <span class="shape shape--drop float-mid" aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:13rem;height:13rem;left:2%;bottom:-3rem"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--teal-soft);width:4.5rem;height:4.5rem;left:16%;bottom:6%"></span>
+  <span class="shape shape--star float-mid" aria-hidden="true"
+      style="--shape-fill:var(--amber);width:2.6rem;height:2.6rem;left:3%;bottom:26%"></span>
+  <span class="shape shape--pebble float-slow" aria-hidden="true"
+      style="--shape-fill:var(--blue-soft);width:20rem;height:20rem;right:-7rem;top:-4rem"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--green-soft);width:6rem;height:6rem;right:3%;bottom:6%"></span>
 
   <div class="shell home-hero__grid">
     <div class="scene" data-scene>
@@ -166,7 +176,8 @@
     <div class="home-hero__copy">
       <h1 class="display-1">
         A Little Curiosity.<br>
-        A Lifetime of <span class="rainbow-text">Possibilities.</span>
+        A Lifetime of<br>
+        <span class="rainbow-text"><span>P</span><span>o</span><span>s</span><span>s</span><span>i</span><span>b</span><span>i</span><span>l</span><span>i</span><span>t</span><span>i</span><span>e</span><span>s</span><span>.</span></span>
       </h1>
 
       <p class="home-hero__keywords">
@@ -182,7 +193,7 @@
       </p>
 
       <div class="hero-cta">
-        <a class="btn btn--brand btn--xl" href="programs.html">Explore Learning <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--primary btn--xl" href="programs.html">Explore Learning <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn--soft btn--xl" href="book-demo.html">Book a Free Demo <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M8 2.5v4"/><path d="M16 2.5v4"/><path d="M3 10h18"/></svg></a>
       </div>
     </div>
@@ -191,35 +202,35 @@
 
 <div class="shell feature-strip">
   <ul class="reveal">
-    <li class="accent-primary">
+    <li class="accent-violet">
       <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18h6"/><path d="M10 21.5h4"/><path d="M12 2.5a7 7 0 0 0-4 12.8V18h8v-2.7A7 7 0 0 0 12 2.5z"/></svg></span>
       <span style="min-width:0">
         <b>Interactive Learning</b>
         <p>Engaging activities that make learning fun</p>
       </span>
     </li>
-    <li class="accent-coral">
+    <li class="accent-orange">
       <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
       <span style="min-width:0">
         <b>Age-Based Journey</b>
         <p>Personalised learning for every stage</p>
       </span>
     </li>
-    <li class="accent-leaf">
+    <li class="accent-green">
       <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.5s8-3.8 8-9.5V5.2L12 2.5 4 5.2V12c0 5.7 8 9.5 8 9.5z"/><path d="M9 11.8l2.2 2.2 4-4"/></svg></span>
       <span style="min-width:0">
         <b>Safe &amp; Secure</b>
         <p>A safe digital environment for your child</p>
       </span>
     </li>
-    <li class="accent-sky">
+    <li class="accent-blue">
       <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20V9.5"/><path d="M18 20V4"/><path d="M6 20v-5"/></svg></span>
       <span style="min-width:0">
         <b>Track Progress</b>
         <p>Monitor growth and achievements</p>
       </span>
     </li>
-    <li class="accent-coral">
+    <li class="accent-pink">
       <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.6 5a5.2 5.2 0 0 0-7.4 0L12 6.2 10.8 5A5.2 5.2 0 0 0 3.4 12.4l1.2 1.2L12 21l7.4-7.4 1.2-1.2A5.2 5.2 0 0 0 20.6 5z"/></svg></span>
       <span style="min-width:0">
         <b>Parent Connected</b>
@@ -229,25 +240,49 @@
   </ul>
 </div>
 
-<section class="section section--surface">
+<section class="section section--surface" data-stages>
+  <span class="shape shape--pebble float-slow" aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:12rem;height:12rem;left:-4rem;top:14%"></span>
+  <span class="shape shape--dot float-mid" aria-hidden="true"
+      style="--shape-fill:var(--blue-soft);width:5rem;height:5rem;right:6%;top:8%"></span>
   <div class="shell">
     <div class="section-heading">
   <span class="eyebrow">Age journey</span>
-  <h2>Where Is Your Child on Their Learning Journey?</h2>
-  <p class="lead">Four stages, each with its own pace and expectations. Open a stage to see what learning actually looks like at that age.</p>
+  <h2>Personalised Learning for Every Age & Stage</h2>
+  <p class="lead">From curious beginners to confident learners, the age-based journey grows with your child. Pick a stage to see what learning looks like.</p>
 </div>
-    <div class="stage-list">
-  <details class="stage accent-sun reveal" open>
-    <summary>
-      <span class="stage__age">3–4</span>
-      <span class="stage__head">
-        <span class="stage__step">Stage 1</span>
-        <span class="stage__name">Discover</span>
-        <span class="stage__line">Everything is new, and that is the point.</span>
-      </span>
-      <span class="stage__chev"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></span>
-    </summary>
-    <div class="stage__body">
+    <div class="stage-tabs">
+      <button type="button" class="stage-tab accent-violet reveal"
+      data-stage-tab="discover" aria-pressed="true" aria-controls="stage-discover">
+      <span class="stage-tab__emoji" aria-hidden="true">🧸</span>
+      <span class="stage-tab__age">3–4</span>
+      <span class="stage-tab__name">Discover</span>
+      <span class="stage-tab__line">Everything is new, and that is the point.</span>
+    </button>
+      <button type="button" class="stage-tab accent-orange reveal"
+      data-stage-tab="explore" aria-pressed="false" aria-controls="stage-explore">
+      <span class="stage-tab__emoji" aria-hidden="true">🔤</span>
+      <span class="stage-tab__age">4–5</span>
+      <span class="stage-tab__name">Explore</span>
+      <span class="stage-tab__line">Questions arrive faster than answers.</span>
+    </button>
+      <button type="button" class="stage-tab accent-green reveal"
+      data-stage-tab="build" aria-pressed="false" aria-controls="stage-build">
+      <span class="stage-tab__emoji" aria-hidden="true">🧱</span>
+      <span class="stage-tab__age">5–6</span>
+      <span class="stage-tab__name">Build</span>
+      <span class="stage-tab__line">From recognising to actually doing.</span>
+    </button>
+      <button type="button" class="stage-tab accent-blue reveal"
+      data-stage-tab="grow" aria-pressed="false" aria-controls="stage-grow">
+      <span class="stage-tab__emoji" aria-hidden="true">🚀</span>
+      <span class="stage-tab__age">6–7</span>
+      <span class="stage-tab__name">Grow</span>
+      <span class="stage-tab__line">Confidence becomes the real subject.</span>
+    </button>
+    </div>
+
+    <div class="stage-panel accent-violet" id="stage-discover" data-stage-panel="discover">
       <div class="stack stack-4">
         <p class="leading-relaxed muted">Very short sessions built around sound, colour, movement and naming the world. Success at this stage is joyful attention, not output.</p>
         <div>
@@ -277,7 +312,7 @@
         </div>
       </div>
 
-      <div class="stack stack-5 card card--surface" style="border:0">
+      <div class="stack stack-5 card card--tint" style="padding:1.35rem">
         <div>
           <h3 class="label">For parents</h3>
           <p class="small mt-2">Five focused minutes a day that end in a real off-screen activity.</p>
@@ -289,22 +324,11 @@
             <li><a class="link-arrow" href="programs/safety-and-wellbeing.html">Safety &amp; Wellbeing <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></li>
           </ul>
         </div>
-        <a class="btn btn--primary btn--block mt-auto" href="book-demo.html">Book a free demo</a>
+        <a class="btn btn--accent btn--block mt-auto" href="book-demo.html">Book a free demo</a>
       </div>
     </div>
-  </details>
 
-  <details class="stage accent-sky reveal">
-    <summary>
-      <span class="stage__age">4–5</span>
-      <span class="stage__head">
-        <span class="stage__step">Stage 2</span>
-        <span class="stage__name">Explore</span>
-        <span class="stage__line">Questions arrive faster than answers.</span>
-      </span>
-      <span class="stage__chev"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></span>
-    </summary>
-    <div class="stage__body">
+    <div class="stage-panel accent-orange" id="stage-explore" data-stage-panel="explore" hidden>
       <div class="stack stack-4">
         <p class="leading-relaxed muted">Children start connecting ideas: letters make sounds, numbers mean quantity, feelings have names. Sessions get slightly longer and more hands-on.</p>
         <div>
@@ -334,7 +358,7 @@
         </div>
       </div>
 
-      <div class="stack stack-5 card card--surface" style="border:0">
+      <div class="stack stack-5 card card--tint" style="padding:1.35rem">
         <div>
           <h3 class="label">For parents</h3>
           <p class="small mt-2">Clear weekly view of which skills are clicking and which need repetition.</p>
@@ -346,22 +370,11 @@
             <li><a class="link-arrow" href="programs/social-emotional-growth.html">Social-Emotional Growth <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></li>
           </ul>
         </div>
-        <a class="btn btn--primary btn--block mt-auto" href="book-demo.html">Book a free demo</a>
+        <a class="btn btn--accent btn--block mt-auto" href="book-demo.html">Book a free demo</a>
       </div>
     </div>
-  </details>
 
-  <details class="stage accent-primary reveal">
-    <summary>
-      <span class="stage__age">5–6</span>
-      <span class="stage__head">
-        <span class="stage__step">Stage 3</span>
-        <span class="stage__name">Build</span>
-        <span class="stage__line">From recognising to actually doing.</span>
-      </span>
-      <span class="stage__chev"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></span>
-    </summary>
-    <div class="stage__body">
+    <div class="stage-panel accent-green" id="stage-build" data-stage-panel="build" hidden>
       <div class="stack stack-4">
         <p class="leading-relaxed muted">Blending sounds into words, adding and taking away, planning a drawing before starting it. Children begin to work on something across several days.</p>
         <div>
@@ -391,7 +404,7 @@
         </div>
       </div>
 
-      <div class="stack stack-5 card card--surface" style="border:0">
+      <div class="stack stack-5 card card--tint" style="padding:1.35rem">
         <div>
           <h3 class="label">For parents</h3>
           <p class="small mt-2">Progress tracking that shows growth over weeks, not just today's score.</p>
@@ -403,22 +416,11 @@
             <li><a class="link-arrow" href="programs/creative-skill-development.html">Creative Skill Development <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></li>
           </ul>
         </div>
-        <a class="btn btn--primary btn--block mt-auto" href="book-demo.html">Book a free demo</a>
+        <a class="btn btn--accent btn--block mt-auto" href="book-demo.html">Book a free demo</a>
       </div>
     </div>
-  </details>
 
-  <details class="stage accent-leaf reveal">
-    <summary>
-      <span class="stage__age">6–7</span>
-      <span class="stage__head">
-        <span class="stage__step">Stage 4</span>
-        <span class="stage__name">Grow</span>
-        <span class="stage__line">Confidence becomes the real subject.</span>
-      </span>
-      <span class="stage__chev"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></span>
-    </summary>
-    <div class="stage__body">
+    <div class="stage-panel accent-blue" id="stage-grow" data-stage-panel="grow" hidden>
       <div class="stack stack-4">
         <p class="leading-relaxed muted">Longer projects, reading short passages, explaining their thinking, handling disagreements and taking responsibility for their own safety and routines.</p>
         <div>
@@ -448,7 +450,7 @@
         </div>
       </div>
 
-      <div class="stack stack-5 card card--surface" style="border:0">
+      <div class="stack stack-5 card card--tint" style="padding:1.35rem">
         <div>
           <h3 class="label">For parents</h3>
           <p class="small mt-2">A learning history you can actually show a teacher.</p>
@@ -460,95 +462,101 @@
             <li><a class="link-arrow" href="programs/safety-and-wellbeing.html">Safety &amp; Wellbeing <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></li>
           </ul>
         </div>
-        <a class="btn btn--primary btn--block mt-auto" href="book-demo.html">Book a free demo</a>
+        <a class="btn btn--accent btn--block mt-auto" href="book-demo.html">Book a free demo</a>
       </div>
-    </div>
-  </details>
     </div>
   </div>
 </section>
 
 <section class="section">
+  <span class="shape shape--pebble float-slow" aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:15rem;height:15rem;left:-5rem;top:10%"></span>
+  <span class="shape shape--dot float-mid" aria-hidden="true"
+      style="--shape-fill:var(--amber-soft);width:5rem;height:5rem;right:7%;bottom:12%"></span>
   <div class="shell">
-    <div class="section-heading">
+    <div class="section-heading section-heading--center">
   <span class="eyebrow">Programs</span>
-  <h2>Four Foundations. One Confident Child.</h2>
-  <p class="lead">Creativity, academics, emotional growth and safety — taught together, because a child does not grow in separate subjects.</p>
+  <h2>Our Learning Programs</h2>
+  <p class="lead">Comprehensive programs designed to nurture every aspect of your child's development — creativity, academics, emotional growth and safety, taught together.</p>
 </div>
     <div class="grid grid--4 mt-14">
-      <a class="card card--bordered card-link stack-5 accent-coral reveal"
+      <a class="card card--tint card-link stack-5 accent-violet reveal"
    href="programs/creative-skill-development.html">
   <div class="flex items-start justify-between gap-4">
-    <span class="tile tile--lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.5a9.5 9.5 0 1 0 0 19 1.9 1.9 0 0 0 1.9-1.9c0-.5-.2-1-.5-1.3a1.9 1.9 0 0 1 1.4-3.2h2.2a4.5 4.5 0 0 0 4.5-4.5c0-4.4-4.3-8.1-9.5-8.1z"/><circle cx="7.5" cy="10.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="7.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="10" r="1.1" fill="currentColor" stroke="none"/></svg></span>
-    <span class="pill pill--outline">Ages 3–7</span>
+    <span class="tile tile--lg tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.5a9.5 9.5 0 1 0 0 19 1.9 1.9 0 0 0 1.9-1.9c0-.5-.2-1-.5-1.3a1.9 1.9 0 0 1 1.4-3.2h2.2a4.5 4.5 0 0 0 4.5-4.5c0-4.4-4.3-8.1-9.5-8.1z"/><circle cx="7.5" cy="10.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="7.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="10" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Ages 3–7</span>
   </div>
   <div class="stack stack-3">
     <h3 class="h3">Creative Skill Development</h3>
     <p class="small leading-relaxed muted">Nurturing imagination and problem-solving through fun activities that help children express themselves and build confidence.</p>
   </div>
   <div class="chip-row">
-    <span class="pill pill--plain">Imagination</span>
-    <span class="pill pill--plain">Fine motor skills</span>
-    <span class="pill pill--plain">Self-expression</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Imagination</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Fine motor skills</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Self-expression</span>
   </div>
-  <span class="link-arrow">View program <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
+  <span class="link-arrow">Explore program <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
 </a>
-      <a class="card card--bordered card-link stack-5 accent-sky reveal"
+      <a class="card card--tint card-link stack-5 accent-blue reveal"
    href="programs/academic-foundation.html">
   <div class="flex items-start justify-between gap-4">
-    <span class="tile tile--lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 7.5v13"/><path d="M2.5 4.5H8a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2.5z"/><path d="M21.5 4.5H16a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h6.5z"/></svg></span>
-    <span class="pill pill--outline">Ages 3–7</span>
+    <span class="tile tile--lg tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 7.5v13"/><path d="M2.5 4.5H8a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2.5z"/><path d="M21.5 4.5H16a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h6.5z"/></svg></span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Ages 3–7</span>
   </div>
   <div class="stack stack-3">
     <h3 class="h3">Academic Foundation</h3>
     <p class="small leading-relaxed muted">Supporting children in building a strong base for lifelong learning, encouraging early understanding without any academic pressure.</p>
   </div>
   <div class="chip-row">
-    <span class="pill pill--plain">Letter recognition</span>
-    <span class="pill pill--plain">Early numeracy</span>
-    <span class="pill pill--plain">Shapes &amp; patterns</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Letter recognition</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Early numeracy</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Shapes &amp; patterns</span>
   </div>
-  <span class="link-arrow">View program <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
+  <span class="link-arrow">Explore program <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
 </a>
-      <a class="card card--bordered card-link stack-5 accent-leaf reveal"
+      <a class="card card--tint card-link stack-5 accent-green reveal"
    href="programs/social-emotional-growth.html">
   <div class="flex items-start justify-between gap-4">
-    <span class="tile tile--lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.6 5a5.2 5.2 0 0 0-7.4 0L12 6.2 10.8 5A5.2 5.2 0 0 0 3.4 12.4l1.2 1.2L12 21l7.4-7.4 1.2-1.2A5.2 5.2 0 0 0 20.6 5z"/><path d="M9 11.5l2 2 1.4-1.4 2.1 2.1"/></svg></span>
-    <span class="pill pill--outline">Ages 3–7</span>
+    <span class="tile tile--lg tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.6 5a5.2 5.2 0 0 0-7.4 0L12 6.2 10.8 5A5.2 5.2 0 0 0 3.4 12.4l1.2 1.2L12 21l7.4-7.4 1.2-1.2A5.2 5.2 0 0 0 20.6 5z"/><path d="M9 11.5l2 2 1.4-1.4 2.1 2.1"/></svg></span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Ages 3–7</span>
   </div>
   <div class="stack stack-3">
     <h3 class="h3">Social-Emotional Growth</h3>
     <p class="small leading-relaxed muted">Helping children manage emotions, communicate effectively, and develop empathy and self-confidence.</p>
   </div>
   <div class="chip-row">
-    <span class="pill pill--plain">Emotional literacy</span>
-    <span class="pill pill--plain">Empathy</span>
-    <span class="pill pill--plain">Communication</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Emotional literacy</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Empathy</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Communication</span>
   </div>
-  <span class="link-arrow">View program <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
+  <span class="link-arrow">Explore program <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
 </a>
-      <a class="card card--bordered card-link stack-5 accent-sun reveal"
+      <a class="card card--tint card-link stack-5 accent-amber reveal"
    href="programs/safety-and-wellbeing.html">
   <div class="flex items-start justify-between gap-4">
-    <span class="tile tile--lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.5s8-3.8 8-9.5V5.2L12 2.5 4 5.2V12c0 5.7 8 9.5 8 9.5z"/><path d="M9 11.8l2.2 2.2 4-4"/></svg></span>
-    <span class="pill pill--outline">Ages 3–7</span>
+    <span class="tile tile--lg tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.5s8-3.8 8-9.5V5.2L12 2.5 4 5.2V12c0 5.7 8 9.5 8 9.5z"/><path d="M9 11.8l2.2 2.2 4-4"/></svg></span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Ages 3–7</span>
   </div>
   <div class="stack stack-3">
     <h3 class="h3">Safety &amp; Wellbeing</h3>
     <p class="small leading-relaxed muted">Teaching safety awareness, body confidence, and healthy habits to help children stay aware, safe, and cared for.</p>
   </div>
   <div class="chip-row">
-    <span class="pill pill--plain">Body safety</span>
-    <span class="pill pill--plain">Trusted adults</span>
-    <span class="pill pill--plain">Healthy habits</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Body safety</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Trusted adults</span>
+    <span class="pill" style="background:oklch(1 0 0 / 0.65)">Healthy habits</span>
   </div>
-  <span class="link-arrow">View program <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
+  <span class="link-arrow">Explore program <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
 </a>
     </div>
   </div>
 </section>
 
 <section class="section section--cream" id="try-a-lesson">
+  <span class="shape shape--pebble float-mid" aria-hidden="true"
+      style="--shape-fill:var(--green-soft);width:14rem;height:14rem;right:-4rem;bottom:6%"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:4rem;height:4rem;left:6%;top:10%"></span>
   <div class="shell">
     <div class="split split--start" style="gap:3rem">
       <div class="stack stack-6">
@@ -576,7 +584,7 @@
       </button>
         </div>
 
-        <div class="card card--flat" style="border-radius:var(--radius-3xl)">
+        <div class="card" style="border-radius:var(--radius-2xl)">
       <div data-lesson-brief="find-the-red-circle">
       <h3 class="h3" style="font-size:1.125rem">Find the Red Circle</h3>
       <p class="small leading-relaxed muted mt-2">A first colour-recognition activity. The child hears one colour name and finds it among four options — the simplest possible version of listen, look, decide.</p>
@@ -627,7 +635,7 @@
         <a class="btn btn--outline w-fit" href="activities.html">Browse all activities <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       </div>
 
-      <div class="card" style="border-radius:2.5rem;padding:1.5rem;box-shadow:var(--shadow-lift)">
+      <div class="card" style="border-radius:2.25rem;padding:1.5rem;box-shadow:var(--shadow-lift)">
         <div data-player data-player-source="lesson-data"></div>
         <noscript>
           <p class="small muted">These activities need JavaScript to play.
@@ -641,17 +649,93 @@
   <script type="application/json" id="lesson-data">[{"slug":"find-the-red-circle","title":"Find the Red Circle","engine":"choice","rounds":[{"prompt":"Can you find the red circle?","options":[{"id":"blue","display":"●","label":"Blue circle","swatch":"sky"},{"id":"yellow","display":"●","label":"Yellow circle","swatch":"sun"},{"id":"red","display":"●","label":"Red circle","swatch":"coral","correct":true},{"id":"green","display":"●","label":"Green circle","swatch":"leaf"}]},{"prompt":"Now find the green circle.","options":[{"id":"green","display":"●","label":"Green circle","swatch":"leaf","correct":true},{"id":"red","display":"●","label":"Red circle","swatch":"coral"},{"id":"blue","display":"●","label":"Blue circle","swatch":"sky"},{"id":"yellow","display":"●","label":"Yellow circle","swatch":"sun"}]},{"prompt":"Last one — find the yellow circle.","options":[{"id":"blue","display":"●","label":"Blue circle","swatch":"sky"},{"id":"yellow","display":"●","label":"Yellow circle","swatch":"sun","correct":true},{"id":"green","display":"●","label":"Green circle","swatch":"leaf"},{"id":"teal","display":"●","label":"Teal circle","swatch":"primary"}]}],"pairs":null},{"slug":"count-the-stars","title":"Count the Stars","engine":"choice","rounds":[{"prompt":"How many stars? ⭐⭐⭐","options":[{"id":"2","display":"2","label":"Two"},{"id":"3","display":"3","label":"Three","correct":true},{"id":"4","display":"4","label":"Four"},{"id":"5","display":"5","label":"Five"}]},{"prompt":"How many apples? 🍎🍎🍎🍎🍎","options":[{"id":"4","display":"4","label":"Four"},{"id":"6","display":"6","label":"Six"},{"id":"5","display":"5","label":"Five","correct":true},{"id":"3","display":"3","label":"Three"}]},{"prompt":"How many fish? 🐟🐟","options":[{"id":"2","display":"2","label":"Two","correct":true},{"id":"1","display":"1","label":"One"},{"id":"3","display":"3","label":"Three"},{"id":"4","display":"4","label":"Four"}]}],"pairs":null},{"slug":"match-the-shapes","title":"Match the Shapes","engine":"choice","rounds":[{"prompt":"Which one is a triangle?","options":[{"id":"sq","display":"⬛","label":"Square"},{"id":"tri","display":"🔺","label":"Triangle","correct":true},{"id":"ci","display":"⚫","label":"Circle"},{"id":"st","display":"⭐","label":"Star"}]},{"prompt":"Which one matches this? 🔷","options":[{"id":"a","display":"🔶","label":"Orange diamond"},{"id":"b","display":"🔷","label":"Blue diamond","correct":true},{"id":"c","display":"🔺","label":"Triangle"},{"id":"d","display":"⚪","label":"White circle"}]},{"prompt":"Which shape has no corners?","options":[{"id":"a","display":"⬛","label":"Square"},{"id":"b","display":"🔺","label":"Triangle"},{"id":"c","display":"⚫","label":"Circle","correct":true},{"id":"d","display":"🔶","label":"Diamond"}]}],"pairs":null},{"slug":"find-the-letter","title":"Find the Letter","engine":"choice","rounds":[{"prompt":"Which letter makes the 'mmm' sound, like in moon?","options":[{"id":"s","display":"S","label":"Letter S"},{"id":"m","display":"M","label":"Letter M","correct":true},{"id":"a","display":"A","label":"Letter A"},{"id":"t","display":"T","label":"Letter T"}]},{"prompt":"Which letter does 🐱 cat start with?","options":[{"id":"c","display":"C","label":"Letter C","correct":true},{"id":"k","display":"K","label":"Letter K"},{"id":"o","display":"O","label":"Letter O"},{"id":"d","display":"D","label":"Letter D"}]},{"prompt":"Which letter does ☀️ sun start with?","options":[{"id":"z","display":"Z","label":"Letter Z"},{"id":"n","display":"N","label":"Letter N"},{"id":"s","display":"S","label":"Letter S","correct":true},{"id":"u","display":"U","label":"Letter U"}]}],"pairs":null},{"slug":"memory-match","title":"Memory Match","engine":"memory","rounds":null,"pairs":["🐘","🦊","🐢","🦜","🐝","🐬"]}]</script>
 </section>
 
-<section class="section section--dark">
-  <div class="blob" style="width:26rem;height:26rem;background:color-mix(in oklab, var(--primary) 40%, transparent);right:-6rem;top:2.5rem"></div>
-  <div class="blob" style="width:20rem;height:20rem;background:color-mix(in oklab, var(--accent) 40%, transparent);left:-4rem;bottom:0"></div>
+<section class="section section--cream">
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:18rem;height:18rem;left:-6rem;bottom:-4rem"></span>
+  <span class="shape shape--drop float-slow" aria-hidden="true"
+      style="--shape-fill:var(--amber-soft);width:11rem;height:11rem;right:-3rem;top:12%"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--teal-soft);width:4rem;height:4rem;left:12%;top:9%"></span>
   <div class="shell">
-    <div class="section-heading">
+    <div class="section-heading section-heading--center">
   <span class="eyebrow">The Etern method</span>
   <h2>From Curiosity to Confidence.</h2>
-  <p class="lead"><span style="color:color-mix(in oklab, var(--background) 70%, transparent)">Five moves repeated in every session. It is a rhythm, not a curriculum a child has to keep up with.</span></p>
+  <p class="lead">Five moves repeated in every session. It is a rhythm, not a curriculum a child has to keep up with — tap a move to see it.</p>
 </div>
-    <div class="mt-14">
-      <div class="method-row reveal">
+
+    <div class="wheel" data-wheel>
+      <div class="wheel__ring">
+        <div class="wheel__hub">
+          <b>Etern<br>Method</b>
+          <span>5 moves</span>
+        </div>
+      <button type="button" class="wheel__node" data-move="01"
+        aria-pressed="true" aria-controls="move-detail"
+        style="--angle:0deg;--node-ink:var(--violet-ink);--node-solid:var(--violet)">
+        <span aria-hidden="true">🔍</span>
+        Curious
+      </button>
+      <button type="button" class="wheel__node" data-move="02"
+        aria-pressed="false" aria-controls="move-detail"
+        style="--angle:72deg;--node-ink:var(--blue-ink);--node-solid:var(--blue)">
+        <span aria-hidden="true">🤲</span>
+        Explore
+      </button>
+      <button type="button" class="wheel__node" data-move="03"
+        aria-pressed="false" aria-controls="move-detail"
+        style="--angle:144deg;--node-ink:var(--pink-ink);--node-solid:var(--pink)">
+        <span aria-hidden="true">🎨</span>
+        Create
+      </button>
+      <button type="button" class="wheel__node" data-move="04"
+        aria-pressed="false" aria-controls="move-detail"
+        style="--angle:216deg;--node-ink:var(--amber-ink);--node-solid:var(--amber)">
+        <span aria-hidden="true">💬</span>
+        Communicate
+      </button>
+      <button type="button" class="wheel__node" data-move="05"
+        aria-pressed="false" aria-controls="move-detail"
+        style="--angle:288deg;--node-ink:var(--green-ink);--node-solid:var(--green)">
+        <span aria-hidden="true">🌱</span>
+        Grow
+      </button>
+      </div>
+      <div id="move-detail">
+      <div class="wheel__detail accent-violet" data-move-panel="01">
+        <span class="num">01</span>
+        <h3>Curious</h3>
+        <p class="lead">Every session opens with something worth wondering about — a sound, a question, a small mystery.</p>
+        <p class="wheel__outcome">Attention given freely, not demanded.</p>
+      </div>
+      <div class="wheel__detail accent-blue" data-move-panel="02" hidden>
+        <span class="num">02</span>
+        <h3>Explore</h3>
+        <p class="lead">Children investigate with their hands and their voice, using objects already in the house.</p>
+        <p class="wheel__outcome">Understanding built from real experience.</p>
+      </div>
+      <div class="wheel__detail accent-pink" data-move-panel="03" hidden>
+        <span class="num">03</span>
+        <h3>Create</h3>
+        <p class="lead">They make something: a drawing, a model, a rhythm, a short story of their own.</p>
+        <p class="wheel__outcome">A finished piece of work they are proud of.</p>
+      </div>
+      <div class="wheel__detail accent-amber" data-move-panel="04" hidden>
+        <span class="num">04</span>
+        <h3>Communicate</h3>
+        <p class="lead">They show it and talk about it — what they made, why, and what was tricky.</p>
+        <p class="wheel__outcome">Language and confidence, together.</p>
+      </div>
+      <div class="wheel__detail accent-green" data-move-panel="05" hidden>
+        <span class="num">05</span>
+        <h3>Grow</h3>
+        <p class="lead">Skills are revisited across weeks so learning settles instead of disappearing.</p>
+        <p class="wheel__outcome">Steady, visible progress over time.</p>
+      </div>
+      </div>
+    </div>
+
+    <div class="mt-12" data-wheel-fallback hidden>
+      <div class="method-row accent-violet">
         <span class="method-row__num">01</span>
         <div>
           <h3>Curious</h3>
@@ -659,7 +743,7 @@
         </div>
         <p class="outcome">Attention given freely, not demanded.</p>
       </div>
-      <div class="method-row reveal">
+      <div class="method-row accent-blue">
         <span class="method-row__num">02</span>
         <div>
           <h3>Explore</h3>
@@ -667,7 +751,7 @@
         </div>
         <p class="outcome">Understanding built from real experience.</p>
       </div>
-      <div class="method-row reveal">
+      <div class="method-row accent-pink">
         <span class="method-row__num">03</span>
         <div>
           <h3>Create</h3>
@@ -675,7 +759,7 @@
         </div>
         <p class="outcome">A finished piece of work they are proud of.</p>
       </div>
-      <div class="method-row reveal">
+      <div class="method-row accent-amber">
         <span class="method-row__num">04</span>
         <div>
           <h3>Communicate</h3>
@@ -683,7 +767,7 @@
         </div>
         <p class="outcome">Language and confidence, together.</p>
       </div>
-      <div class="method-row reveal">
+      <div class="method-row accent-green">
         <span class="method-row__num">05</span>
         <div>
           <h3>Grow</h3>
@@ -695,7 +779,9 @@
   </div>
 </section>
 
-<section class="section section--surface">
+<section class="section">
+  <span class="shape shape--pebble float-mid" aria-hidden="true"
+      style="--shape-fill:var(--green-soft);width:14rem;height:14rem;right:-4rem;top:20%"></span>
   <div class="shell">
     <div class="section-heading section-heading--center">
   <span class="eyebrow">How Etern works</span>
@@ -704,59 +790,63 @@
 </div>
 
     <div class="step-grid" data-steps>
-      <button type="button" class="step-card accent-sky reveal"
+      <button type="button" class="step-card accent-blue reveal"
         data-step="watch" aria-pressed="true" aria-controls="step-detail">
         <span class="label">Step 1</span>
-        <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg></span>
+        <span class="tile tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg></span>
         <span class="step-card__title">Watch</span>
         <span class="small leading-relaxed muted">A short guided lesson, calm pacing, no noisy distractions.</span>
       </button>
-      <button type="button" class="step-card accent-leaf reveal"
+      <button type="button" class="step-card accent-green reveal"
         data-step="do" aria-pressed="false" aria-controls="step-detail">
         <span class="label">Step 2</span>
-        <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 11.5V6.2a1.5 1.5 0 0 0-3 0"/><path d="M15 10.5V4.2a1.5 1.5 0 0 0-3 0v6.3"/><path d="M12 10.5V5.2a1.5 1.5 0 0 0-3 0v8.6"/><path d="M9 13.8l-1.4-2a1.7 1.7 0 0 0-2.8 1.9l3 5.1A6 6 0 0 0 18 16v-4.5"/></svg></span>
+        <span class="tile tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 11.5V6.2a1.5 1.5 0 0 0-3 0"/><path d="M15 10.5V4.2a1.5 1.5 0 0 0-3 0v6.3"/><path d="M12 10.5V5.2a1.5 1.5 0 0 0-3 0v8.6"/><path d="M9 13.8l-1.4-2a1.7 1.7 0 0 0-2.8 1.9l3 5.1A6 6 0 0 0 18 16v-4.5"/></svg></span>
         <span class="step-card__title">Do</span>
         <span class="small leading-relaxed muted">The screen goes away and the activity begins with real objects.</span>
       </button>
-      <button type="button" class="step-card accent-coral reveal"
+      <button type="button" class="step-card accent-pink reveal"
         data-step="create" aria-pressed="false" aria-controls="step-detail">
         <span class="label">Step 3</span>
-        <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span>
+        <span class="tile tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span>
         <span class="step-card__title">Create</span>
         <span class="small leading-relaxed muted">The child makes something of their own from the idea they just learned.</span>
       </button>
-      <button type="button" class="step-card accent-sun reveal"
+      <button type="button" class="step-card accent-amber reveal"
         data-step="share" aria-pressed="false" aria-controls="step-detail">
         <span class="label">Step 4</span>
-        <span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
+        <span class="tile tile--solid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
         <span class="step-card__title">Share</span>
         <span class="small leading-relaxed muted">They show a parent and explain it — the step that locks the learning in.</span>
       </button>
     </div>
 
     <div class="step-detail" id="step-detail" aria-live="polite">
-      <div data-step-panel="watch" class="flex items-center justify-between gap-6 full" style="flex-wrap:wrap">
+      <div data-step-panel="watch"
+        class="flex items-center justify-between gap-6 full accent-blue" style="flex-wrap:wrap">
         <div>
           <h3 class="h3" style="font-size:1.25rem">Watch</h3>
           <p class="muted mt-2">5–8 minutes of screen time, designed to end cleanly.</p>
         </div>
         <p class="step-detail__outcome">Watch a lesson.</p>
       </div>
-      <div data-step-panel="do" hidden class="flex items-center justify-between gap-6 full" style="flex-wrap:wrap">
+      <div data-step-panel="do" hidden
+        class="flex items-center justify-between gap-6 full accent-green" style="flex-wrap:wrap">
         <div>
           <h3 class="h3" style="font-size:1.25rem">Do</h3>
           <p class="muted mt-2">Everything needed is usually already at home.</p>
         </div>
         <p class="step-detail__outcome">Complete an activity.</p>
       </div>
-      <div data-step-panel="create" hidden class="flex items-center justify-between gap-6 full" style="flex-wrap:wrap">
+      <div data-step-panel="create" hidden
+        class="flex items-center justify-between gap-6 full accent-pink" style="flex-wrap:wrap">
         <div>
           <h3 class="h3" style="font-size:1.25rem">Create</h3>
           <p class="muted mt-2">Drawing, building, moving, storytelling.</p>
         </div>
         <p class="step-detail__outcome">Create something.</p>
       </div>
-      <div data-step-panel="share" hidden class="flex items-center justify-between gap-6 full" style="flex-wrap:wrap">
+      <div data-step-panel="share" hidden
+        class="flex items-center justify-between gap-6 full accent-amber" style="flex-wrap:wrap">
         <div>
           <h3 class="h3" style="font-size:1.25rem">Share</h3>
           <p class="muted mt-2">Parents see the work, not just a completion tick.</p>
@@ -767,86 +857,93 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section--solid accent-violet">
+  <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.1);width:22rem;height:22rem;left:-6rem;bottom:-8rem"></span>
+  <span class="shape shape--dot" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.09);width:8rem;height:8rem;right:8%;top:12%"></span>
   <div class="shell">
     <div class="split split--wide-right split--center">
-      <div class="section-heading">
+      <div class="stack stack-6">
+        <div class="section-heading">
   <span class="eyebrow">Parent dashboard</span>
-  <h2>Parents Stay Connected.</h2>
+  <h2>Learning That Parents Love.<br>Progress You Can See.</h2>
   <p class="lead">You see what your child worked on, which skills are growing and where they need another week of practice — without asking them a single question.</p>
 </div>
+        <a class="btn btn--white btn--lg w-fit" href="parents.html">
+          Explore the dashboard <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
 
-      <div class="dash reveal">
+      <div class="dash reveal" data-dash>
         <div class="dash__profile">
           <div class="flex items-center gap-4">
             <span class="dash__avatar" aria-hidden="true">🦊</span>
             <div>
-              <p class="label">Child profile</p>
-              <p class="h3" style="font-size:1.25rem">Aarav · 5 years</p>
+              <p class="label">Hi, Parent! 👋</p>
+              <p class="h3" style="font-size:1.2rem">Aarav · 5 years</p>
             </div>
           </div>
-          <span class="pill accent-leaf" style="font-weight:600">Stage: Build</span>
+          <span class="pill pill--solid accent-green">Stage: Build</span>
         </div>
 
         <div class="dash__stats">
-          <div class="dash__stat accent-coral">
-            <span class="tile tile--sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.5c3.9 0 6.8-2.6 6.8-6.3 0-2.9-1.9-4.9-3.4-7.3C14 5.6 13 3.4 12 2.5c-1 1.9-2 3.1-3.4 5.4C7.1 10.3 5.2 12.3 5.2 15.2c0 3.7 2.9 6.3 6.8 6.3z"/><path d="M12 17.8c1.6 0 2.8-1 2.8-2.5 0-1.5-1.4-2.4-2.8-4-1.4 1.6-2.8 2.5-2.8 4 0 1.5 1.2 2.5 2.8 2.5z"/></svg></span>
-            <b>7</b>
-            <p class="tiny muted">Day learning streak</p>
-          </div>
-          <div class="dash__stat accent-primary">
+          <div class="dash__stat accent-violet">
             <span class="tile tile--sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
-            <b>12</b>
-            <p class="tiny muted">Activities completed</p>
+            <b data-count-to="24">24</b>
+            <p>Activities completed</p>
           </div>
-          <div class="dash__stat accent-sun">
-            <span class="tile tile--sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span>
-            <b>4</b>
-            <p class="tiny muted">New skills</p>
+          <div class="dash__stat accent-blue">
+            <span class="tile tile--sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></svg></span>
+            <b data-count-to="4h 30m">4h 30m</b>
+            <p>Time spent</p>
+          </div>
+          <div class="dash__stat accent-orange">
+            <span class="tile tile--sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.5c3.9 0 6.8-2.6 6.8-6.3 0-2.9-1.9-4.9-3.4-7.3C14 5.6 13 3.4 12 2.5c-1 1.9-2 3.1-3.4 5.4C7.1 10.3 5.2 12.3 5.2 15.2c0 3.7 2.9 6.3 6.8 6.3z"/><path d="M12 17.8c1.6 0 2.8-1 2.8-2.5 0-1.5-1.4-2.4-2.8-4-1.4 1.6-2.8 2.5-2.8 4 0 1.5 1.2 2.5 2.8 2.5z"/></svg></span>
+            <b data-count-to="7">7</b>
+            <p>Day streak</p>
           </div>
         </div>
 
         <div class="dash__panel">
           <div class="flex items-center justify-between">
-            <h3 class="h3" style="font-size:1.125rem">Weekly progress</h3>
+            <h3 class="h3" style="font-size:1.1rem">Learning progress</h3>
             <span class="label">Last 7 days</span>
           </div>
           <div class="stack stack-4 mt-6">
-            <div class="accent-primary">
+            <div class="accent-blue">
               <div class="flex items-center justify-between small">
-                <span class="font-semibold">Cognitive Skills</span>
-                <span class="font-semibold muted">82%</span>
-              </div>
-              <div class="meter"><span style="--value:82%"></span></div>
-            </div>
-            <div class="accent-coral">
-              <div class="flex items-center justify-between small">
-                <span class="font-semibold">Creativity</span>
-                <span class="font-semibold muted">91%</span>
-              </div>
-              <div class="meter"><span style="--value:91%"></span></div>
-            </div>
-            <div class="accent-accent">
-              <div class="flex items-center justify-between small">
-                <span class="font-semibold">Communication</span>
-                <span class="font-semibold muted">76%</span>
-              </div>
-              <div class="meter"><span style="--value:76%"></span></div>
-            </div>
-            <div class="accent-leaf">
-              <div class="flex items-center justify-between small">
-                <span class="font-semibold">Social Skills</span>
-                <span class="font-semibold muted">85%</span>
+                <span class="font-semibold">Literacy</span>
+                <span class="font-semibold muted" style="font-variant-numeric:tabular-nums">85%</span>
               </div>
               <div class="meter"><span style="--value:85%"></span></div>
+            </div>
+            <div class="accent-green">
+              <div class="flex items-center justify-between small">
+                <span class="font-semibold">Numeracy</span>
+                <span class="font-semibold muted" style="font-variant-numeric:tabular-nums">78%</span>
+              </div>
+              <div class="meter"><span style="--value:78%"></span></div>
+            </div>
+            <div class="accent-pink">
+              <div class="flex items-center justify-between small">
+                <span class="font-semibold">Creativity</span>
+                <span class="font-semibold muted" style="font-variant-numeric:tabular-nums">92%</span>
+              </div>
+              <div class="meter"><span style="--value:92%"></span></div>
+            </div>
+            <div class="accent-amber">
+              <div class="flex items-center justify-between small">
+                <span class="font-semibold">Problem Solving</span>
+                <span class="font-semibold muted" style="font-variant-numeric:tabular-nums">80%</span>
+              </div>
+              <div class="meter"><span style="--value:80%"></span></div>
             </div>
           </div>
         </div>
 
         <div class="dash__panel">
           <div class="flex items-center gap-2">
-            <span style="color:var(--primary);display:grid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8.5" r="5.5"/><path d="M8.4 13.3L7 21.5l5-2.8 5 2.8-1.4-8.2"/></svg></span>
-            <h3 class="h3" style="font-size:1.125rem">Recent achievements</h3>
+            <span style="color:var(--violet);display:grid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8.5" r="5.5"/><path d="M8.4 13.3L7 21.5l5-2.8 5 2.8-1.4-8.2"/></svg></span>
+            <h3 class="h3" style="font-size:1.1rem">Recent achievements</h3>
           </div>
           <div class="badge-row">
             <span><span aria-hidden="true">⭐</span>Little Explorer</span>
@@ -856,92 +953,99 @@
           </div>
         </div>
 
-        <p class="tiny muted mt-4" style="padding-inline:0.5rem">
-          Sample dashboard shown with example data.
-        </p>
+        <p class="tiny muted mt-4" style="padding-inline:0.5rem">Sample dashboard shown with example data.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="section section--cream">
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--teal-soft);width:13rem;height:13rem;left:-4rem;bottom:8%"></span>
+  <span class="shape shape--dot float-mid" aria-hidden="true"
+      style="--shape-fill:var(--orange-soft);width:5rem;height:5rem;right:9%;top:12%"></span>
   <div class="shell">
     <div class="section-heading section-heading--center">
   <span class="eyebrow">Real reviews. Real trust.</span>
-  <h2>What Parents Are Saying.</h2>
+  <h2>Loved by Parents. Trusted by Families.</h2>
   <p class="lead">Reviews from families using Etern Learning today.</p>
 </div>
 
-    <div class="grid grid--2 mt-14">
-      <figure class="card card--pad-lg card--soft quote-card reveal">
-        <div class="quote-card__top">
-          <span class="quote-card__mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M4 7h7v6.5A5.5 5.5 0 0 1 5.5 19v-2.4A3 3 0 0 0 8.5 14H4z"/><path d="M13 7h7v6.5a5.5 5.5 0 0 1-5.5 5.5v-2.4a3 3 0 0 0 3-2.6H13z"/></svg></span>
-          <div class="stars" aria-label="5 out of 5 stars">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg>
+    <div class="quotes" data-carousel>
+      <div class="quotes__track" data-carousel-track tabindex="0" role="group" aria-label="Parent reviews">
+        <figure class="quote-card accent-violet">
+          <div class="quote-card__top">
+            <span class="quote-card__mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M4 7h7v6.5A5.5 5.5 0 0 1 5.5 19v-2.4A3 3 0 0 0 8.5 14H4z"/><path d="M13 7h7v6.5a5.5 5.5 0 0 1-5.5 5.5v-2.4a3 3 0 0 0 3-2.6H13z"/></svg></span>
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg>
+            </div>
           </div>
-        </div>
-        <blockquote>This is one of the best apps for my 3-year-old. We've seen a huge improvement in her creativity and focus. It's engaging, fun, and very easy for kids to use. What impressed us most is how it helped us discover her talent in drawing. Highly recommended for parents looking to support their child's development in a meaningful way.</blockquote>
-        <figcaption>
-          <span class="avatar" aria-hidden="true">N</span>
-          <span>
-            <span class="font-semibold" style="display:block">Nasmi VI</span>
-            <span class="tiny muted" style="display:block">Parent · child aged 3 years</span>
-          </span>
-        </figcaption>
-      </figure>
-      <figure class="card card--pad-lg card--soft quote-card reveal">
-        <div class="quote-card__top">
-          <span class="quote-card__mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M4 7h7v6.5A5.5 5.5 0 0 1 5.5 19v-2.4A3 3 0 0 0 8.5 14H4z"/><path d="M13 7h7v6.5a5.5 5.5 0 0 1-5.5 5.5v-2.4a3 3 0 0 0 3-2.6H13z"/></svg></span>
-          <div class="stars" aria-label="5 out of 5 stars">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg>
+          <blockquote>This is one of the best apps for my 3-year-old. We've seen a huge improvement in her creativity and focus. It's engaging, fun, and very easy for kids to use. What impressed us most is how it helped us discover her talent in drawing. Highly recommended for parents looking to support their child's development in a meaningful way.</blockquote>
+          <figcaption>
+            <span class="avatar" aria-hidden="true">N</span>
+            <span>
+              <span class="font-semibold" style="display:block">Nasmi VI</span>
+              <span class="tiny muted" style="display:block">Parent · child aged 3 years</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="quote-card accent-amber">
+          <div class="quote-card__top">
+            <span class="quote-card__mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M4 7h7v6.5A5.5 5.5 0 0 1 5.5 19v-2.4A3 3 0 0 0 8.5 14H4z"/><path d="M13 7h7v6.5a5.5 5.5 0 0 1-5.5 5.5v-2.4a3 3 0 0 0 3-2.6H13z"/></svg></span>
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg>
+            </div>
           </div>
-        </div>
-        <blockquote>This is more than just an app — it's a complete foundation for kids' development. Etern Learning deserves all the appreciation.</blockquote>
-        <figcaption>
-          <span class="avatar" aria-hidden="true">B</span>
-          <span>
-            <span class="font-semibold" style="display:block">Brinet Louis</span>
-            <span class="tiny muted" style="display:block">Parent</span>
-          </span>
-        </figcaption>
-      </figure>
-      <figure class="card card--pad-lg card--soft quote-card reveal">
-        <div class="quote-card__top">
-          <span class="quote-card__mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M4 7h7v6.5A5.5 5.5 0 0 1 5.5 19v-2.4A3 3 0 0 0 8.5 14H4z"/><path d="M13 7h7v6.5a5.5 5.5 0 0 1-5.5 5.5v-2.4a3 3 0 0 0 3-2.6H13z"/></svg></span>
-          <div class="stars" aria-label="5 out of 5 stars">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg>
+          <blockquote>This is more than just an app — it's a complete foundation for kids' development. Etern Learning deserves all the appreciation.</blockquote>
+          <figcaption>
+            <span class="avatar" aria-hidden="true">B</span>
+            <span>
+              <span class="font-semibold" style="display:block">Brinet Louis</span>
+              <span class="tiny muted" style="display:block">Parent</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="quote-card accent-blue">
+          <div class="quote-card__top">
+            <span class="quote-card__mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M4 7h7v6.5A5.5 5.5 0 0 1 5.5 19v-2.4A3 3 0 0 0 8.5 14H4z"/><path d="M13 7h7v6.5a5.5 5.5 0 0 1-5.5 5.5v-2.4a3 3 0 0 0 3-2.6H13z"/></svg></span>
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg>
+            </div>
           </div>
-        </div>
-        <blockquote>Initially I wasn't fully confident, but after one month I've seen a drastic change in my son's behavior. I'm truly happy with the program and its positive impact. Highly recommended!</blockquote>
-        <figcaption>
-          <span class="avatar" aria-hidden="true">A</span>
-          <span>
-            <span class="font-semibold" style="display:block">Anas MS</span>
-            <span class="tiny muted" style="display:block">Parent</span>
-          </span>
-        </figcaption>
-      </figure>
-      <figure class="card card--pad-lg card--soft quote-card reveal">
-        <div class="quote-card__top">
-          <span class="quote-card__mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M4 7h7v6.5A5.5 5.5 0 0 1 5.5 19v-2.4A3 3 0 0 0 8.5 14H4z"/><path d="M13 7h7v6.5a5.5 5.5 0 0 1-5.5 5.5v-2.4a3 3 0 0 0 3-2.6H13z"/></svg></span>
-          <div class="stars" aria-label="5 out of 5 stars">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg>
+          <blockquote>Initially I wasn't fully confident, but after one month I've seen a drastic change in my son's behavior. I'm truly happy with the program and its positive impact. Highly recommended!</blockquote>
+          <figcaption>
+            <span class="avatar" aria-hidden="true">A</span>
+            <span>
+              <span class="font-semibold" style="display:block">Anas MS</span>
+              <span class="tiny muted" style="display:block">Parent</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="quote-card accent-pink">
+          <div class="quote-card__top">
+            <span class="quote-card__mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M4 7h7v6.5A5.5 5.5 0 0 1 5.5 19v-2.4A3 3 0 0 0 8.5 14H4z"/><path d="M13 7h7v6.5a5.5 5.5 0 0 1-5.5 5.5v-2.4a3 3 0 0 0 3-2.6H13z"/></svg></span>
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg>
+            </div>
           </div>
-        </div>
-        <blockquote>As a parent, I wanted something meaningful and safe for my kids online. Etern Learning gave us exactly that — learning with values. Highly satisfied.</blockquote>
-        <figcaption>
-          <span class="avatar" aria-hidden="true">S</span>
-          <span>
-            <span class="font-semibold" style="display:block">Sarath R</span>
-            <span class="tiny muted" style="display:block">Parent</span>
-          </span>
-        </figcaption>
-      </figure>
+          <blockquote>As a parent, I wanted something meaningful and safe for my kids online. Etern Learning gave us exactly that — learning with values. Highly satisfied.</blockquote>
+          <figcaption>
+            <span class="avatar" aria-hidden="true">S</span>
+            <span>
+              <span class="font-semibold" style="display:block">Sarath R</span>
+              <span class="tiny muted" style="display:block">Parent</span>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="quotes__dots" data-carousel-dots></div>
     </div>
   </div>
 </section>
 
 <section class="section">
+  <span class="shape shape--drop float-slow" aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:12rem;height:12rem;right:-3rem;top:8%"></span>
   <div class="shell">
     <div class="flex flex-wrap items-end justify-between gap-6">
       <div class="section-heading">
@@ -953,47 +1057,50 @@
     </div>
 
     <div class="grid grid--3 mt-12">
-      <article class="reveal" style="height:100%"
+      <article class="reveal accent-blue" style="height:100%"
    data-post
    data-title="how early learning apps improve child development at ages 3–7"
    data-keywords="used well, a short guided session can build attention, vocabulary and confidence. used badly, it is just screen time. here is the difference."
    data-category="Learning">
   <a class="card card-link stack-4" href="journal/early-learning-apps-child-development-ages-3-7.html">
+    <span class="cover" style="aspect-ratio:16/9;border-radius:1.25rem;font-size:2.6rem;background:linear-gradient(140deg, var(--accent-soft), oklch(1 0 0))" aria-hidden="true">🧠</span>
     <div class="flex items-center gap-3 tiny muted">
-      <span class="pill">Learning</span>
+      <span class="pill pill--solid">Learning</span>
       <span>21 Jan 2026 · 6 min</span>
     </div>
-    <h3 class="h3" style="font-size:1.25rem">How Early Learning Apps Improve Child Development at Ages 3–7</h3>
+    <h3 class="h3" style="font-size:1.2rem">How Early Learning Apps Improve Child Development at Ages 3–7</h3>
     <p class="small leading-relaxed muted">Used well, a short guided session can build attention, vocabulary and confidence. Used badly, it is just screen time. Here is the difference.</p>
     <span class="link-arrow">Read more <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
   </a>
 </article>
-      <article class="reveal" style="height:100%"
+      <article class="reveal accent-green" style="height:100%"
    data-post
    data-title="why activity-based learning helps children learn faster"
    data-keywords="young children understand with their hands first. activity-based learning turns an abstract idea into something they can hold."
    data-category="Child Development">
   <a class="card card-link stack-4" href="journal/why-activity-based-learning-helps-children-learn-faster.html">
+    <span class="cover" style="aspect-ratio:16/9;border-radius:1.25rem;font-size:2.6rem;background:linear-gradient(140deg, var(--accent-soft), oklch(1 0 0))" aria-hidden="true">🌱</span>
     <div class="flex items-center gap-3 tiny muted">
-      <span class="pill">Child Development</span>
+      <span class="pill pill--solid">Child Development</span>
       <span>21 Jan 2026 · 5 min</span>
     </div>
-    <h3 class="h3" style="font-size:1.25rem">Why Activity-Based Learning Helps Children Learn Faster</h3>
+    <h3 class="h3" style="font-size:1.2rem">Why Activity-Based Learning Helps Children Learn Faster</h3>
     <p class="small leading-relaxed muted">Young children understand with their hands first. Activity-based learning turns an abstract idea into something they can hold.</p>
     <span class="link-arrow">Read more <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
   </a>
 </article>
-      <article class="reveal" style="height:100%"
+      <article class="reveal accent-blue" style="height:100%"
    data-post
    data-title="the science behind visual learning and why kids understand better"
    data-keywords="children process images long before they decode words. visual sequencing is why a well-made lesson lands in seconds."
    data-category="Learning">
   <a class="card card-link stack-4" href="journal/science-behind-visual-learning-why-kids-understand-better.html">
+    <span class="cover" style="aspect-ratio:16/9;border-radius:1.25rem;font-size:2.6rem;background:linear-gradient(140deg, var(--accent-soft), oklch(1 0 0))" aria-hidden="true">🧠</span>
     <div class="flex items-center gap-3 tiny muted">
-      <span class="pill">Learning</span>
+      <span class="pill pill--solid">Learning</span>
       <span>21 Jan 2026 · 5 min</span>
     </div>
-    <h3 class="h3" style="font-size:1.25rem">The Science Behind Visual Learning and Why Kids Understand Better</h3>
+    <h3 class="h3" style="font-size:1.2rem">The Science Behind Visual Learning and Why Kids Understand Better</h3>
     <p class="small leading-relaxed muted">Children process images long before they decode words. Visual sequencing is why a well-made lesson lands in seconds.</p>
     <span class="link-arrow">Read more <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
   </a>
@@ -1005,7 +1112,8 @@
 <section class="demo-cta" id="contact">
   <div class="shell">
     <div class="demo-panel reveal">
-      <div class="blob" style="width:18rem;height:18rem;background:color-mix(in oklab, var(--sun) 50%, transparent);right:-2.5rem;top:-4rem"></div>
+      <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.12);width:20rem;height:20rem;right:-4rem;top:-6rem"></span>
+      <span class="shape shape--dot" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.1);width:9rem;height:9rem;left:-3rem;bottom:-3rem"></span>
       <div class="demo-panel__grid">
         <div class="stack stack-6">
           <span class="demo-panel__tag"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M8 2.5v4"/><path d="M16 2.5v4"/><path d="M3 10h18"/><path d="M9 15.5l2 2 4-4"/></svg> Free demo session</span>
@@ -1041,6 +1149,12 @@
 </main>
 
 <footer class="site-footer">
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--violet-soft);width:13rem;height:13rem;left:-4rem;top:2rem"></span>
+  <span class="shape shape--pebble " aria-hidden="true"
+      style="--shape-fill:var(--amber-soft);width:9rem;height:9rem;right:-2rem;bottom:1rem"></span>
+  <span class="shape shape--dot " aria-hidden="true"
+      style="--shape-fill:var(--pink-soft);width:4rem;height:4rem;right:22%;top:3rem"></span>
   <div class="shell">
     <div class="footer-grid">
       <div class="stack stack-5">
@@ -1092,6 +1206,19 @@
           <a href="https://play.google.com/store/apps/details?id=com.eternlearning" target="_blank" rel="noreferrer noopener">Google Play</a>
         </div>
       </div>
+
+      <div class="stack stack-4">
+        <h2 class="label">Stay updated</h2>
+        <p class="small muted">Occasional ideas and activities for your child's learning — no more than once a month.</p>
+        <form class="newsletter" data-newsletter novalidate>
+          <div class="newsletter__row">
+            <label class="visually-hidden" for="newsletter-email">Email address</label>
+            <input id="newsletter-email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </div>
+          <p class="newsletter__note" data-newsletter-note role="status"></p>
+        </form>
+      </div>
     </div>
 
     <div class="footer-bottom">
@@ -1105,6 +1232,10 @@
   </div>
 </footer>
 </div>
+
+<button type="button" class="to-top" data-to-top aria-label="Back to top">
+  <svg style="transform:rotate(-90deg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+</button>
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/hero-scene.js" defer></script>
 <script src="assets/js/activity-player.js" defer></script>

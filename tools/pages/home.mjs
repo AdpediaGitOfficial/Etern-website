@@ -1,5 +1,5 @@
 import { icon } from "../icons.mjs";
-import { esc, url, sectionHeading, demoCta } from "../layout.mjs";
+import { esc, url, sectionHeading, demoCta, decor, rainbow } from "../layout.mjs";
 import {
   ageJourney,
   dashboardPreview,
@@ -28,11 +28,11 @@ const HOTSPOTS = [
 ];
 
 const FEATURES = [
-  { icon: "lightbulb", title: "Interactive Learning", body: "Engaging activities that make learning fun", accent: "primary" },
-  { icon: "users", title: "Age-Based Journey", body: "Personalised learning for every stage", accent: "coral" },
-  { icon: "shield-check", title: "Safe & Secure", body: "A safe digital environment for your child", accent: "leaf" },
-  { icon: "bar-chart", title: "Track Progress", body: "Monitor growth and achievements", accent: "sky" },
-  { icon: "heart", title: "Parent Connected", body: "Stay involved in your child's learning", accent: "coral" },
+  { icon: "lightbulb", title: "Interactive Learning", body: "Engaging activities that make learning fun", accent: "violet" },
+  { icon: "users", title: "Age-Based Journey", body: "Personalised learning for every stage", accent: "orange" },
+  { icon: "shield-check", title: "Safe & Secure", body: "A safe digital environment for your child", accent: "green" },
+  { icon: "bar-chart", title: "Track Progress", body: "Monitor growth and achievements", accent: "blue" },
+  { icon: "heart", title: "Parent Connected", body: "Stay involved in your child's learning", accent: "pink" },
 ];
 
 function hero() {
@@ -45,8 +45,14 @@ function hero() {
   ).join("\n      ");
 
   return `<section class="home-hero">
-  <div class="blob" style="width:26rem;height:26rem;background:var(--primary-soft);left:-8rem;top:2rem"></div>
-  <div class="blob" style="width:20rem;height:20rem;background:color-mix(in oklab, var(--sun) 45%, transparent);right:-4rem;bottom:-4rem"></div>
+  ${decor([
+    ["pink-soft", "pebble", 17, "left:-6rem;top:34%", "float-slow"],
+    ["violet-soft", "drop", 13, "left:2%;bottom:-3rem", "float-mid"],
+    ["teal-soft", "dot", 4.5, "left:16%;bottom:6%"],
+    ["amber", "star", 2.6, "left:3%;bottom:26%", "float-mid"],
+    ["blue-soft", "pebble", 20, "right:-7rem;top:-4rem", "float-slow"],
+    ["green-soft", "dot", 6, "right:3%;bottom:6%"],
+  ])}
 
   <div class="shell home-hero__grid">
     <div class="scene" data-scene>
@@ -78,7 +84,8 @@ function hero() {
     <div class="home-hero__copy">
       <h1 class="display-1">
         A Little Curiosity.<br>
-        A Lifetime of <span class="rainbow-text">Possibilities.</span>
+        A Lifetime of<br>
+        ${rainbow("Possibilities.")}
       </h1>
 
       <p class="home-hero__keywords">
@@ -94,7 +101,7 @@ function hero() {
       </p>
 
       <div class="hero-cta">
-        <a class="btn btn--brand btn--xl" href="programs.html">Explore Learning ${icon("arrow-right")}</a>
+        <a class="btn btn--primary btn--xl" href="programs.html">Explore Learning ${icon("arrow-right")}</a>
         <a class="btn btn--soft btn--xl" href="book-demo.html">Book a Free Demo ${icon("calendar-days")}</a>
       </div>
     </div>
@@ -120,12 +127,17 @@ function featureStrip() {
 
 function programsSection() {
   return `<section class="section">
+  ${decor([
+    ["violet-soft", "pebble", 15, "left:-5rem;top:10%", "float-slow"],
+    ["amber-soft", "dot", 5, "right:7%;bottom:12%", "float-mid"],
+  ])}
   <div class="shell">
     ${sectionHeading({
       eyebrow: "Programs",
-      title: "Four Foundations. One Confident Child.",
+      title: "Our Learning Programs",
       description:
-        "Creativity, academics, emotional growth and safety — taught together, because a child does not grow in separate subjects.",
+        "Comprehensive programs designed to nurture every aspect of your child's development — creativity, academics, emotional growth and safety, taught together.",
+      center: true,
     })}
     <div class="grid grid--4 mt-14">
       ${PROGRAMS.map((p) => programCard(p, 0)).join("\n      ")}
@@ -168,6 +180,10 @@ function tryLesson() {
   }));
 
   return `<section class="section section--cream" id="try-a-lesson">
+  ${decor([
+    ["green-soft", "pebble", 14, "right:-4rem;bottom:6%", "float-mid"],
+    ["pink-soft", "dot", 4, "left:6%;top:10%"],
+  ])}
   <div class="shell">
     <div class="split split--start" style="gap:3rem">
       <div class="stack stack-6">
@@ -182,14 +198,14 @@ function tryLesson() {
       ${tabs}
         </div>
 
-        <div class="card card--flat" style="border-radius:var(--radius-3xl)">
+        <div class="card" style="border-radius:var(--radius-2xl)">
       ${briefs}
         </div>
 
         <a class="btn btn--outline w-fit" href="activities.html">Browse all activities ${icon("arrow-right")}</a>
       </div>
 
-      <div class="card" style="border-radius:2.5rem;padding:1.5rem;box-shadow:var(--shadow-lift)">
+      <div class="card" style="border-radius:2.25rem;padding:1.5rem;box-shadow:var(--shadow-lift)">
         <div data-player data-player-source="lesson-data"></div>
         <noscript>
           <p class="small muted">These activities need JavaScript to play.
@@ -221,7 +237,7 @@ export function homePage() {
       tryLesson(),
       methodSection(),
       howEternWorks(),
-      dashboardPreview(),
+      dashboardPreview(0),
       testimonialsSection(),
       journalTeaser(0),
       demoCta(0),

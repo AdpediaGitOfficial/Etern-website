@@ -1,6 +1,16 @@
 import { icon } from "../icons.mjs";
-import { esc, url, pageHero, sectionHeading, demoCta } from "../layout.mjs";
-import { PROGRAM_ICONS, activityCard, journalCard, programCard, formatDate } from "../sections.mjs";
+import { esc, url, pageHero, sectionHeading, demoCta, decor } from "../layout.mjs";
+import {
+  PROGRAM_ICONS,
+  PROGRAM_HUE,
+  CATEGORY_HUE,
+  TOPIC_HUE,
+  hueFor,
+  activityCard,
+  journalCard,
+  programCard,
+  formatDate,
+} from "../sections.mjs";
 import { AGE_STAGES, JOURNAL_CATEGORIES, JOURNAL_POSTS, PROGRAMS } from "../content-etern.mjs";
 import { ACTIVITIES, ACTIVITY_CATEGORIES } from "../content-activities.mjs";
 
@@ -8,8 +18,9 @@ import { ACTIVITIES, ACTIVITY_CATEGORIES } from "../content-activities.mjs";
 
 export function programsIndexPage() {
   const body = `${pageHero({
+    accent: "violet",
     eyebrow: "Programs",
-    title: "Four Foundations. One Confident Child.",
+    title: "Our Learning Programs",
     description:
       "Every Etern program is built around short guided lessons and a real activity afterwards. Together they cover how a child creates, learns, feels and stays safe.",
   })}
@@ -32,8 +43,8 @@ export function programsIndexPage() {
     })}
     <div class="grid grid--4 mt-12">
       ${AGE_STAGES.map(
-        (stage) => `<div class="card card--pad-lg reveal">
-        <p class="h3" style="font-size:1.875rem;color:var(--primary)">${stage.ageLabel}</p>
+        (stage, i) => `<div class="card card--tint card--pad-lg reveal accent-${["violet", "orange", "green", "blue"][i % 4]}">
+        <p class="h3" style="font-size:2rem;color:var(--accent-ink)">${stage.ageLabel}</p>
         <h3 class="h3" style="font-size:1.25rem;margin-top:0.5rem">${esc(stage.stage)}</h3>
         <p class="small leading-relaxed muted mt-2">${esc(stage.description)}</p>
       </div>`,
@@ -57,13 +68,17 @@ ${demoCta(0)}`;
 
 export function programDetailPage(program) {
   const d = 1;
+  const hue = hueFor(PROGRAM_HUE, program.slug);
   const related = PROGRAMS.filter((p) => p.slug !== program.slug);
   const activities = ACTIVITIES.filter(
     (a) => a.ageMin <= program.ageMax && a.ageMax >= program.ageMin,
   ).slice(0, 4);
 
-  const body = `<section class="page-hero accent-${program.accent}">
-  <div class="blob" style="width:24rem;height:24rem;background:var(--primary-soft);left:-6rem;top:-5rem"></div>
+  const body = `<section class="page-hero accent-${hue}">
+  ${decor([
+    ["violet-soft", "pebble", 20, "left:-6rem;top:-5rem", "float-slow"],
+    ["amber-soft", "dot", 5, "right:12%;bottom:12%", "float-mid"],
+  ])}
   <div class="shell">
     <div class="split split--wide-left split--center">
       <div class="stack stack-5 items-start">
@@ -72,7 +87,7 @@ export function programDetailPage(program) {
         <h1>${esc(program.title)}</h1>
         <p class="lead" style="max-width:36rem">${esc(program.shortDescription)}</p>
         <div class="flex flex-wrap gap-3">
-          <a class="btn btn--primary btn--lg" href="${url("activities.html", d)}">Start Learning</a>
+          <a class="btn btn--accent btn--lg" href="${url("activities.html", d)}">Start Learning</a>
           <a class="btn btn--outline btn--lg" href="${url("book-demo.html", d)}">Book a Free Demo</a>
         </div>
       </div>
@@ -127,7 +142,7 @@ export function programDetailPage(program) {
       </div>
 
       <aside class="stack stack-5">
-        <div class="card card--surface card--pad-lg accent-${program.accent}">
+        <div class="card card--tint card--pad-lg">
           <h2 class="label">Skills built</h2>
           <div class="chip-row mt-3">
             ${program.skills.map((s) => `<span class="pill">${esc(s)}</span>`).join("\n            ")}
@@ -181,8 +196,9 @@ const AGE_FILTERS = [
 
 export function activitiesIndexPage() {
   const body = `${pageHero({
+    accent: "orange",
     eyebrow: "Activities",
-    title: "Little Adventures, Ready to Play.",
+    title: "Try a Little Etern Adventure",
     description:
       "Every activity below actually works — pick one, hand over the screen, and watch your child think.",
   })}
@@ -257,6 +273,7 @@ ${demoCta(0)}`;
 
 export function activityDetailPage(activity) {
   const d = 1;
+  const hue = hueFor(CATEGORY_HUE, activity.category);
   const related = ACTIVITIES.filter(
     (a) => a.slug !== activity.slug && (a.category === activity.category || a.ageMin <= activity.ageMax),
   ).slice(0, 3);
@@ -271,8 +288,11 @@ export function activityDetailPage(activity) {
     },
   ];
 
-  const body = `<section class="page-hero accent-${activity.accent}">
-  <div class="blob" style="width:24rem;height:24rem;background:var(--primary-soft);left:-6rem;top:-5rem"></div>
+  const body = `<section class="page-hero accent-${hue}">
+  ${decor([
+    ["pink-soft", "pebble", 18, "left:-5rem;top:-4rem", "float-slow"],
+    ["teal-soft", "dot", 4.5, "right:16%;bottom:18%", "float-mid"],
+  ])}
   <div class="shell">
     <div class="page-hero__inner">
       <a class="back-link" href="${url("activities.html", d)}">${icon("arrow-left")} All activities</a>
@@ -298,9 +318,9 @@ export function activityDetailPage(activity) {
       </div>
 
       <aside class="stack stack-5">
-        <div class="card card--surface card--pad-lg">
+        <div class="card card--tint card--pad-lg">
           <h2 class="label">Skills practised</h2>
-          <ul class="dot-list mt-3 accent-primary">
+          <ul class="dot-list mt-3">
             ${activity.skills.map((s) => `<li>${esc(s)}</li>`).join("\n            ")}
           </ul>
         </div>
@@ -313,7 +333,7 @@ export function activityDetailPage(activity) {
           </p>
         </div>
 
-        <div class="card card--pad-lg" style="background:var(--primary-soft)">
+        <div class="card card--pad-lg accent-violet card--tint">
           <h2 class="h3" style="font-size:1.125rem">Want the full library?</h2>
           <p class="small mt-2">Book a free demo and we will match your child to the right stage.</p>
           <a class="btn btn--primary btn--block mt-4" href="${url("book-demo.html", d)}">Book a Free Demo</a>
@@ -367,6 +387,7 @@ export function journalIndexPage() {
   const rest = JOURNAL_POSTS;
 
   const body = `${pageHero({
+    accent: "pink",
     eyebrow: "Etern journal",
     title: "Ideas for Raising Curious Minds.",
     description: "Short, practical reads for parents — no jargon, no lectures.",
@@ -374,10 +395,10 @@ export function journalIndexPage() {
 
 <section class="section">
   <div class="shell" data-filter-root data-filter-target="[data-post]" data-filter-noun="article|articles">
-    <a class="card card-link split split--wide-left split--center" style="border-radius:2.5rem;padding:1.75rem"
-       href="journal/${featured.slug}.html">
+    <a class="card card--tint card-link split split--wide-left split--center accent-${hueFor(TOPIC_HUE, featured.category)}"
+       style="border-radius:2.25rem;padding:1.75rem" href="journal/${featured.slug}.html">
       <div class="stack stack-4">
-        <span class="pill accent-primary w-fit" style="font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Featured · ${esc(featured.category)}</span>
+        <span class="pill pill--solid w-fit" style="letter-spacing:0.14em;text-transform:uppercase">Featured · ${esc(featured.category)}</span>
         <h2 class="display-2" style="font-size:clamp(1.75rem,1.2rem+1.8vw,2.25rem)">${esc(featured.title)}</h2>
         <p class="leading-relaxed muted">${esc(featured.excerpt)}</p>
         <p class="tiny muted">${formatDate(featured.date)} · ${featured.readingMinutes} min read</p>
@@ -426,6 +447,7 @@ ${demoCta(0)}`;
 
 export function journalDetailPage(post) {
   const d = 1;
+  const hue = hueFor(TOPIC_HUE, post.category);
   const related = JOURNAL_POSTS.filter(
     (p) => p.slug !== post.slug && p.category === post.category,
   ).slice(0, 3);
@@ -445,12 +467,15 @@ export function journalDetailPage(post) {
   const body = `<div class="read-progress" data-read-progress aria-hidden="true"></div>
 
 <article>
-  <section class="page-hero">
-    <div class="blob" style="width:24rem;height:24rem;background:var(--primary-soft);left:-6rem;top:-5rem"></div>
+  <section class="page-hero accent-${hue}">
+    ${decor([
+      ["violet-soft", "pebble", 18, "left:-5rem;top:-4rem", "float-slow"],
+      ["amber-soft", "dot", 4.5, "right:14%;top:22%"],
+    ])}
     <div class="shell">
       <div class="page-hero__inner" style="max-width:44rem;margin-inline:auto">
         <a class="back-link" href="${url("journal.html", d)}">${icon("arrow-left")} Etern Journal</a>
-        <span class="pill accent-primary w-fit" style="font-weight:600;letter-spacing:0.14em;text-transform:uppercase">${esc(post.category)}</span>
+        <span class="pill pill--solid w-fit" style="letter-spacing:0.14em;text-transform:uppercase">${esc(post.category)}</span>
         <h1 style="font-size:clamp(2.1rem,1.3rem+3vw,3rem)">${esc(post.title)}</h1>
         <div class="flex flex-wrap items-center gap-3 small muted full">
           <span>${esc(post.author)}</span><span>·</span>
@@ -478,8 +503,8 @@ export function journalDetailPage(post) {
       <div class="grid grid--3 mt-10">
         ${others
           .map(
-            (p) => `<a class="card card-link stack-3" href="${url(`journal/${p.slug}.html`, d)}">
-          <span class="label">${esc(p.category)}</span>
+            (p) => `<a class="card card--tint card-link stack-3 accent-${hueFor(TOPIC_HUE, p.category)}" href="${url(`journal/${p.slug}.html`, d)}">
+          <span class="pill pill--solid w-fit">${esc(p.category)}</span>
           <h3 class="h3" style="font-size:1.125rem">${esc(p.title)}</h3>
           <span class="link-arrow">Read ${icon("arrow-right")}</span>
         </a>`,
