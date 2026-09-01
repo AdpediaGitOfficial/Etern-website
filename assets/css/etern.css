@@ -309,11 +309,6 @@ svg.shape { background: none; }
   50% { transform: translateY(-16px) rotate(6deg); }
 }
 
-/* a straight rise and fall, for things that should not tilt */
-@keyframes bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
 
 /* -------------------------------------------------------- 5. type helpers */
 
@@ -896,29 +891,6 @@ svg.shape { background: none; }
 
 .hero-cta { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; }
 @media (min-width: 640px) { .hero-cta { flex-direction: row; width: auto; } }
-
-/* the four cut-out children standing on the cloud bank below the copy */
-.hero-kids { display: none; }
-@media (min-width: 1180px) {
-  .hero-kids {
-    display: block;
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-  .hero-kid {
-    position: absolute;
-    bottom: 0;
-    width: auto;
-    filter: drop-shadow(0 18px 22px oklch(0.35 0.06 267 / 0.22));
-    animation: bob 8s ease-in-out infinite;
-  }
-  .hero-kid.k1 { left: 2%; height: 5.5rem; animation-delay: -1.2s; }
-  .hero-kid.k2 { left: 11%; height: 6.5rem; animation-delay: -3.4s; }
-  .hero-kid.k3 { left: 21%; height: 6rem; animation-delay: -2.1s; }
-  .hero-kid.k4 { left: 31%; height: 7rem; animation-delay: -4.6s; }
-}
 
 .feature-strip { position: relative; z-index: 1; padding-bottom: 4rem; }
 .feature-strip ul {
@@ -1951,7 +1923,7 @@ textarea.field { height: auto; min-height: 6rem; border-radius: var(--radius-md)
     transition-duration: 0.001ms !important;
   }
   .reveal { opacity: 1; transform: none; }
-  .hero-kid, .float-slow, .float-mid { animation: none; }
+  .float-slow, .float-mid { animation: none; }
   .quotes__track { scroll-behavior: auto; }
 }
 

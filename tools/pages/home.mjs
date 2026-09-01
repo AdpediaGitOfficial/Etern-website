@@ -21,14 +21,6 @@ const FEATURES = [
   { icon: "heart", title: "Parent Connected", body: "Stay involved in your child's learning", accent: "pink" },
 ];
 
-/** The four cut-out children that float over the hero's cloud bank. */
-const HERO_KIDS = [
-  { file: "kid-teddy.webp", w: 340, h: 382, cls: "k1" },
-  { file: "kid-blocks.webp", w: 340, h: 533, cls: "k2" },
-  { file: "kid-plant.webp", w: 340, h: 506, cls: "k3" },
-  { file: "kid-rocket.webp", w: 340, h: 545, cls: "k4" },
-];
-
 function hero() {
   return `<section class="home-hero">
   <img class="home-hero__art" src="${HERO_ART}" width="1920" height="1080"
@@ -41,13 +33,6 @@ function hero() {
     ["teal-soft", "dot", 4.5, "left:9%;bottom:26%"],
     ["pink-soft", "drop", 8, "left:29%;bottom:12%", "float-mid"],
   ])}
-
-  <div class="hero-kids" aria-hidden="true">
-    ${HERO_KIDS.map(
-      (kid) => `<img class="hero-kid ${kid.cls}" src="${url(`assets/img/${kid.file}`, 0)}"
-         width="${kid.w}" height="${kid.h}" alt="" loading="lazy" decoding="async">`,
-    ).join("\n    ")}
-  </div>
 
   <div class="shell home-hero__grid">
     <div class="home-hero__copy">

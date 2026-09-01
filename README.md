@@ -28,7 +28,7 @@ privacy.html  terms.html   legal
 
 assets/css/etern.css       the entire design system, one file
 assets/js/*.js             five small scripts, listed below
-assets/img/                logo, favicon, hero scene, character cut-outs, dashboard picture, OG card
+assets/img/                logo, favicon, hero scene, dashboard picture, OG card
 robots.txt  sitemap.xml
 
 tools/                     the generator that produced the HTML above
@@ -119,18 +119,15 @@ left half is open sky. From 1024px up it covers the whole hero and the copy sits
 over that open half behind a soft wash of daylight; below that the hero stacks,
 with the picture above the copy and cropped to the islands on phones.
 
-Four cut-out children (`assets/img/kid-*.webp`) stand on the cloud bank under
-the copy from 1180px up. They are decoration — `aria-hidden`, and dropped
-entirely on smaller screens.
-
 To change the artwork, drop a file into `assets/img/` named `hero-scene.png`
 (or `.webp` / `.jpg`) and rebuild — `tools/sections.mjs` (`HERO_ART`) picks up
 the first one that exists and falls back to `hero-world`. Compose it like this
 one, with the subject on the right and open sky on the left, so the headline has
 somewhere quiet to sit; 16:9 keeps the hero's proportions.
 
-`hero.jpg` and `1.png`–`4.png` are the supplied originals, kept beside the
-optimised versions the site actually loads.
+`hero.jpg` is the supplied original, kept beside the optimised `.webp` the site
+loads. `1.png`–`4.png` and the `kid-*.webp` cut-outs made from them are in the
+folder but unused: they were tried in the hero and taken back out.
 
 ## The parent-dashboard photo
 
