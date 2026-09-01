@@ -51,7 +51,7 @@ function hero() {
         <span class="k4">Grow.</span>
       </p>
 
-      <p class="lead" style="max-width:27rem">
+      <p class="lead">
         Etern Learning nurtures confident young minds through interactive learning, creative
         exploration, and meaningful real-world experiences for children aged 3–7.
       </p>

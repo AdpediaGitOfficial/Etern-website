@@ -737,6 +737,24 @@ svg.shape { background: none; }
   padding-top: 5.75rem;
   padding-bottom: 2.5rem;
 }
+.home-hero__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; }
+.home-hero .lead { max-width: 27rem; }
+
+@media (min-width: 700px) and (max-width: 1023px) {
+  .home-hero {
+    display: grid;
+    align-items: center;
+    min-height: min(34rem, 84vh);
+    padding-top: 7rem;
+    padding-bottom: 2.5rem;
+  }
+  .home-hero__copy { max-width: 30rem; }
+  .home-hero .lead { font-size: 0.95rem; max-width: min(26rem, 52%); }
+  /* sized so "A Little Curiosity." keeps its own line beside the artwork */
+  .home-hero h1 { font-size: clamp(1.65rem, 0.75rem + 2.2vw, 1.9rem); }
+  .home-hero__keywords { font-size: 1.35rem; }
+}
+
 @media (min-width: 1024px) {
   .home-hero {
     display: grid;
@@ -756,9 +774,30 @@ svg.shape { background: none; }
 }
 /* the stacked layout crops to the islands rather than showing the wide, mostly
    empty sky the desktop hero needs */
-@media (max-width: 640px) {
+@media (max-width: 699px) {
   .home-hero__art { aspect-ratio: 5 / 4; object-fit: cover; object-position: 74% 50%; }
 }
+/* Tablet: the artwork takes the right-hand half and the copy sits beside it,
+   rather than a full-width picture with half a sky and the copy pushed below
+   it. Its left edge fades into the page so there is no hard seam. */
+@media (min-width: 700px) and (max-width: 1023px) {
+  .home-hero__art {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    width: 46%;
+    height: 100%;
+    margin-bottom: 0;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: 62% 42%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, oklch(0 0 0) 24%);
+    mask-image: linear-gradient(90deg, transparent 0%, oklch(0 0 0) 24%);
+  }
+}
+
 @media (min-width: 1024px) {
   .home-hero__art {
     position: absolute;
@@ -791,12 +830,11 @@ svg.shape { background: none; }
     linear-gradient(0deg, oklch(0.99 0.01 96 / 0.55), transparent 30%);
   pointer-events: none;
 }
-@media (min-width: 1024px) { .home-hero__veil { display: block; } }
+@media (min-width: 700px) { .home-hero__veil { display: block; } }
 
 .home-hero__grid { position: relative; z-index: 1; display: grid; gap: 3rem; }
 @media (min-width: 1024px) { .home-hero__grid { gap: 0; } }
 
-.home-hero__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; }
 @media (min-width: 1024px) { .home-hero__copy { max-width: 34rem; } }
 
 .home-hero__eyebrow {
