@@ -27,8 +27,8 @@ privacy.html  terms.html   legal
 404.html                   not found
 
 assets/css/etern.css       the entire design system, one file
-assets/js/*.js             five small ES modules, listed below
-assets/img/                logo, favicon, hero artwork, OG card
+assets/js/*.js             six small scripts, listed below
+assets/img/                logo, favicon, hero artwork, dashboard picture, OG card
 robots.txt  sitemap.xml
 
 tools/                     the generator that produced the HTML above
@@ -84,15 +84,15 @@ add behaviour on top:
 
 | File | Adds |
 | --- | --- |
-| `site.js` | sticky header, mobile menu, scroll reveals, step switcher |
+| `site.js` | sticky header, mobile menu, scroll reveals, age-stage selector, method wheel, testimonial carousel, stat counters, newsletter, back-to-top |
 | `hero-scene.js` | tilt / drag / parallax on the home hero artwork |
 | `activity-player.js` | the choice and memory games |
 | `filters.js` | search and filter chips on the activity, journal and video lists |
 | `article.js` | reading-progress bar and share button |
 | `book-demo.js` | the booking wizard, slot scheduling and calendar files |
 
-Accordions (age stages, FAQs) are `<details>` elements and need no JavaScript
-at all.
+FAQs are `<details>` elements and need no JavaScript at all. The method wheel
+falls back to a plain list of the five moves when scripting is off.
 
 ## The booking form
 
@@ -113,23 +113,60 @@ request fails.
 Demo slots are published in India Standard Time (fixed UTC+5:30) and rendered
 in the visitor's own time zone.
 
+## The parent-dashboard photo
+
+The violet dashboard band on the home and parents pages has a picture slot on
+its right edge. It ships with `assets/img/parent-child.svg`, a flat
+illustration, as a stand-in.
+
+To use a real photograph, drop it into `assets/img/` named
+`parent-child.png` (or `.webp` / `.jpg`) and rebuild — `tools/sections.mjs`
+picks up the first one that exists and falls back to the illustration.
+
+- A **cut-out with a transparent background** (PNG or WebP) sits best on the
+  violet; a photo with its own background will show that background as a
+  rectangle.
+- The slot crops to a **portrait 320 × 380 box** with `object-fit: cover`, so a
+  landscape photo keeps the exact same column width and alignment but loses its
+  outer edges. Crop the subjects to roughly 4:5 first for the best result.
+- To shift what survives the crop, change `object-position` on
+  `.dash-band__photo img` in `assets/css/etern.css`.
+
 ## Design system
 
 `assets/css/etern.css` holds the whole thing: colour tokens in `oklch`, the
-Fraunces/Plus Jakarta Sans type scale, and component classes (`.btn`, `.card`,
-`.pill`, `.section`, `.stage`, `.player`, `.wizard`…). Accent colours are
-applied by putting `.accent-primary`, `.accent-sky`, `.accent-leaf`,
-`.accent-sun` or `.accent-coral` on a container; children read them through
-`--accent-soft`, `--accent-ink` and `--accent-solid`.
+Outfit / Plus Jakarta Sans type scale, and component classes (`.btn`, `.card`,
+`.pill`, `.section`, `.dash`, `.wheel`, `.player`, `.wizard`…).
+
+Colour works through **seven hue families** — violet, blue, teal, green, amber,
+orange and pink. Each family carries three roles:
+
+| token | role |
+| --- | --- |
+| `--<hue>` | the saturated fill, for solid blocks and buttons |
+| `--<hue>-soft` | the pastel tint, for cards and icon tiles |
+| `--<hue>-ink` | the same hue darkened until it reads as text on cream |
+
+Put `.accent-violet`, `.accent-blue`, `.accent-teal`, `.accent-green`,
+`.accent-amber`, `.accent-orange` or `.accent-pink` on a container and its
+children pick the family up through `--accent-soft`, `--accent-ink` and
+`--accent-solid`. `.card--tint`, `.tile--solid`, `.pill--solid`,
+`.section--tint` and `.section--solid` all read those. The older names
+(`.accent-primary`, `.accent-sky`, `.accent-leaf`, `.accent-sun`,
+`.accent-coral`) still resolve, mapped onto the new families.
+
+Which hue a program, activity category or journal topic gets is decided once in
+`tools/sections.mjs` (`PROGRAM_HUE`, `CATEGORY_HUE`, `TOPIC_HUE`), so a program
+keeps its colour everywhere it appears.
 
 The only external request the pages make is the Google Fonts stylesheet. Drop
 the two `<link rel="preconnect">` tags and the fonts stylesheet from
 `tools/layout.mjs` if you want the site fully self-hosted — the CSS falls back
-to a system serif and sans stack.
+to a system sans stack.
 
 ## Notes on the content
 
 Journal articles and the video library are marked `placeholder: true` in
-`tools/content-etern.mjs`; they are sample copy waiting for the real thing.
-The parent dashboard on `parents.html` shows example data and says so. Programs,
-testimonials, contact details and app-store links are the real ones.
+`tools/content-etern.mjs`; they are sample copy waiting for the real thing. The
+parent dashboard shows example figures. Programs, testimonials, contact details
+and app-store links are the real ones.

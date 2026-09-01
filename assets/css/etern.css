@@ -1217,7 +1217,15 @@ svg.shape { background: none; }
 @media (min-width: 1180px) {
   .dash-band__photo { display: block; margin-bottom: -4.5rem; }
 }
-.dash-band__photo img { width: 100%; height: auto; }
+/* The slot keeps its box whatever the source is: a portrait illustration and a
+   landscape photograph both fill the same footprint, so swapping the file never
+   moves the column. */
+.dash-band__photo img {
+  width: 100%;
+  aspect-ratio: 320 / 380;
+  object-fit: cover;
+  object-position: 50% 10%;
+}
 
 /* the card ---------------------------------------------------------- */
 

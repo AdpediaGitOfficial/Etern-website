@@ -1,5 +1,9 @@
 /** Sections and cards reused across more than one page. */
 
+import { existsSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import { icon } from "./icons.mjs";
 import { esc, url, sectionHeading, decor } from "./layout.mjs";
 import {
@@ -69,6 +73,24 @@ const STAGE_STYLE = [
   { hue: "green", emoji: "🧱" },
   { hue: "blue", emoji: "🚀" },
 ];
+
+/**
+ * The picture in the parent-dashboard band.
+ *
+ * Drop a photograph into assets/img/ named parent-child.png (or .jpg/.webp)
+ * and the next build uses it; the illustration is the fallback when no photo
+ * is there. The slot crops any aspect ratio to the same box, so the column
+ * keeps its width and alignment either way — see .dash-band__photo img.
+ *
+ * A cut-out with a transparent background (PNG/WebP) sits best on the violet,
+ * and a portrait-ish crop of the subjects survives the slot's crop best.
+ */
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+
+export const DASHBOARD_PHOTO =
+  ["parent-child.png", "parent-child.webp", "parent-child.jpg", "parent-child.svg"]
+    .map((name) => `assets/img/${name}`)
+    .find((path) => existsSync(join(ROOT, path))) ?? "assets/img/parent-child.svg";
 
 /** The five method moves. */
 const METHOD_STYLE = [
@@ -448,7 +470,7 @@ export function dashboardPreview(depth = 0, cta = { href: "parents.html", label:
       </div>
 
       <div class="dash-band__photo">
-        <img src="${url("assets/img/parent-child.svg", depth)}" width="320" height="380"
+        <img src="${url(DASHBOARD_PHOTO, depth)}" width="320" height="380"
              alt="A parent and child looking at a tablet together" loading="lazy" decoding="async">
       </div>
     </div>
