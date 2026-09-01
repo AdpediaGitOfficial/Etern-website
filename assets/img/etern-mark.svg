@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Etern Learning">
+  <title>Etern Learning</title>
+  <defs>
+    <linearGradient id="etern-teal" x1="8%" y1="0%" x2="92%" y2="95%">
+      <stop offset="0%" stop-color="#43dad2"/>
+      <stop offset="55%" stop-color="#2ec7ca"/>
+      <stop offset="100%" stop-color="#2ab3c6"/>
+    </linearGradient>
+    <linearGradient id="etern-blue" x1="10%" y1="5%" x2="80%" y2="95%">
+      <stop offset="0%" stop-color="#41c9e2"/>
+      <stop offset="45%" stop-color="#2ba1e2"/>
+      <stop offset="100%" stop-color="#1a76cf"/>
+    </linearGradient>
+  </defs>
+
+  <!-- teal wave: thin at the crown, full round belly bottom-left, tapering right -->
+  <path fill="url(#etern-teal)"
+        d="M100 24C62 105 20 168 18 215c-2 53 40 85 94 81 73-6 144-28 190-56-58 28-134 36-170 14-36-22-44-86-32-230z"/>
+
+  <!-- blue hook nested in the crown -->
+  <path fill="url(#etern-blue)"
+        d="M118 70c34-24 87-28 114 0 26 26 18 74-18 106-20 18-48 30-70 20 36-18 58-48 56-76-2-26-24-42-50-42-12 0-24-3-32-8z"/>
+
+  <!-- blue tail riding the bottom-right edge -->
+  <path fill="url(#etern-blue)" opacity="0.92"
+        d="M302 240c-52 28-112 48-174 52 22-10 48-20 72-30 36-6 72-12 102-22z"/>
+</svg>
