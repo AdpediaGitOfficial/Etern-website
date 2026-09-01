@@ -129,11 +129,12 @@ and finally the illustration.
 - A **cut-out with a transparent background** (PNG or WebP) sits best on the
   violet; a photo with its own background will show that background as a
   rectangle.
-- The slot crops to a **portrait 640 × 760 box** with `object-fit: cover`, so a
-  landscape photo keeps the exact same column width and alignment but loses its
-  outer edges. Crop the subjects to roughly 4:5 first for the best result.
-- To shift what survives the crop, change `object-position` on
-  `.dash-band__photo img` in `assets/css/etern.css`.
+- The slot is sized to the current cut-out's shape (1255 × 1280) and uses
+  `object-fit: contain`, so the whole picture is always shown — a differently
+  shaped file keeps the same column width and simply sits shorter or taller in
+  it, never cropped. Change `aspect-ratio` on `.dash-band__photo img` to match a
+  new picture's own proportions.
+- The picture's bottom edge lines up with the dashboard card's bottom edge.
 
 The two Recent Activity rows in the same card use the app's own artwork,
 `assets/img/activity-stories.webp` and `assets/img/activity-self-help.webp` —

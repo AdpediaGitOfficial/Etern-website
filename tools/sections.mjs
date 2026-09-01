@@ -396,7 +396,7 @@ export function howEternWorks() {
 
 /**
  * The parent dashboard band: copy, the dashboard card itself, and a picture of
- * a parent and child sitting on the bottom edge of the violet ground.
+ * a parent and child ending on the same line as the card.
  */
 export function dashboardPreview(depth = 0, cta = { href: "parents.html", label: "Explore Dashboard" }) {
   const stats = [

@@ -1199,7 +1199,7 @@ svg.shape { background: none; }
 }
 
 .dash-band__grid { display: grid; gap: 2.5rem; align-items: center; }
-@media (min-width: 1280px) { .dash-band__grid { grid-template-columns: 1fr 1.91fr 0.69fr; gap: 2rem; } }
+@media (min-width: 1280px) { .dash-band__grid { grid-template-columns: 1fr 1.83fr 0.77fr; gap: 2rem; } }
 
 .dash-band h2 { font-size: clamp(1.6rem, 1.15rem + 1.35vw, 2.1rem); line-height: 1.25; }
 /* Beside the card the heading holds its two sentences on two lines, so it is
@@ -1225,19 +1225,19 @@ svg.shape { background: none; }
 .dash-band__link:hover { color: oklch(1 0 0); }
 .dash-band__link:hover svg { transform: translateX(5px); }
 
-/* the photo column, cropped by the band like the reference */
+/* the photo column, ending on the same line as the card */
 .dash-band__photo { display: none; align-self: end; }
 @media (min-width: 1280px) {
-  .dash-band__photo { display: block; margin-bottom: -4.5rem; }
+  .dash-band__photo { display: block; }
 }
-/* The slot keeps its box whatever the source is: a portrait illustration and a
-   landscape photograph both fill the same footprint, so swapping the file never
-   moves the column. */
+/* The slot holds the cut-out's own shape and fits the whole picture inside it,
+   so nothing is ever sliced off an edge; a differently shaped file keeps the
+   same column width and simply sits shorter or taller in it. */
 .dash-band__photo img {
   width: 100%;
-  aspect-ratio: 640 / 760;
-  object-fit: cover;
-  object-position: 50% 10%;
+  aspect-ratio: 1255 / 1280;
+  object-fit: contain;
+  object-position: bottom center;
 }
 
 /* the card ---------------------------------------------------------- */
@@ -1261,7 +1261,7 @@ svg.shape { background: none; }
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--card);
-  padding: 0.75rem 0.7rem;
+  padding: 0.75rem 0.6rem;
 }
 /* icon above the label, so a two-word label still fits on one line */
 .dash__stat-head { display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
