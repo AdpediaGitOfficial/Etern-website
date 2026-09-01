@@ -116,12 +116,14 @@ in the visitor's own time zone.
 ## The parent-dashboard photo
 
 The violet dashboard band on the home and parents pages has a picture slot on
-its right edge. It ships with `assets/img/parent-child.svg`, a flat
-illustration, as a stand-in.
+its right edge. It currently uses `assets/img/parent-child.webp`, a
+transparent cut-out of a parent and child, cropped to the slot's portrait box.
+`assets/img/parent-child.svg` is a flat illustration kept as the fallback.
 
-To use a real photograph, drop it into `assets/img/` named
+To change the picture, drop a new one into `assets/img/` named
 `parent-child.png` (or `.webp` / `.jpg`) and rebuild — `tools/sections.mjs`
-picks up the first one that exists and falls back to the illustration.
+picks up the first one that exists, preferring `.png`, then `.webp`, `.jpg`
+and finally the illustration.
 
 - A **cut-out with a transparent background** (PNG or WebP) sits best on the
   violet; a photo with its own background will show that background as a
