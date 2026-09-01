@@ -16,6 +16,8 @@
     star: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg>',
     again:
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8"/><path d="M3 3v5h5"/></svg>',
+    spark:
+      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9l-4.4 3.4 1.4 5.6L12 15l-4.5 3 1.4-5.6L4.5 9l5.6-1.4z"/></svg>',
   };
 
   const CONFETTI = ["⭐", "🎉", "✨", "🌟"];
@@ -83,24 +85,23 @@
     function draw() {
       const round = rounds[index];
       host.innerHTML = `
-        <div class="player__meta">
+        <div class="player__bar">
           <p class="label">Round ${index + 1} of ${rounds.length}</p>
-          <div class="player__track" aria-hidden="true">
-            ${rounds.map((_, i) => `<span class="${i <= index ? "is-on" : ""}"></span>`).join("")}
-          </div>
+          <span class="player__score" aria-label="${stars} stars so far">${ICON.star}<b>${stars}</b></span>
+          <span class="player__dots" aria-hidden="true"><i></i><i></i><i></i></span>
         </div>
         <h3 class="player__prompt">${round.prompt}</h3>
         <div class="player__options" role="group" aria-label="Answer options">
           ${round.options
             .map(
-              (option) => `<button type="button" class="option" data-id="${option.id}" aria-label="${option.label}">
+              (option, i) => `<button type="button" class="option option--t${(i % 4) + 1}" data-id="${option.id}" aria-label="${option.label}">
                 <span class="option__face${option.swatch ? ` sw-${option.swatch}` : ""}">${option.display}</span>
               </button>`,
             )
             .join("")}
         </div>
         <div class="player__status" aria-live="polite">
-          <p class="hint">Tap the answer you think is right.</p>
+          <p class="hint">${ICON.spark} Tap the answer you think is right.</p>
         </div>`;
 
       const status = host.querySelector(".player__status");

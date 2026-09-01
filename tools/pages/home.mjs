@@ -107,25 +107,24 @@ function tryLesson() {
 
   const tabs = featured
     .map(
-      (a, i) => `<button type="button" class="chip chip--lg" data-lesson-tab="${a.slug}" aria-pressed="${i === 0}">
-        <span aria-hidden="true">${a.emoji}</span> ${esc(a.title)}
-      </button>`,
+      (a, i) => `<button type="button" class="try-chip" data-lesson-tab="${a.slug}" aria-pressed="${i === 0}">
+          <span aria-hidden="true">${a.emoji}</span> ${esc(a.title)}
+        </button>`,
     )
-    .join("\n      ");
+    .join("\n        ");
 
   const briefs = featured
     .map(
       (a, i) => `<div data-lesson-brief="${a.slug}"${i > 0 ? " hidden" : ""}>
-      <h3 class="h3" style="font-size:1.125rem">${esc(a.title)}</h3>
-      <p class="small leading-relaxed muted mt-2">${esc(a.longDescription)}</p>
-      <dl class="grid mt-4 small" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem">
-        <div><dt class="label">Ages</dt><dd class="font-semibold mt-2">${a.ageMin}–${a.ageMax}</dd></div>
-        <div><dt class="label">Level</dt><dd class="font-semibold mt-2">${a.difficulty}</dd></div>
-        <div><dt class="label">Stars</dt><dd class="font-semibold mt-2">${a.points}</dd></div>
-      </dl>
-    </div>`,
+          <p class="try-brief">${esc(a.longDescription)}</p>
+          <ul class="try-meta">
+            <li><span class="label">Ages</span><b>${a.ageMin}–${a.ageMax}</b></li>
+            <li><span class="label">Level</span><b>${esc(a.difficulty)}</b></li>
+            <li><span class="label">Stars</span><b>${icon("star")}${a.points}</b></li>
+          </ul>
+        </div>`,
     )
-    .join("\n      ");
+    .join("\n        ");
 
   const data = featured.map((a) => ({
     slug: a.slug,
@@ -135,39 +134,44 @@ function tryLesson() {
     pairs: a.pairs ?? null,
   }));
 
-  return `<section class="section section--cream" id="try-a-lesson">
+  return `<section class="section section--cream try-band" id="try-a-lesson">
   ${decor([
-    ["green-soft", "pebble", 14, "right:-4rem;bottom:6%", "float-mid"],
-    ["pink-soft", "dot", 4, "left:6%;top:10%"],
+    ["pink-soft", "pebble", 13, "left:-5rem;top:-3rem", "float-slow"],
+    ["green-soft", "pebble", 15, "right:-4rem;bottom:-4rem", "float-mid"],
+    ["amber", "star", 1.4, "left:47%;top:9%", "float-mid"],
+    ["pink", "star", 0.9, "left:4%;bottom:8%"],
   ])}
-  <div class="shell">
-    <div class="split split--start" style="gap:3rem">
-      <div class="stack stack-6">
-        ${sectionHeading({
-          eyebrow: "Try it now — no signup",
-          title: "Try a Little Etern Adventure",
-          description:
-            "Real activities from the Etern library, playable right here. Hand your phone to your child and watch what happens.",
-        })}
 
-        <div class="chip-row" data-lesson-tabs>
-      ${tabs}
-        </div>
+  <div class="shell try-grid">
+    <div class="try-copy">
+      <p class="eyebrow">${icon("sparkles")} Try it now — no signup</p>
+      <h2>Try a Little<br><span class="rainbow-text">Etern Adventure</span></h2>
+      <p class="lead">Real activities from the Etern library, playable right here. Hand your phone
+        to your child and watch what happens.</p>
 
-        <div class="card" style="border-radius:var(--radius-2xl)">
-      ${briefs}
-        </div>
-
-        <a class="btn btn--outline w-fit" href="activities.html">Browse all activities ${icon("arrow-right")}</a>
+      <div class="try-chips" data-lesson-tabs>
+        ${tabs}
       </div>
 
-      <div class="card" style="border-radius:2.25rem;padding:1.5rem;box-shadow:var(--shadow-lift)">
-        <div data-player data-player-source="lesson-data"></div>
-        <noscript>
-          <p class="small muted">These activities need JavaScript to play.
-            <a class="link-arrow" href="activities.html">See the full activity library</a>
-          </p>
-        </noscript>
+      <div class="try-briefs">
+        ${briefs}
+      </div>
+
+      <a class="btn btn--primary btn--lg" href="${url("activities.html", 0)}">Browse all activities ${icon("arrow-right")}</a>
+    </div>
+
+    <div class="try-stage">
+      <div class="device">
+        <span class="device__cam" aria-hidden="true"></span>
+        <div class="device__screen">
+          <div data-player data-player-source="lesson-data"></div>
+          <noscript>
+            <p class="small muted">These activities need JavaScript to play.
+              <a class="link-arrow" href="${url("activities.html", 0)}">See the full activity library</a>
+            </p>
+          </noscript>
+        </div>
+        <span class="device__bar" aria-hidden="true"></span>
       </div>
     </div>
   </div>
