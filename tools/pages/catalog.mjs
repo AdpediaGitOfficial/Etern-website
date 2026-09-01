@@ -113,7 +113,7 @@ export function programDetailPage(program) {
             ${program.outcomes
               .map(
                 (o) => `<li class="card flex items-start gap-3 small" style="border-radius:var(--radius-md);padding:1rem">
-              <span class="tile tile--sm accent-leaf" style="width:1.25rem;height:1.25rem;border-radius:999px;margin-top:0.15rem">${icon("check", { size: 12 })}</span>
+              <span class="tile tile--sm accent-green" style="width:1.25rem;height:1.25rem;border-radius:999px;margin-top:0.15rem">${icon("check", { size: 12 })}</span>
               <span>${esc(o)}</span>
             </li>`,
               )

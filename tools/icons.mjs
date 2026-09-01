@@ -15,15 +15,11 @@ const PATHS = {
   "arrow-left": '<path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/>',
   "arrow-up-right": '<path d="M7 17L17 7"/><path d="M8 7h9v9"/>',
   "chevron-down": '<path d="M6 9l6 6 6-6"/>',
-  "chevron-left": '<path d="M15 18l-6-6 6-6"/>',
-  "chevron-right": '<path d="M9 18l6-6-6-6"/>',
   menu: '<path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/>',
   x: '<path d="M6 6l12 12"/><path d="M18 6L6 18"/>',
   check: '<path d="M20 6L9 17l-5-5"/>',
   play: ['<path d="M7 4.5v15l12-7.5z"/>', true],
   "play-circle": '<circle cx="12" cy="12" r="9.5"/><path d="M10 8.5l6 3.5-6 3.5z"/>',
-  pause: '<path d="M9 4v16"/><path d="M15 4v16"/>',
-  "rotate-ccw": '<path d="M3 12a9 9 0 1 0 2.6-6.4L3 8"/><path d="M3 3v5h5"/>',
   star: ['<path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/>', true],
   quote: ['<path d="M4 7h7v6.5A5.5 5.5 0 0 1 5.5 19v-2.4A3 3 0 0 0 8.5 14H4z"/><path d="M13 7h7v6.5a5.5 5.5 0 0 1-5.5 5.5v-2.4a3 3 0 0 0 3-2.6H13z"/>', true],
   "calendar-days": '<rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M8 2.5v4"/><path d="M16 2.5v4"/><path d="M3 10h18"/>',
@@ -39,7 +35,6 @@ const PATHS = {
   palette: '<path d="M12 2.5a9.5 9.5 0 1 0 0 19 1.9 1.9 0 0 0 1.9-1.9c0-.5-.2-1-.5-1.3a1.9 1.9 0 0 1 1.4-3.2h2.2a4.5 4.5 0 0 0 4.5-4.5c0-4.4-4.3-8.1-9.5-8.1z"/><circle cx="7.5" cy="10.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="7.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="10" r="1.1" fill="currentColor" stroke="none"/>',
   "book-open": '<path d="M12 7.5v13"/><path d="M2.5 4.5H8a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2.5z"/><path d="M21.5 4.5H16a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h6.5z"/>',
   "heart-handshake": '<path d="M20.6 5a5.2 5.2 0 0 0-7.4 0L12 6.2 10.8 5A5.2 5.2 0 0 0 3.4 12.4l1.2 1.2L12 21l7.4-7.4 1.2-1.2A5.2 5.2 0 0 0 20.6 5z"/><path d="M9 11.5l2 2 1.4-1.4 2.1 2.1"/>',
-  award: '<circle cx="12" cy="8.5" r="5.5"/><path d="M8.4 13.3L7 21.5l5-2.8 5 2.8-1.4-8.2"/>',
   flame: '<path d="M12 21.5c3.9 0 6.8-2.6 6.8-6.3 0-2.9-1.9-4.9-3.4-7.3C14 5.6 13 3.4 12 2.5c-1 1.9-2 3.1-3.4 5.4C7.1 10.3 5.2 12.3 5.2 15.2c0 3.7 2.9 6.3 6.8 6.3z"/><path d="M12 17.8c1.6 0 2.8-1 2.8-2.5 0-1.5-1.4-2.4-2.8-4-1.4 1.6-2.8 2.5-2.8 4 0 1.5 1.2 2.5 2.8 2.5z"/>',
   "trending-up": '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
   sparkles: '<path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/>',
@@ -58,7 +53,6 @@ const PATHS = {
   download: '<path d="M12 3.5v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20.5h16"/>',
   globe: '<circle cx="12" cy="12" r="9.5"/><path d="M2.6 12h18.8"/><path d="M12 2.5a15 15 0 0 1 0 19"/><path d="M12 2.5a15 15 0 0 0 0 19"/>',
   "party-popper": '<path d="M4.5 20.5l3-11 8.5 8.5z"/><path d="M15 3.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/><path d="M20.5 13.5h.01"/><path d="M19.5 19.5h.01"/><path d="M9.5 3.5h.01"/>',
-  "mouse-pointer": '<path d="M4.5 3.5l6.5 17 2.4-6.6 6.6-2.4z"/>',
   puzzle: '<path d="M9.5 3.8a2.2 2.2 0 0 1 4.4 0V5H17a1 1 0 0 1 1 1v3.1h1.2a2.2 2.2 0 0 1 0 4.4H18V17a1 1 0 0 1-1 1h-3.1v1.2a2.2 2.2 0 0 1-4.4 0V18H6a1 1 0 0 1-1-1v-3.5H3.8a2.2 2.2 0 0 1 0-4.4H5V6a1 1 0 0 1 1-1h3.5z"/>',
   blocks: '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
   music: '<path d="M9 17.5V4.8l12-2v12.7"/><circle cx="6" cy="17.5" r="3"/><circle cx="18" cy="15.5" r="3"/>',
@@ -77,4 +71,3 @@ export function icon(name, opts = {}) {
   return `<svg${cls} width="${size}" height="${size}" viewBox="0 0 24 24" ${filled ? FILL : STROKE} aria-hidden="true" focusable="false">${inner}</svg>`;
 }
 
-export const ICON_NAMES = Object.keys(PATHS);

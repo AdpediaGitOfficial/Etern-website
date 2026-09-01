@@ -22,7 +22,7 @@ export const PROGRAM_ICONS = {
   "shield-check": "shield-check",
 };
 
-export const STEP_ICONS = {
+const STEP_ICONS = {
   "play-circle": "play-circle",
   hand: "hand",
   sparkles: "sparkles",
@@ -87,7 +87,7 @@ const STAGE_STYLE = [
  */
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
-export const DASHBOARD_PHOTO =
+const DASHBOARD_PHOTO =
   ["parent-child.png", "parent-child.webp", "parent-child.jpg", "parent-child.svg"]
     .map((name) => `assets/img/${name}`)
     .find((path) => existsSync(join(ROOT, path))) ?? "assets/img/parent-child.svg";
@@ -96,15 +96,14 @@ export const DASHBOARD_PHOTO =
  * The artwork in the home hero.
  *
  * Drop a new illustration into assets/img/ named hero-scene.png (or .webp
- * /.jpg) and the next build uses it in place of hero-world. The slot rounds
- * its corners and fades into the sky behind it, so a cut-out with a
- * transparent background and a full illustration with its own sky both sit
- * correctly — see .scene__stage img.
+ * /.jpg) and the next build uses it; hero.jpg, the supplied original, is the
+ * fallback. Compose it like the current one, with the subject on the right and
+ * open sky on the left for the headline — see .home-hero__art.
  */
 export const HERO_ART =
-  ["hero-scene.png", "hero-scene.webp", "hero-scene.jpg", "hero-world.webp", "hero-world.png"]
+  ["hero-scene.png", "hero-scene.webp", "hero-scene.jpg", "hero.jpg"]
     .map((name) => `assets/img/${name}`)
-    .find((path) => existsSync(join(ROOT, path))) ?? "assets/img/hero-world.webp";
+    .find((path) => existsSync(join(ROOT, path))) ?? "assets/img/hero.jpg";
 
 /** The five method moves. */
 const METHOD_STYLE = [

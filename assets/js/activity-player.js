@@ -192,7 +192,7 @@
             .join("")}
         </div>
         <div class="flex items-center justify-between gap-4 mt-6" aria-live="polite">
-          <p class="small font-semibold" style="color:var(--leaf-foreground)">
+          <p class="small font-semibold" style="color:var(--green-ink)">
             ${complete ? `All pairs found in ${moves} moves. Great Job! ⭐` : ""}
           </p>
           <button type="button" class="btn btn--outline" data-shuffle>${ICON.again} Shuffle</button>

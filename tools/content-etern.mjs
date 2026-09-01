@@ -9,8 +9,6 @@
 
 export const BRAND = {
   name: "Etern Learning",
-  tagline: "A Little Curiosity. A Lifetime of Possibilities.",
-  subTagline: "Play. Explore. Create. Grow.",
   description:
     "Etern Learning creates meaningful early-learning experiences for children aged 3–7, blending creativity, academic foundation, emotional development and safety education into short guided sessions children love to follow.",
   phone: "+91 6282 21 8100",
@@ -42,7 +40,6 @@ export const PROGRAMS = [
     category: "Creativity",
     ageMin: 3,
     ageMax: 7,
-    accent: "coral",
     icon: "palette",
     skills: ["Imagination", "Fine motor skills", "Self-expression", "Problem solving", "Focus"],
     outcomes: [
@@ -63,7 +60,6 @@ export const PROGRAMS = [
     category: "Academics",
     ageMin: 3,
     ageMax: 7,
-    accent: "sky",
     icon: "book-open",
     skills: [
       "Letter recognition",
@@ -90,7 +86,6 @@ export const PROGRAMS = [
     category: "Emotional skills",
     ageMin: 3,
     ageMax: 7,
-    accent: "leaf",
     icon: "heart-handshake",
     skills: ["Emotional literacy", "Empathy", "Communication", "Sharing", "Confidence"],
     outcomes: [
@@ -111,7 +106,6 @@ export const PROGRAMS = [
     category: "Wellbeing",
     ageMin: 3,
     ageMax: 7,
-    accent: "sun",
     icon: "shield-check",
     skills: ["Body safety", "Trusted adults", "Healthy habits", "Awareness", "Speaking up"],
     outcomes: [
@@ -141,7 +135,6 @@ export const AGE_STAGES = [
     sampleLessons: ["Find the Red Circle", "Animal Sound Hunt", "Clap the Rhythm"],
     parentBenefit: "Five focused minutes a day that end in a real off-screen activity.",
     recommendedPrograms: ["creative-skill-development", "safety-and-wellbeing"],
-    accent: "sun",
   },
   {
     id: "explore",
@@ -159,7 +152,6 @@ export const AGE_STAGES = [
     sampleLessons: ["Letter Sound Safari", "Count the Stars", "How Does Maya Feel?"],
     parentBenefit: "Clear weekly view of which skills are clicking and which need repetition.",
     recommendedPrograms: ["academic-foundation", "social-emotional-growth"],
-    accent: "sky",
   },
   {
     id: "build",
@@ -177,7 +169,6 @@ export const AGE_STAGES = [
     sampleLessons: ["Build a Word", "Shape Builders", "Tell It Again"],
     parentBenefit: "Progress tracking that shows growth over weeks, not just today's score.",
     recommendedPrograms: ["academic-foundation", "creative-skill-development"],
-    accent: "primary",
   },
   {
     id: "grow",
@@ -195,62 +186,6 @@ export const AGE_STAGES = [
     sampleLessons: ["Read & Retell", "My Own Comic Strip", "My Trusted Adults"],
     parentBenefit: "A learning history you can actually show a teacher.",
     recommendedPrograms: ["social-emotional-growth", "safety-and-wellbeing"],
-    accent: "leaf",
-  },
-];
-
-export const LEARNING_OBJECTS = [
-  {
-    id: "puzzle",
-    label: "Puzzle",
-    title: "Problem Solving",
-    icon: "puzzle",
-    description:
-      "Trying, failing, adjusting and trying again — the habit behind every subject they will ever study.",
-    accent: "primary",
-  },
-  {
-    id: "paint",
-    label: "Paint palette",
-    title: "Creative Expression",
-    icon: "palette",
-    description:
-      "Colour, texture and mess with a purpose. Children learn that their ideas are worth making real.",
-    accent: "coral",
-  },
-  {
-    id: "book",
-    label: "Book",
-    title: "Language & Communication",
-    icon: "book-open",
-    description:
-      "Stories build vocabulary, listening and the confidence to explain what they think.",
-    accent: "sky",
-  },
-  {
-    id: "numbers",
-    label: "Number blocks",
-    title: "Early Numeracy",
-    icon: "blocks",
-    description: "Counting, comparing and grouping real objects before any number ever hits paper.",
-    accent: "leaf",
-  },
-  {
-    id: "globe",
-    label: "Globe",
-    title: "Curiosity & Discovery",
-    icon: "globe",
-    description: "Animals, weather, places and people — the questions that keep a mind switched on.",
-    accent: "sun",
-  },
-  {
-    id: "music",
-    label: "Music note",
-    title: "Rhythm & Movement",
-    icon: "music",
-    description:
-      "Rhythm sharpens memory and attention while getting children out of the chair and moving.",
-    accent: "primary",
   },
 ];
 
@@ -296,7 +231,6 @@ export const HOW_IT_WORKS_STEPS = [
     description: "A short guided lesson, calm pacing, no noisy distractions.",
     detail: "5–8 minutes of screen time, designed to end cleanly.",
     icon: "play-circle",
-    accent: "sky",
   },
   {
     id: "do",
@@ -304,7 +238,6 @@ export const HOW_IT_WORKS_STEPS = [
     description: "The screen goes away and the activity begins with real objects.",
     detail: "Everything needed is usually already at home.",
     icon: "hand",
-    accent: "leaf",
   },
   {
     id: "create",
@@ -312,7 +245,6 @@ export const HOW_IT_WORKS_STEPS = [
     description: "The child makes something of their own from the idea they just learned.",
     detail: "Drawing, building, moving, storytelling.",
     icon: "sparkles",
-    accent: "coral",
   },
   {
     id: "share",
@@ -320,7 +252,6 @@ export const HOW_IT_WORKS_STEPS = [
     description: "They show a parent and explain it — the step that locks the learning in.",
     detail: "Parents see the work, not just a completion tick.",
     icon: "users",
-    accent: "sun",
   },
 ];
 

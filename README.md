@@ -121,13 +121,13 @@ with the picture above the copy and cropped to the islands on phones.
 
 To change the artwork, drop a file into `assets/img/` named `hero-scene.png`
 (or `.webp` / `.jpg`) and rebuild — `tools/sections.mjs` (`HERO_ART`) picks up
-the first one that exists and falls back to `hero-world`. Compose it like this
-one, with the subject on the right and open sky on the left, so the headline has
+the first one that exists, falling back to `hero.jpg`. Compose it like this one,
+with the subject on the right and open sky on the left, so the headline has
 somewhere quiet to sit; 16:9 keeps the hero's proportions.
 
 `hero.jpg` is the supplied original, kept beside the optimised `.webp` the site
-loads. `1.png`–`4.png` and the `kid-*.webp` cut-outs made from them are in the
-folder but unused: they were tried in the hero and taken back out.
+loads. `1.png`–`4.png` are the character cut-outs that were tried in the hero
+and taken back out; nothing loads them.
 
 ## The parent-dashboard photo
 
@@ -180,9 +180,7 @@ Put `.accent-violet`, `.accent-blue`, `.accent-teal`, `.accent-green`,
 `.accent-amber`, `.accent-orange` or `.accent-pink` on a container and its
 children pick the family up through `--accent-soft`, `--accent-ink` and
 `--accent-solid`. `.card--tint`, `.tile--solid`, `.pill--solid`,
-`.section--tint` and `.section--solid` all read those. The older names
-(`.accent-primary`, `.accent-sky`, `.accent-leaf`, `.accent-sun`,
-`.accent-coral`) still resolve, mapped onto the new families.
+`.section--solid` all read those.
 
 Which hue a program, activity category or journal topic gets is decided once in
 `tools/sections.mjs` (`PROGRAM_HUE`, `CATEGORY_HUE`, `TOPIC_HUE`), so a program

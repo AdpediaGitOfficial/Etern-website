@@ -15,7 +15,6 @@
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
 
@@ -69,38 +68,18 @@
 
   /* --- roles ---------------------------------------------------------- */
   --primary: var(--orange);           /* the call to action */
-  --primary-ink: var(--orange-ink);
   --primary-foreground: oklch(0.995 0.008 60);
 
-  --brand-teal: var(--teal);
-  --brand-blue: var(--blue);
-  --brand-orange: var(--orange);
-
   --secondary: oklch(0.955 0.018 78);
-  --muted: oklch(0.958 0.014 80);
 
   --destructive: oklch(0.577 0.19 27);
-  --destructive-foreground: oklch(0.99 0.005 40);
 
   --border: oklch(0.905 0.017 78);
   --ring: var(--violet);
 
   /* legacy aliases, so older accent names keep resolving */
-  --accent: var(--blue);
-  --accent-foreground: oklch(0.99 0.01 245);
-  --sky: var(--blue-soft);
-  --sky-foreground: var(--blue-ink);
-  --leaf: var(--green-soft);
-  --leaf-foreground: var(--green-ink);
-  --sun: var(--amber-soft);
-  --sun-foreground: var(--amber-ink);
-  --coral: var(--orange);
-  --coral-foreground: var(--primary-foreground);
-  --primary-soft: var(--teal-soft);
-
   --shadow-soft: 0 1px 2px oklch(0.3 0.06 267 / 0.04), 0 12px 32px -12px oklch(0.3 0.06 267 / 0.14);
   --shadow-lift: 0 2px 4px oklch(0.3 0.06 267 / 0.05), 0 28px 60px -24px oklch(0.3 0.06 267 / 0.22);
-  --shadow-pop: 0 4px 0 0 var(--pop, oklch(0.3 0.06 267 / 0.1));
 
   --shell: 80rem;
   --gutter: 1.25rem;
@@ -216,7 +195,6 @@ h1, h2, h3, h4 {
 .section--cream { background-color: var(--cream); }
 
 /* a whole section wearing one hue */
-.section--tint { background-color: var(--accent-soft, var(--violet-soft)); }
 .section--solid {
   background-color: var(--accent-solid, var(--violet));
   color: oklch(1 0 0);
@@ -236,15 +214,12 @@ h1, h2, h3, h4 {
 .section--solid .dash .muted,
 .section--solid .dash .label { color: var(--muted-foreground); }
 
-.section--dark { background-color: var(--foreground); color: var(--background); }
-.section--dark h1, .section--dark h2, .section--dark h3 { color: var(--background); }
 
 .stack { display: flex; flex-direction: column; }
 .stack-2 { gap: 0.5rem; } .stack-3 { gap: 0.75rem; } .stack-4 { gap: 1rem; }
 .stack-5 { gap: 1.25rem; } .stack-6 { gap: 1.5rem; } .stack-8 { gap: 2rem; }
 
 .grid { display: grid; gap: 1.25rem; }
-.grid--gap-lg { gap: 2rem; }
 
 @media (min-width: 640px) {
   .grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -267,16 +242,6 @@ h1, h2, h3, h4 {
 
 /* ------------------------------------------------------ 4. organic decor */
 
-/* soft blurred glow */
-.blob {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(60px);
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 0;
-}
-
 /* crisp organic shape — the pastel pebbles scattered through the reference */
 .shape {
   position: absolute;
@@ -289,11 +254,6 @@ h1, h2, h3, h4 {
 .shape--drop { border-radius: 70% 30% 60% 40% / 45% 62% 38% 55%; }
 .shape--dot { border-radius: 999px; }
 .shape--diamond { border-radius: 0.28em; rotate: 45deg; }
-.shape--ring {
-  border-radius: 999px;
-  background: none;
-  border: 6px solid var(--shape-fill, var(--teal-soft));
-}
 /* a decorative <svg> draws itself; it only wants .shape's positioning */
 svg.shape { background: none; }
 .shape--star {
@@ -432,8 +392,6 @@ svg.shape { background: none; }
 }
 .btn--accent:hover { transform: translateY(-2px); filter: brightness(1.06); }
 
-.btn--brand { background: var(--primary); color: var(--primary-foreground); box-shadow: var(--shadow-lift); }
-.btn--brand:hover { transform: translateY(-3px); }
 
 .btn--outline { border-color: var(--border); background: var(--card); color: var(--foreground); }
 .btn--outline:hover {
@@ -448,8 +406,6 @@ svg.shape { background: none; }
 .btn--ghost { color: var(--muted-foreground); }
 .btn--ghost:hover { background: var(--secondary); color: var(--foreground); }
 
-.btn--white { background: oklch(1 0 0); color: var(--accent-ink, var(--violet-ink)); }
-.btn--white:hover { transform: translateY(-2px); }
 
 .btn[disabled] { opacity: 0.5; pointer-events: none; }
 
@@ -487,12 +443,6 @@ svg.shape { background: none; }
 .accent-pink   { --accent-soft: var(--pink-soft);   --accent-ink: var(--pink-ink);   --accent-solid: var(--pink); }
 
 /* names the content files already use, mapped onto the new families */
-.accent-primary { --accent-soft: var(--teal-soft);   --accent-ink: var(--teal-ink);   --accent-solid: var(--teal); }
-.accent-sky     { --accent-soft: var(--blue-soft);   --accent-ink: var(--blue-ink);   --accent-solid: var(--blue); }
-.accent-leaf    { --accent-soft: var(--green-soft);  --accent-ink: var(--green-ink);  --accent-solid: var(--green); }
-.accent-sun     { --accent-soft: var(--amber-soft);  --accent-ink: var(--amber-ink);  --accent-solid: var(--amber); }
-.accent-coral   { --accent-soft: var(--orange-soft); --accent-ink: var(--orange-ink); --accent-solid: var(--orange); }
-.accent-accent  { --accent-soft: var(--violet-soft); --accent-ink: var(--violet-ink); --accent-solid: var(--violet); }
 
 .tile {
   display: grid;
@@ -524,7 +474,6 @@ svg.shape { background: none; }
   color: var(--accent-ink, var(--foreground));
 }
 .pill--plain { background: var(--surface); color: var(--muted-foreground); }
-.pill--outline { background: transparent; border: 1.5px solid var(--border); color: var(--muted-foreground); }
 .pill--solid { background: var(--accent-solid, var(--violet)); color: oklch(1 0 0); }
 
 /* --------------------------------------------------------------- 8. cards */
@@ -537,11 +486,7 @@ svg.shape { background: none; }
   padding: 1.5rem;
 }
 .card--pad-lg { padding: 1.75rem; }
-.card--flat { background: color-mix(in oklab, var(--card) 70%, transparent); }
 .card--surface { background: var(--surface); }
-.card--dashed { border-style: dashed; background: var(--surface); }
-.card--bordered { border-width: 2px; }
-.card--soft { box-shadow: var(--shadow-soft); }
 
 /* the tinted card — a pastel wash of the section's hue, no visible border */
 .card--tint {
@@ -1661,12 +1606,13 @@ textarea.field { height: auto; min-height: 6rem; border-radius: var(--radius-md)
 .option:hover { background: var(--violet-soft); transform: translateY(-3px); box-shadow: var(--shadow-soft); }
 .option__face { font-family: var(--font-display); font-size: 2rem; font-weight: 700; }
 @media (min-width: 640px) { .option__face { font-size: 2.4rem; } }
-.option__face.sw-coral { color: var(--orange); }
-.option__face.sw-sun { color: var(--amber); }
-.option__face.sw-sky { color: var(--blue); }
-.option__face.sw-leaf { color: var(--green); }
-.option__face.sw-primary { color: var(--teal); }
-.option__face.sw-accent { color: var(--violet); }
+.option__face.sw-orange { color: var(--orange); }
+.option__face.sw-amber { color: var(--amber); }
+.option__face.sw-blue { color: var(--blue); }
+.option__face.sw-green { color: var(--green); }
+.option__face.sw-teal { color: var(--teal); }
+.option__face.sw-violet { color: var(--violet); }
+.option__face.sw-pink { color: var(--pink); }
 
 .option.is-correct { background: var(--green-soft); box-shadow: inset 0 0 0 3px var(--green); transform: none; }
 .option.is-wrong { background: oklch(0.577 0.19 27 / 0.12); box-shadow: inset 0 0 0 3px var(--destructive); animation: shake 0.4s; }
@@ -1873,7 +1819,6 @@ textarea.field { height: auto; min-height: 6rem; border-radius: var(--radius-md)
 .flex-wrap { flex-wrap: wrap; }
 .items-center { align-items: center; }
 .items-start { align-items: flex-start; }
-.items-baseline { align-items: baseline; }
 .items-end { align-items: flex-end; }
 .justify-between { justify-content: space-between; }
 .justify-center { justify-content: center; }
@@ -1883,14 +1828,10 @@ textarea.field { height: auto; min-height: 6rem; border-radius: var(--radius-md)
 .mt-auto { margin-top: auto; }
 .text-center { text-align: center; }
 .w-fit { width: fit-content; }
-.max-w-prose { max-width: 44rem; }
-.max-w-md { max-width: 28rem; }
 .full { width: 100%; }
-.relative { position: relative; }
 .grow { flex: 1; }
 .font-semibold { font-weight: 600; }
 .leading-relaxed { line-height: 1.7; }
-.emoji-lg { font-size: 1.5rem; line-height: 1; }
 .note {
   border-radius: var(--radius-md);
   background: var(--amber-soft);
@@ -1930,7 +1871,7 @@ textarea.field { height: auto; min-height: 6rem; border-radius: var(--radius-md)
 /* -------------------------------------------------------------- 28. print */
 
 @media print {
-  .site-header, .site-footer, .demo-cta, .scene__controls, .nav-toggle, .to-top { display: none !important; }
+  .site-header, .site-footer, .demo-cta, .nav-toggle, .to-top { display: none !important; }
   body { background: #fff; }
   .section > .shell { padding-block: 1rem; }
 }

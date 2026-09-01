@@ -12,7 +12,6 @@ export const ACTIVITIES = [
     longDescription:
       "A first colour-recognition activity. The child hears one colour name and finds it among four options — the simplest possible version of listen, look, decide.",
     engine: "choice",
-    activityType: "colors",
     category: "Colors",
     ageMin: 3,
     ageMax: 5,
@@ -20,34 +19,33 @@ export const ACTIVITIES = [
     points: 10,
     skills: ["Colour recognition", "Listening", "Focus"],
     emoji: "🔴",
-    accent: "coral",
     featuredOnHome: true,
     rounds: [
       {
         prompt: "Can you find the red circle?",
         options: [
-          { id: "blue", display: "●", label: "Blue circle", swatch: "sky" },
-          { id: "yellow", display: "●", label: "Yellow circle", swatch: "sun" },
-          { id: "red", display: "●", label: "Red circle", swatch: "coral", correct: true },
-          { id: "green", display: "●", label: "Green circle", swatch: "leaf" },
+          { id: "blue", display: "●", label: "Blue circle", swatch: "blue" },
+          { id: "yellow", display: "●", label: "Yellow circle", swatch: "amber" },
+          { id: "red", display: "●", label: "Red circle", swatch: "orange", correct: true },
+          { id: "green", display: "●", label: "Green circle", swatch: "green" },
         ],
       },
       {
         prompt: "Now find the green circle.",
         options: [
-          { id: "green", display: "●", label: "Green circle", swatch: "leaf", correct: true },
-          { id: "red", display: "●", label: "Red circle", swatch: "coral" },
-          { id: "blue", display: "●", label: "Blue circle", swatch: "sky" },
-          { id: "yellow", display: "●", label: "Yellow circle", swatch: "sun" },
+          { id: "green", display: "●", label: "Green circle", swatch: "green", correct: true },
+          { id: "red", display: "●", label: "Red circle", swatch: "orange" },
+          { id: "blue", display: "●", label: "Blue circle", swatch: "blue" },
+          { id: "yellow", display: "●", label: "Yellow circle", swatch: "amber" },
         ],
       },
       {
         prompt: "Last one — find the yellow circle.",
         options: [
-          { id: "blue", display: "●", label: "Blue circle", swatch: "sky" },
-          { id: "yellow", display: "●", label: "Yellow circle", swatch: "sun", correct: true },
-          { id: "green", display: "●", label: "Green circle", swatch: "leaf" },
-          { id: "teal", display: "●", label: "Teal circle", swatch: "primary" },
+          { id: "blue", display: "●", label: "Blue circle", swatch: "blue" },
+          { id: "yellow", display: "●", label: "Yellow circle", swatch: "amber", correct: true },
+          { id: "green", display: "●", label: "Green circle", swatch: "green" },
+          { id: "teal", display: "●", label: "Teal circle", swatch: "teal" },
         ],
       },
     ],
@@ -59,7 +57,6 @@ export const ACTIVITIES = [
     longDescription:
       "Counting with meaning. The child counts a group of objects and matches it to a numeral, building one-to-one correspondence rather than rote chanting.",
     engine: "choice",
-    activityType: "counting",
     category: "Counting",
     ageMin: 4,
     ageMax: 6,
@@ -67,7 +64,6 @@ export const ACTIVITIES = [
     points: 15,
     skills: ["Early numeracy", "One-to-one matching", "Counting"],
     emoji: "⭐",
-    accent: "sun",
     featuredOnHome: true,
     rounds: [
       {
@@ -106,7 +102,6 @@ export const ACTIVITIES = [
     longDescription:
       "Shape matching sharpens visual discrimination — the same skill a child later uses to tell b from d.",
     engine: "choice",
-    activityType: "shapes",
     category: "Shapes",
     ageMin: 3,
     ageMax: 6,
@@ -114,7 +109,6 @@ export const ACTIVITIES = [
     points: 15,
     skills: ["Shape recognition", "Visual discrimination", "Matching"],
     emoji: "🔷",
-    accent: "sky",
     featuredOnHome: true,
     rounds: [
       {
@@ -153,7 +147,6 @@ export const ACTIVITIES = [
     longDescription:
       "Letter-sound matching, one of the strongest early predictors of reading confidence.",
     engine: "choice",
-    activityType: "letters",
     category: "Letters",
     ageMin: 4,
     ageMax: 7,
@@ -161,7 +154,6 @@ export const ACTIVITIES = [
     points: 20,
     skills: ["Letter recognition", "Phonics", "Listening"],
     emoji: "🅰️",
-    accent: "primary",
     featuredOnHome: true,
     rounds: [
       {
@@ -200,7 +192,6 @@ export const ACTIVITIES = [
     longDescription:
       "Working memory and patience in one game. Children hold images in mind while planning their next move.",
     engine: "memory",
-    activityType: "memory",
     category: "Memory",
     ageMin: 4,
     ageMax: 7,
@@ -208,7 +199,6 @@ export const ACTIVITIES = [
     points: 25,
     skills: ["Working memory", "Concentration", "Patience"],
     emoji: "🧠",
-    accent: "leaf",
     featuredOnHome: true,
     pairs: ["🐘", "🦊", "🐢", "🦜", "🐝", "🐬"],
   },
@@ -218,7 +208,6 @@ export const ACTIVITIES = [
     description: "Match each sound to the animal that makes it.",
     longDescription: "Listening and vocabulary practice built around animals children already love.",
     engine: "choice",
-    activityType: "matching",
     category: "Matching",
     ageMin: 3,
     ageMax: 5,
@@ -226,7 +215,6 @@ export const ACTIVITIES = [
     points: 15,
     skills: ["Listening", "Vocabulary", "Matching"],
     emoji: "🦁",
-    accent: "sun",
     rounds: [
       {
         prompt: "Who says 'moo'?",
@@ -264,7 +252,6 @@ export const ACTIVITIES = [
     longDescription:
       "Emotional literacy practice. Giving a feeling a name is the first step to managing it.",
     engine: "choice",
-    activityType: "storytelling",
     category: "Storytelling",
     ageMin: 4,
     ageMax: 7,
@@ -272,7 +259,6 @@ export const ACTIVITIES = [
     points: 20,
     skills: ["Emotional literacy", "Empathy", "Vocabulary"],
     emoji: "😊",
-    accent: "coral",
     rounds: [
       {
         prompt: "Maya's ice cream fell on the floor. How does she feel? 😢",
@@ -310,7 +296,6 @@ export const ACTIVITIES = [
     longDescription:
       "Pattern completion is early logical thinking — noticing a rule and applying it.",
     engine: "choice",
-    activityType: "matching",
     category: "Problem solving",
     ageMin: 4,
     ageMax: 7,
@@ -318,7 +303,6 @@ export const ACTIVITIES = [
     points: 25,
     skills: ["Patterns", "Logic", "Prediction"],
     emoji: "🧩",
-    accent: "primary",
     rounds: [
       {
         prompt: "🔺 ⚫ 🔺 ⚫ 🔺 … what comes next?",
@@ -356,7 +340,6 @@ export const ACTIVITIES = [
     longDescription:
       "Creative reasoning and colour theory in its simplest form — a favourite before a painting session.",
     engine: "choice",
-    activityType: "creative",
     category: "Creativity",
     ageMin: 5,
     ageMax: 7,
@@ -364,7 +347,6 @@ export const ACTIVITIES = [
     points: 25,
     skills: ["Colour theory", "Prediction", "Creative thinking"],
     emoji: "🎨",
-    accent: "coral",
     rounds: [
       {
         prompt: "Blue 💙 + Yellow 💛 makes…",
@@ -409,4 +391,3 @@ export const ACTIVITY_CATEGORIES = [
   "Problem solving",
 ];
 
-export const getActivity = (slug) => ACTIVITIES.find((a) => a.slug === slug);

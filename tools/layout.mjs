@@ -11,7 +11,7 @@ import { BRAND } from "./content-etern.mjs";
 
 export const SITE_URL = "https://www.eternlearning.com";
 
-export const NAV_LINKS = [
+const NAV_LINKS = [
   { to: "about.html", label: "Explore" },
   { to: "programs.html", label: "Programs" },
   { to: "how-it-works.html", label: "How It Works" },
