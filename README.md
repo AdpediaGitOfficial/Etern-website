@@ -115,9 +115,10 @@ in the visitor's own time zone.
 
 ## The parent-dashboard photo
 
-The violet dashboard band on the home and parents pages has a picture slot on
-its right edge, which appears from 1280px up (below that the band stacks and the
-picture is dropped). It currently uses `assets/img/parent-child.webp`, a
+The violet dashboard band on the home and parents pages gives its whole
+right-hand side to a picture: from 1280px up the copy and the dashboard card
+share the left column and the picture fills the band's full height, running out
+to its right edge. Below 1280px the band stacks and the picture is dropped. It currently uses `assets/img/parent-child.webp`, a
 transparent cut-out of a parent and child, cropped to the slot's portrait box.
 `assets/img/parent-child.svg` is a flat illustration kept as the fallback.
 
@@ -134,7 +135,8 @@ and finally the illustration.
   shaped file keeps the same column width and simply sits shorter or taller in
   it, never cropped. Change `aspect-ratio` on `.dash-band__photo img` to match a
   new picture's own proportions.
-- The picture's bottom edge lines up with the dashboard card's bottom edge.
+- The picture is anchored to the bottom right of its panel, so a taller or
+  shorter file still sits on the band's bottom edge.
 
 The two Recent Activity rows in the same card use the app's own artwork,
 `assets/img/activity-stories.webp` and `assets/img/activity-self-help.webp` —

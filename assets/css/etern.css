@@ -1192,24 +1192,36 @@ svg.shape { background: none; }
 .dash-band > .shell { padding-block: 3.5rem; }
 @media (min-width: 768px) { .dash-band > .shell { padding-block: 4.5rem; } }
 
-/* the small decor pieces land on the copy when the band gets tall and narrow */
+/* the small decor pieces land on the copy when the band gets tall and narrow,
+   and the blue diamond lands on the picture once the panel appears */
 @media (max-width: 767px) {
   .dash-band .shape--star,
   .dash-band .shape--diamond { display: none; }
 }
-
-.dash-band__grid { display: grid; gap: 2.5rem; align-items: center; }
-@media (min-width: 1280px) { .dash-band__grid { grid-template-columns: 1fr 1.83fr 0.77fr; gap: 2rem; } }
-
-.dash-band h2 { font-size: clamp(1.6rem, 1.15rem + 1.35vw, 2.1rem); line-height: 1.25; }
-/* Beside the card the heading holds its two sentences on two lines, so it is
-   sized to the copy column rather than to the viewport. */
 @media (min-width: 1280px) {
-  .dash-band h2 { font-size: clamp(1.15rem, 0.15rem + 1.35vw, 1.25rem); letter-spacing: -0.012em; }
+  .dash-band .shape--diamond.float-mid { display: none; }
 }
 
+.dash-band__grid { display: grid; gap: 2.5rem; align-items: center; }
+/* On a wide screen the copy sits over the card on the left and the picture
+   fills the whole right-hand side of the band. */
+@media (min-width: 1280px) {
+  .dash-band__grid {
+    grid-template-columns: minmax(0, 1.39fr) minmax(0, 1fr);
+    grid-template-areas:
+      "copy photo"
+      "card photo";
+    align-items: start;
+    gap: 1.75rem 2rem;
+  }
+  .dash-band__grid > .stack { grid-area: copy; }
+  .dash-band__grid > .dash { grid-area: card; }
+  .dash-band__grid > .dash-band__photo { grid-area: photo; }
+}
+
+.dash-band h2 { font-size: clamp(1.6rem, 1.15rem + 1.35vw, 2.1rem); line-height: 1.25; }
 .dash-band .lead { font-size: 0.95rem; }
-@media (min-width: 1280px) { .dash-band .lead { font-size: 0.9rem; } }
+@media (min-width: 1024px) { .dash-band .lead { font-size: 1rem; } }
 
 .dash-band__link {
   display: inline-flex;
@@ -1225,19 +1237,30 @@ svg.shape { background: none; }
 .dash-band__link:hover { color: oklch(1 0 0); }
 .dash-band__link:hover svg { transform: translateX(5px); }
 
-/* the photo column, ending on the same line as the card */
+/* The picture fits inside its box rather than filling it, so no edge is ever
+   sliced off whatever shape the file has. */
 .dash-band__photo { display: none; align-self: end; }
-@media (min-width: 1280px) {
-  .dash-band__photo { display: block; }
-}
-/* The slot holds the cut-out's own shape and fits the whole picture inside it,
-   so nothing is ever sliced off an edge; a differently shaped file keeps the
-   same column width and simply sits shorter or taller in it. */
 .dash-band__photo img {
   width: 100%;
   aspect-ratio: 1255 / 1280;
   object-fit: contain;
   object-position: bottom center;
+}
+@media (min-width: 1280px) {
+  /* the picture runs the full height of the band and out to its right edge:
+     the negative margins cancel the shell's padding and the gutter, plus
+     whatever centring slack the viewport leaves beside the shell */
+  .dash-band__photo {
+    display: block;
+    align-self: stretch;
+    margin-block: -4.5rem;
+    margin-right: calc(-1 * (var(--gutter) + max(0px, (100vw - var(--shell)) / 2)));
+  }
+  .dash-band__photo img {
+    height: 100%;
+    aspect-ratio: auto;
+    object-position: bottom right;
+  }
 }
 
 /* the card ---------------------------------------------------------- */
@@ -1253,7 +1276,7 @@ svg.shape { background: none; }
 .dash__greet { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; }
 .dash__sub { margin-top: 0.2rem; font-size: 0.875rem; color: var(--muted-foreground); }
 
-.dash__stats { display: grid; gap: 0.6rem; margin-top: 1.35rem; }
+.dash__stats { display: grid; gap: 0.75rem; margin-top: 1.35rem; }
 @media (min-width: 380px) { .dash__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 860px) { .dash__stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
@@ -1261,7 +1284,7 @@ svg.shape { background: none; }
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--card);
-  padding: 0.75rem 0.6rem;
+  padding: 0.8rem;
 }
 /* icon above the label, so a two-word label still fits on one line */
 .dash__stat-head { display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
@@ -1277,10 +1300,10 @@ svg.shape { background: none; }
 }
 .dash__stat-head svg { width: 0.72rem; height: 0.72rem; }
 .dash__stat-head b {
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   font-weight: 600;
   line-height: 1.25;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.008em;
   white-space: nowrap;
   color: var(--muted-foreground);
 }
