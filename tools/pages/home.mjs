@@ -13,21 +13,6 @@ import {
 import { PROGRAMS } from "../content-etern.mjs";
 import { ACTIVITIES } from "../content-activities.mjs";
 
-/** Hotspots mapped onto the miniature-world artwork (percentages of the box). */
-const HOTSPOTS = [
-  { label: "Grow", x: 50, y: 18, w: 26, h: 22, depth: 6 },
-  { label: "Explore new worlds", x: 53, y: 23, w: 9, h: 8, depth: 10 },
-  { label: "Learn", x: 19, y: 24, w: 17, h: 20, depth: 22 },
-  { label: "Express yourself", x: 79, y: 25, w: 18, h: 20, depth: 22 },
-  { label: "Move & play", x: 12, y: 50, w: 15, h: 20, depth: 26 },
-  { label: "Build & discover", x: 87, y: 52, w: 15, h: 20, depth: 26 },
-  { label: "Create something new", x: 14, y: 79, w: 16, h: 20, depth: 34 },
-  { label: "Ask. Experiment. Discover.", x: 33, y: 80, w: 15, h: 20, depth: 34 },
-  { label: "Kick, run, balance", x: 51, y: 81, w: 16, h: 20, depth: 34 },
-  { label: "Everyday life skills", x: 70, y: 81, w: 14, h: 20, depth: 34 },
-  { label: "Play & learn", x: 87, y: 79, w: 15, h: 20, depth: 34 },
-];
-
 const FEATURES = [
   { icon: "lightbulb", title: "Interactive Learning", body: "Engaging activities that make learning fun", accent: "violet" },
   { icon: "users", title: "Age-Based Journey", body: "Personalised learning for every stage", accent: "orange" },
@@ -36,24 +21,33 @@ const FEATURES = [
   { icon: "heart", title: "Parent Connected", body: "Stay involved in your child's learning", accent: "pink" },
 ];
 
-function hero() {
-  const hotspots = HOTSPOTS.map(
-    (h) => `<button type="button" class="hotspot" data-depth="${h.depth}"
-          style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%"
-          aria-label="${esc(h.label)}">
-          <span class="hotspot__label">${esc(h.label)}</span>
-        </button>`,
-  ).join("\n        ");
+/** The four cut-out children that float over the hero's cloud bank. */
+const HERO_KIDS = [
+  { file: "kid-teddy.webp", w: 340, h: 382, cls: "k1" },
+  { file: "kid-blocks.webp", w: 340, h: 533, cls: "k2" },
+  { file: "kid-plant.webp", w: 340, h: 506, cls: "k3" },
+  { file: "kid-rocket.webp", w: 340, h: 545, cls: "k4" },
+];
 
+function hero() {
   return `<section class="home-hero">
-  <span class="home-hero__sky" aria-hidden="true"></span>
+  <img class="home-hero__art" src="${HERO_ART}" width="1920" height="1080"
+       alt="A floating world of tiny islands above the clouds, where children read, paint, garden, play music, build robots and kick a football around a glowing treehouse"
+       fetchpriority="high" decoding="async">
+  <span class="home-hero__veil" aria-hidden="true"></span>
+
   ${decor([
-    ["violet-soft", "pebble", 16, "left:-7rem;top:52%", "float-slow"],
-    ["amber", "star", 2.4, "left:2%;top:58%", "float-mid"],
-    ["teal-soft", "dot", 5, "left:11%;bottom:9%"],
-    ["blue-soft", "pebble", 22, "right:-8rem;top:-6rem", "float-slow"],
-    ["pink-soft", "drop", 9, "right:2%;bottom:4%", "float-mid"],
+    ["amber", "star", 2.2, "left:4%;top:22%", "float-mid"],
+    ["teal-soft", "dot", 4.5, "left:9%;bottom:26%"],
+    ["pink-soft", "drop", 8, "left:29%;bottom:12%", "float-mid"],
   ])}
+
+  <div class="hero-kids" aria-hidden="true">
+    ${HERO_KIDS.map(
+      (kid) => `<img class="hero-kid ${kid.cls}" src="${url(`assets/img/${kid.file}`, 0)}"
+         width="${kid.w}" height="${kid.h}" alt="" loading="lazy" decoding="async">`,
+    ).join("\n    ")}
+  </div>
 
   <div class="shell home-hero__grid">
     <div class="home-hero__copy">
@@ -72,7 +66,7 @@ function hero() {
         <span class="k4">Grow.</span>
       </p>
 
-      <p class="lead" style="max-width:30rem">
+      <p class="lead" style="max-width:27rem">
         Etern Learning nurtures confident young minds through interactive learning, creative
         exploration, and meaningful real-world experiences for children aged 3–7.
       </p>
@@ -80,33 +74,6 @@ function hero() {
       <div class="hero-cta">
         <a class="btn btn--primary btn--xl" href="programs.html">Explore Learning ${icon("arrow-right")}</a>
         <a class="btn btn--soft btn--xl" href="book-demo.html">Book a Free Demo ${icon("calendar-days")}</a>
-      </div>
-    </div>
-
-    <div class="scene" data-scene>
-      <div class="scene__sky">
-        <span class="scene__ground" aria-hidden="true"></span>
-
-        <div class="scene__stage" data-scene-stage>
-          <img class="scene__img" src="${HERO_ART}" width="1200" height="900"
-               alt="A floating world of tiny islands where children paint, read, code, dance, cook and play football around a treehouse"
-               fetchpriority="high" decoding="async">
-          ${hotspots}
-        </div>
-      </div>
-
-      <div class="scene__bar">
-        <p class="scene__hint">
-          <span>${icon("mouse-pointer", { class: "i1" })} Drag to rotate</span>
-          <span>${icon("sparkles", { class: "i2" })} Hover an island</span>
-        </p>
-
-        <div class="scene__controls" data-scene-controls hidden>
-          <button type="button" data-scene-nudge="-1" aria-label="Rotate left">${icon("chevron-left")}</button>
-          <button type="button" data-scene-nudge="1" aria-label="Rotate right">${icon("chevron-right")}</button>
-          <button type="button" data-scene-toggle aria-label="Pause animation" data-icon-pause="${esc(icon("pause"))}" data-icon-play="${esc(icon("play"))}">${icon("pause")}</button>
-          <button type="button" data-scene-reset aria-label="Reset view">${icon("rotate-ccw")}</button>
-        </div>
       </div>
     </div>
   </div>
@@ -232,7 +199,7 @@ export function homePage() {
       "Early learning for children aged 3–7. Creativity, academic foundation, social-emotional growth and safety, delivered through short guided lessons and real off-screen activities.",
     canonical: "/",
     active: "",
-    scripts: ["assets/js/hero-scene.js", "assets/js/activity-player.js"],
+    scripts: ["assets/js/activity-player.js"],
     body: [
       hero(),
       featureStrip(),

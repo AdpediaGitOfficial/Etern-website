@@ -309,6 +309,12 @@ svg.shape { background: none; }
   50% { transform: translateY(-16px) rotate(6deg); }
 }
 
+/* a straight rise and fall, for things that should not tilt */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 /* -------------------------------------------------------- 5. type helpers */
 
 .eyebrow {
@@ -781,37 +787,77 @@ svg.shape { background: none; }
 
 /* ---------------------------------------------------------- 12. home hero */
 
+/* The artwork is a wide scene whose left half is open sky, so it runs the full
+   width of the hero and the copy sits over that open half. */
 .home-hero {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   background: var(--cream);
-  padding-top: 7rem;
+  padding-top: 5.75rem;
   padding-bottom: 2.5rem;
 }
-@media (min-width: 768px) {
-  .home-hero { padding-top: 8.5rem; padding-bottom: 4rem; }
+@media (min-width: 1024px) {
+  .home-hero {
+    display: grid;
+    align-items: center;
+    min-height: min(52rem, 94vh);
+    padding-top: 7.5rem;
+    padding-bottom: 3rem;
+  }
 }
 
-/* A wash of sky behind the whole hero: warm at the horizon, cool where the
-   islands float, so the artwork sits in light rather than on flat cream. */
-.home-hero__sky {
+.home-hero__art {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+  border-radius: 1.5rem;
+}
+/* the stacked layout crops to the islands rather than showing the wide, mostly
+   empty sky the desktop hero needs */
+@media (max-width: 640px) {
+  .home-hero__art { aspect-ratio: 5 / 4; object-fit: cover; object-position: 74% 50%; }
+}
+@media (min-width: 1024px) {
+  .home-hero__art {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    margin-bottom: 0;
+    height: 100%;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: 100% 50%;
+  }
+}
+
+/* a soft wash of daylight that keeps the copy readable over the clouds */
+.home-hero__veil {
   position: absolute;
   inset: 0;
+  z-index: -1;
+  display: none;
   background:
-    radial-gradient(58% 52% at 76% 16%, oklch(0.945 0.045 232 / 0.85), transparent 68%),
-    radial-gradient(46% 46% at 10% 84%, oklch(0.955 0.032 318 / 0.7), transparent 70%),
-    radial-gradient(72% 58% at 52% 106%, oklch(0.965 0.035 150 / 0.5), transparent 72%),
-    linear-gradient(180deg, oklch(0.995 0.006 96), var(--cream) 64%);
+    linear-gradient(
+      100deg,
+      oklch(0.995 0.008 96 / 0.95) 0%,
+      oklch(0.995 0.008 96 / 0.86) 26%,
+      oklch(0.99 0.01 96 / 0.35) 48%,
+      transparent 62%
+    ),
+    /* the header sits on this, so the top of the artwork is quietened */
+    linear-gradient(180deg, oklch(0.99 0.01 96 / 0.8), transparent 16%),
+    linear-gradient(0deg, oklch(0.99 0.01 96 / 0.55), transparent 30%);
   pointer-events: none;
 }
+@media (min-width: 1024px) { .home-hero__veil { display: block; } }
 
-.home-hero__grid { position: relative; z-index: 1; display: grid; gap: 3rem; align-items: center; }
-@media (min-width: 1024px) {
-  .home-hero__grid { grid-template-columns: 45fr 55fr; gap: 2.5rem; }
-}
+.home-hero__grid { position: relative; z-index: 1; display: grid; gap: 3rem; }
+@media (min-width: 1024px) { .home-hero__grid { gap: 0; } }
 
-.home-hero__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; order: 1; }
-@media (min-width: 1024px) { .home-hero__copy { padding-right: 1rem; } }
+.home-hero__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; }
+@media (min-width: 1024px) { .home-hero__copy { max-width: 34rem; } }
 
 .home-hero__eyebrow {
   display: inline-flex;
@@ -819,7 +865,7 @@ svg.shape { background: none; }
   gap: 0.5rem;
   border: 1px solid oklch(1 0 0 / 0.8);
   border-radius: 999px;
-  background: oklch(1 0 0 / 0.72);
+  background: oklch(1 0 0 / 0.78);
   padding: 0.45rem 0.95rem;
   font-size: 0.8125rem;
   font-weight: 600;
@@ -829,7 +875,8 @@ svg.shape { background: none; }
 }
 .home-hero__eyebrow svg { width: 0.95rem; height: 0.95rem; color: var(--orange); }
 
-@media (max-width: 1023px) { .home-hero .shape--star { display: none; } }
+/* the artwork carries the hero once it stacks; loose shapes only land on the copy */
+@media (max-width: 1023px) { .home-hero .shape { display: none; } }
 
 .home-hero__keywords {
   display: flex;
@@ -850,147 +897,29 @@ svg.shape { background: none; }
 .hero-cta { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; }
 @media (min-width: 640px) { .hero-cta { flex-direction: row; width: auto; } }
 
-/* interactive scene */
-.scene { position: relative; order: 2; perspective: 1200px; z-index: 1; }
-
-/* the pool of light the islands float in; it fades out rather than ending on
-   an edge, so a cut-out illustration never looks boxed */
-.scene__sky {
-  position: relative;
-  border-radius: 2.75rem;
-  background: radial-gradient(62% 58% at 50% 42%, oklch(0.995 0.022 232 / 0.95), oklch(0.99 0.02 232 / 0) 72%);
-}
-.scene__ground {
-  position: absolute;
-  left: 50%;
-  bottom: 7%;
-  width: 56%;
-  height: 7%;
-  translate: -50% 0;
-  border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, oklch(0.45 0.09 280 / 0.2), transparent 72%);
-  filter: blur(9px);
-  pointer-events: none;
-}
-.scene__stage {
-  position: relative;
-  touch-action: pan-y;
-  cursor: grab;
-  transition: transform 0.45s var(--ease);
-  /* No preserve-3d: nothing here is transformed in 3D, and asking for a 3D
-     rendering context made the illustration drop out of the paint at narrow
-     widths. The parent's `perspective` still gives the tilt its depth. */
-}
-.scene__stage:active { cursor: grabbing; }
-.scene__img {
-  position: relative;
-  width: 100%;
-  /* rounded for an illustration that carries its own sky; invisible on a
-     cut-out, whose corners are transparent anyway */
-  border-radius: 2.25rem;
-  filter: drop-shadow(0 34px 42px oklch(0.3 0.06 267 / 0.16));
-  user-select: none;
-  -webkit-user-drag: none;
-  animation: float-slow 9s ease-in-out infinite;
-}
-/* the hint and the controls share one line under the artwork */
-.scene__bar {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-.scene__hint {
-  display: none;
-  align-items: center;
-  gap: 1rem;
-  border-radius: 999px;
-  background: oklch(1 0 0 / 0.72);
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted-foreground);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(18px);
-  pointer-events: none;
-}
-.scene__hint span { display: inline-flex; align-items: center; gap: 0.375rem; }
-.scene__hint svg { width: 0.875rem; height: 0.875rem; }
-.scene__hint .i1 { color: var(--violet); }
-.scene__hint .i2 { color: var(--orange); }
-@media (min-width: 768px) { .scene__hint { display: inline-flex; } }
-
-.hotspot {
-  position: absolute;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  padding: 0;
-  transform: translate(-50%, -50%);
-}
-.hotspot::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  background: radial-gradient(circle, oklch(0.775 0.128 190 / 0.5), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-.hotspot:hover::after, .hotspot:focus-visible::after { opacity: 1; }
-.hotspot__label {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-bottom: 0.5rem;
-  transform: translate(-50%, 6px) scale(0.95);
-  border-radius: 999px;
-  background: var(--violet);
-  padding: 0.4rem 0.8rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  white-space: nowrap;
-  color: oklch(1 0 0);
-  box-shadow: var(--shadow-lift);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.22s var(--ease), transform 0.22s var(--spring);
-}
-.hotspot:hover .hotspot__label,
-.hotspot:focus-visible .hotspot__label { opacity: 1; transform: translate(-50%, 0) scale(1); }
-
-.scene__controls {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  border-radius: 999px;
-  background: oklch(1 0 0 / 0.72);
-  padding: 0.3rem 0.5rem;
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(18px);
-}
-.scene__controls button {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 999px;
-  color: var(--muted-foreground);
-  transition: background-color 0.2s, color 0.2s;
-}
-.scene__controls button:hover { background: var(--violet-soft); color: var(--violet-ink); }
-.scene__controls svg { width: 1rem; height: 1rem; }
-
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+/* the four cut-out children standing on the cloud bank below the copy */
+.hero-kids { display: none; }
+@media (min-width: 1180px) {
+  .hero-kids {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-kid {
+    position: absolute;
+    bottom: 0;
+    width: auto;
+    filter: drop-shadow(0 18px 22px oklch(0.35 0.06 267 / 0.22));
+    animation: bob 8s ease-in-out infinite;
+  }
+  .hero-kid.k1 { left: 2%; height: 5.5rem; animation-delay: -1.2s; }
+  .hero-kid.k2 { left: 11%; height: 6.5rem; animation-delay: -3.4s; }
+  .hero-kid.k3 { left: 21%; height: 6rem; animation-delay: -2.1s; }
+  .hero-kid.k4 { left: 31%; height: 7rem; animation-delay: -4.6s; }
 }
 
-/* feature strip */
 .feature-strip { position: relative; z-index: 1; padding-bottom: 4rem; }
 .feature-strip ul {
   display: grid;
@@ -2022,7 +1951,7 @@ textarea.field { height: auto; min-height: 6rem; border-radius: var(--radius-md)
     transition-duration: 0.001ms !important;
   }
   .reveal { opacity: 1; transform: none; }
-  .scene__img, .float-slow, .float-mid { animation: none; }
+  .hero-kid, .float-slow, .float-mid { animation: none; }
   .quotes__track { scroll-behavior: auto; }
 }
 

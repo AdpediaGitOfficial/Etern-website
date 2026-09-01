@@ -27,8 +27,8 @@ privacy.html  terms.html   legal
 404.html                   not found
 
 assets/css/etern.css       the entire design system, one file
-assets/js/*.js             six small scripts, listed below
-assets/img/                logo, favicon, hero artwork, dashboard picture, OG card
+assets/js/*.js             five small scripts, listed below
+assets/img/                logo, favicon, hero scene, character cut-outs, dashboard picture, OG card
 robots.txt  sitemap.xml
 
 tools/                     the generator that produced the HTML above
@@ -85,7 +85,6 @@ add behaviour on top:
 | File | Adds |
 | --- | --- |
 | `site.js` | sticky header, mobile menu, scroll reveals, age-stage selector, method wheel, testimonial carousel, stat counters, newsletter, back-to-top |
-| `hero-scene.js` | tilt / drag / parallax on the home hero artwork |
 | `activity-player.js` | the choice and memory games |
 | `filters.js` | search and filter chips on the activity, journal and video lists |
 | `article.js` | reading-progress bar and share button |
@@ -115,23 +114,23 @@ in the visitor's own time zone.
 
 ## The home hero artwork
 
-The hero shows `assets/img/hero-world.webp` in a soft pool of sky light, with a
-row of invisible hotspots over the islands that light up and label themselves on
-hover.
+The hero is a single wide illustration, `assets/img/hero-scene.webp`, whose
+left half is open sky. From 1024px up it covers the whole hero and the copy sits
+over that open half behind a soft wash of daylight; below that the hero stacks,
+with the picture above the copy and cropped to the islands on phones.
 
-To use a different illustration, drop it into `assets/img/` named
-`hero-scene.png` (or `.webp` / `.jpg`) and rebuild — `tools/sections.mjs`
-(`HERO_ART`) picks up the first one that exists and falls back to `hero-world`.
+Four cut-out children (`assets/img/kid-*.webp`) stand on the cloud bank under
+the copy from 1180px up. They are decoration — `aria-hidden`, and dropped
+entirely on smaller screens.
 
-- Both a **cut-out with a transparent background** and a **full illustration
-  with its own sky** work: the slot rounds the image's corners (invisible on a
-  cut-out) and the sky behind it fades out rather than ending on an edge.
-- Keep the artwork close to **4:3** (the current one is 1200 × 900) so the
-  column keeps its height.
-- The hotspots are percentages of the image box, listed in `HOTSPOTS` at the top
-  of `tools/pages/home.mjs`. A new illustration puts its islands somewhere else,
-  so move those `x` / `y` values to match — or delete the list to drop the
-  hover labels entirely.
+To change the artwork, drop a file into `assets/img/` named `hero-scene.png`
+(or `.webp` / `.jpg`) and rebuild — `tools/sections.mjs` (`HERO_ART`) picks up
+the first one that exists and falls back to `hero-world`. Compose it like this
+one, with the subject on the right and open sky on the left, so the headline has
+somewhere quiet to sit; 16:9 keeps the hero's proportions.
+
+`hero.jpg` and `1.png`–`4.png` are the supplied originals, kept beside the
+optimised versions the site actually loads.
 
 ## The parent-dashboard photo
 
