@@ -241,7 +241,7 @@ export function parentsPage() {
   </div>
 </section>
 
-${dashboardPreview(0)}
+${dashboardPreview(0, { href: "book-demo.html", label: "Book a Free Demo" })}
 
 <section class="section section--cream">
   <div class="shell">

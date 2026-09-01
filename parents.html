@@ -132,103 +132,91 @@
   </div>
 </section>
 
-<section class="section section--solid accent-violet">
-  <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.1);width:22rem;height:22rem;left:-6rem;bottom:-8rem"></span>
-  <span class="shape shape--dot" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.09);width:8rem;height:8rem;right:8%;top:12%"></span>
+<section class="section section--solid accent-violet dash-band">
+  <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.09);width:20rem;height:20rem;left:-7rem;bottom:-7rem"></span>
+  <span class="shape shape--dot float-mid" aria-hidden="true" style="--shape-fill:var(--teal);width:4.5rem;height:4.5rem;left:1%;bottom:6%;opacity:0.9"></span>
+  <span class="shape shape--star float-slow" aria-hidden="true" style="--shape-fill:var(--amber);width:2.2rem;height:2.2rem;left:33%;top:8%"></span>
+  <span class="shape shape--diamond" aria-hidden="true" style="--shape-fill:var(--pink);width:1.1rem;height:1.1rem;left:13%;bottom:22%"></span>
+  <span class="shape shape--diamond float-mid" aria-hidden="true" style="--shape-fill:var(--blue);width:1.3rem;height:1.3rem;right:14%;top:16%"></span>
+  <svg class="shape" aria-hidden="true" viewBox="0 0 100 55" style="width:7rem;height:3.85rem;left:24%;bottom:5%;background:none" fill="none" stroke-linecap="round">
+    <path d="M8 52a42 42 0 0 1 84 0" stroke="var(--pink)" stroke-width="9"/>
+    <path d="M20 52a30 30 0 0 1 60 0" stroke="var(--amber)" stroke-width="9"/>
+    <path d="M32 52a18 18 0 0 1 36 0" stroke="var(--blue)" stroke-width="9"/>
+  </svg>
+
   <div class="shell">
-    <div class="split split--wide-right split--center">
-      <div class="stack stack-6">
-        <div class="section-heading">
-  <span class="eyebrow">Parent dashboard</span>
-  <h2>Learning That Parents Love.<br>Progress You Can See.</h2>
-  <p class="lead">You see what your child worked on, which skills are growing and where they need another week of practice — without asking them a single question.</p>
-</div>
-        <a class="btn btn--white btn--lg w-fit" href="parents.html">
-          Explore the dashboard <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        </a>
+    <div class="dash-band__grid">
+      <div class="stack stack-5">
+        <h2>Learning That Parents Love.<br>Progress You Can See.</h2>
+        <p class="lead">Our parent dashboard helps you stay connected with your child's learning journey.</p>
+        <a class="dash-band__link" href="book-demo.html">Book a Free Demo <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       </div>
 
       <div class="dash reveal" data-dash>
-        <div class="dash__profile">
-          <div class="flex items-center gap-4">
-            <span class="dash__avatar" aria-hidden="true">🦊</span>
-            <div>
-              <p class="label">Hi, Parent! 👋</p>
-              <p class="h3" style="font-size:1.2rem">Aarav · 5 years</p>
-            </div>
-          </div>
-          <span class="pill pill--solid accent-green">Stage: Build</span>
-        </div>
+        <p class="dash__greet">Hi, Parent! <span aria-hidden="true">👋</span></p>
+        <p class="dash__sub">Here's what's happening with your child today.</p>
 
         <div class="dash__stats">
-          <div class="dash__stat accent-violet">
-            <span class="tile tile--sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
-            <b data-count-to="24">24</b>
-            <p>Activities completed</p>
+          <div class="dash__stat accent-amber">
+            <span class="dash__stat-head">
+              <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
+              <b>Activities Completed</b>
+            </span>
+            <p class="dash__stat-value" data-count-to="24">24</p>
           </div>
-          <div class="dash__stat accent-blue">
-            <span class="tile tile--sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></svg></span>
-            <b data-count-to="4h 30m">4h 30m</b>
-            <p>Time spent</p>
+          <div class="dash__stat accent-green">
+            <span class="dash__stat-head">
+              <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></svg></span>
+              <b>Time Spent</b>
+            </span>
+            <p class="dash__stat-value" data-count-to="4h 30m">4h 30m</p>
           </div>
           <div class="dash__stat accent-orange">
-            <span class="tile tile--sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.5c3.9 0 6.8-2.6 6.8-6.3 0-2.9-1.9-4.9-3.4-7.3C14 5.6 13 3.4 12 2.5c-1 1.9-2 3.1-3.4 5.4C7.1 10.3 5.2 12.3 5.2 15.2c0 3.7 2.9 6.3 6.8 6.3z"/><path d="M12 17.8c1.6 0 2.8-1 2.8-2.5 0-1.5-1.4-2.4-2.8-4-1.4 1.6-2.8 2.5-2.8 4 0 1.5 1.2 2.5 2.8 2.5z"/></svg></span>
-            <b data-count-to="7">7</b>
-            <p>Day streak</p>
+            <span class="dash__stat-head">
+              <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span>
+              <b>Skills Learned</b>
+            </span>
+            <p class="dash__stat-value" data-count-to="18">18</p>
+          </div>
+          <div class="dash__stat accent-green">
+            <span class="dash__stat-head">
+              <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.5c3.9 0 6.8-2.6 6.8-6.3 0-2.9-1.9-4.9-3.4-7.3C14 5.6 13 3.4 12 2.5c-1 1.9-2 3.1-3.4 5.4C7.1 10.3 5.2 12.3 5.2 15.2c0 3.7 2.9 6.3 6.8 6.3z"/><path d="M12 17.8c1.6 0 2.8-1 2.8-2.5 0-1.5-1.4-2.4-2.8-4-1.4 1.6-2.8 2.5-2.8 4 0 1.5 1.2 2.5 2.8 2.5z"/></svg></span>
+              <b>Streak</b>
+            </span>
+            <p class="dash__stat-value" data-count-to="7 Days">7 Days</p>
           </div>
         </div>
 
-        <div class="dash__panel">
-          <div class="flex items-center justify-between">
-            <h3 class="h3" style="font-size:1.1rem">Learning progress</h3>
-            <span class="label">Last 7 days</span>
-          </div>
-          <div class="stack stack-4 mt-6">
-            <div class="accent-blue">
-              <div class="flex items-center justify-between small">
-                <span class="font-semibold">Literacy</span>
-                <span class="font-semibold muted" style="font-variant-numeric:tabular-nums">85%</span>
-              </div>
-              <div class="meter"><span style="--value:85%"></span></div>
-            </div>
-            <div class="accent-green">
-              <div class="flex items-center justify-between small">
-                <span class="font-semibold">Numeracy</span>
-                <span class="font-semibold muted" style="font-variant-numeric:tabular-nums">78%</span>
-              </div>
-              <div class="meter"><span style="--value:78%"></span></div>
-            </div>
-            <div class="accent-pink">
-              <div class="flex items-center justify-between small">
-                <span class="font-semibold">Creativity</span>
-                <span class="font-semibold muted" style="font-variant-numeric:tabular-nums">92%</span>
-              </div>
-              <div class="meter"><span style="--value:92%"></span></div>
-            </div>
-            <div class="accent-amber">
-              <div class="flex items-center justify-between small">
-                <span class="font-semibold">Problem Solving</span>
-                <span class="font-semibold muted" style="font-variant-numeric:tabular-nums">80%</span>
-              </div>
-              <div class="meter"><span style="--value:80%"></span></div>
-            </div>
-          </div>
-        </div>
+        <h3 class="dash__title">Recent Activity</h3>
+        <ul class="dash__activity">
+          <li class="dash__act accent-violet">
+            <span class="dash__act-thumb" aria-hidden="true">📖</span>
+            <span class="dash__act-body">
+              <b>Story: The Little Explorer</b>
+              <span>Completed · 1 hr ago</span>
+            </span>
+            <span class="dash__act-progress accent-green">
+              <span class="meter"><span style="--value:100%"></span></span>
+              <i>100%</i>
+            </span>
+          </li>
+          <li class="dash__act accent-blue">
+            <span class="dash__act-thumb" aria-hidden="true">🧩</span>
+            <span class="dash__act-body">
+              <b>Puzzle: Space Journey</b>
+              <span>Completed · 4 hrs ago</span>
+            </span>
+            <span class="dash__act-progress accent-green">
+              <span class="meter"><span style="--value:80%"></span></span>
+              <i>80%</i>
+            </span>
+          </li>
+        </ul>
+      </div>
 
-        <div class="dash__panel">
-          <div class="flex items-center gap-2">
-            <span style="color:var(--violet);display:grid"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8.5" r="5.5"/><path d="M8.4 13.3L7 21.5l5-2.8 5 2.8-1.4-8.2"/></svg></span>
-            <h3 class="h3" style="font-size:1.1rem">Recent achievements</h3>
-          </div>
-          <div class="badge-row">
-            <span><span aria-hidden="true">⭐</span>Little Explorer</span>
-            <span><span aria-hidden="true">🎨</span>Creative Mind</span>
-            <span><span aria-hidden="true">🧩</span>Problem Solver</span>
-            <span><span aria-hidden="true">📚</span>Story Explorer</span>
-          </div>
-        </div>
-
-        <p class="tiny muted mt-4" style="padding-inline:0.5rem">Sample dashboard shown with example data.</p>
+      <div class="dash-band__photo">
+        <img src="assets/img/parent-child.svg" width="320" height="380"
+             alt="A parent and child looking at a tablet together" loading="lazy" decoding="async">
       </div>
     </div>
   </div>

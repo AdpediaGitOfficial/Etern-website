@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 380" role="img"
+     aria-label="A parent and child looking at a tablet together">
+  <title>A parent and child looking at a tablet together</title>
+  <defs>
+    <clipPath id="pc-frame"><rect width="320" height="380"/></clipPath>
+    <linearGradient id="pc-screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8fd8ee"/>
+      <stop offset="100%" stop-color="#6aa9e8"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#pc-frame)">
+
+    <g transform="translate(6 -34)">
+      <path fill="#3a2620" d="M232 118c0-48-33-80-76-80s-76 32-76 80c0 34 4 66 2 96 -2 30-10 52-14 74h176c-6-26-14-50-14-84 0-30 2-58 2-86z"/>
+      <path fill="#e8836a" d="M156 214c-52 0-90 34-98 84-4 24-6 54-6 82h216c0-30-2-60-7-84-10-48-53-82-105-82z"/>
+      <path fill="#e8b58f" d="M134 196h44v40c0 12-10 20-22 20s-22-8-22-20z"/>
+      <ellipse cx="156" cy="150" rx="52" ry="60" fill="#f2c6a2"/>
+      <path fill="#3a2620" d="M156 66c-38 0-58 26-60 58 0 10 2 18 6 24 2-26 14-40 32-46 20-6 46-4 62 10 10 9 14 22 14 36 6-8 8-16 8-26 0-32-24-56-62-56z"/>
+      <path stroke="#3a2620" stroke-width="4" stroke-linecap="round" fill="none"
+            d="M132 152c4-6 12-6 16 0M172 152c4-6 12-6 16 0"/>
+      <path stroke="#c8735c" stroke-width="4" stroke-linecap="round" fill="none" d="M148 176c6 6 16 6 22 0"/>
+    </g>
+
+    <g transform="translate(-4 -46)">
+      <path fill="#4a2f24" d="M144 250c0-38-26-62-58-62s-58 24-58 62c0 26 4 46 2 66h112c-2-22 2-40 2-66z"/>
+      <path fill="#f3c04e" d="M86 306c-40 0-68 26-74 64-2 12-3 24-3 34h158c0-12-1-24-3-36-7-38-38-62-78-62z"/>
+      <path fill="#e8b58f" d="M70 292h32v30c0 9-7 15-16 15s-16-6-16-15z"/>
+      <ellipse cx="86" cy="256" rx="40" ry="45" fill="#f6d0af"/>
+      <path fill="#4a2f24" d="M86 200c-30 0-46 20-47 45 0 8 2 14 5 19 2-20 11-31 25-36 16-5 36-3 48 8 8 7 11 17 11 28 5-6 6-12 6-20 0-25-18-44-48-44z"/>
+      <path stroke="#4a2f24" stroke-width="3.5" stroke-linecap="round" fill="none"
+            d="M68 258c3-5 10-5 13 0M97 258c3-5 10-5 13 0"/>
+      <path stroke="#c8735c" stroke-width="3.5" stroke-linecap="round" fill="none" d="M79 278c5 5 13 5 18 0"/>
+    </g>
+
+    <g transform="translate(-4 -46) rotate(-8 150 340)">
+      <rect x="58" y="300" width="196" height="132" rx="14" fill="#1f2f57"/>
+      <rect x="68" y="310" width="176" height="112" rx="8" fill="url(#pc-screen)"/>
+      <circle cx="120" cy="354" r="16" fill="#fff" opacity="0.85"/>
+      <rect x="150" y="342" width="74" height="10" rx="5" fill="#fff" opacity="0.85"/>
+      <rect x="150" y="362" width="50" height="10" rx="5" fill="#fff" opacity="0.6"/>
+    </g>
+
+    <ellipse cx="252" cy="312" rx="20" ry="27" transform="rotate(-20 252 312)" fill="#e8b58f"/>
+  </g>
+</svg>

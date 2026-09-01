@@ -372,98 +372,84 @@ export function howEternWorks() {
 </section>`;
 }
 
-/** The parent dashboard, on a full violet ground. */
-export function dashboardPreview(depth = 0) {
-  const skills = [
-    { label: "Literacy", value: 85, accent: "blue" },
-    { label: "Numeracy", value: 78, accent: "green" },
-    { label: "Creativity", value: 92, accent: "pink" },
-    { label: "Problem Solving", value: 80, accent: "amber" },
-  ];
+/**
+ * The parent dashboard band: copy, the dashboard card itself, and a picture of
+ * a parent and child sitting on the bottom edge of the violet ground.
+ */
+export function dashboardPreview(depth = 0, cta = { href: "parents.html", label: "Explore Dashboard" }) {
   const stats = [
-    { label: "Activities completed", value: "24", icon: "trending-up", accent: "violet" },
-    { label: "Time spent", value: "4h 30m", icon: "clock", accent: "blue" },
-    { label: "Day streak", value: "7", icon: "flame", accent: "orange" },
-  ];
-  const badges = [
-    ["Little Explorer", "⭐"],
-    ["Creative Mind", "🎨"],
-    ["Problem Solver", "🧩"],
-    ["Story Explorer", "📚"],
+    { label: "Activities Completed", value: "24", icon: "trending-up", accent: "amber" },
+    { label: "Time Spent", value: "4h 30m", icon: "clock", accent: "green" },
+    { label: "Skills Learned", value: "18", icon: "sparkles", accent: "orange" },
+    { label: "Streak", value: "7 Days", icon: "flame", accent: "green" },
   ];
 
-  return `<section class="section section--solid accent-violet">
-  <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.1);width:22rem;height:22rem;left:-6rem;bottom:-8rem"></span>
-  <span class="shape shape--dot" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.09);width:8rem;height:8rem;right:8%;top:12%"></span>
+  const recent = [
+    { emoji: "📖", title: "Story: The Little Explorer", when: "1 hr ago", percent: 100, accent: "violet" },
+    { emoji: "🧩", title: "Puzzle: Space Journey", when: "4 hrs ago", percent: 80, accent: "blue" },
+  ];
+
+  return `<section class="section section--solid accent-violet dash-band">
+  <span class="shape shape--pebble" aria-hidden="true" style="--shape-fill:oklch(1 0 0 / 0.09);width:20rem;height:20rem;left:-7rem;bottom:-7rem"></span>
+  <span class="shape shape--dot float-mid" aria-hidden="true" style="--shape-fill:var(--teal);width:4.5rem;height:4.5rem;left:1%;bottom:6%;opacity:0.9"></span>
+  <span class="shape shape--star float-slow" aria-hidden="true" style="--shape-fill:var(--amber);width:2.2rem;height:2.2rem;left:33%;top:8%"></span>
+  <span class="shape shape--diamond" aria-hidden="true" style="--shape-fill:var(--pink);width:1.1rem;height:1.1rem;left:13%;bottom:22%"></span>
+  <span class="shape shape--diamond float-mid" aria-hidden="true" style="--shape-fill:var(--blue);width:1.3rem;height:1.3rem;right:14%;top:16%"></span>
+  <svg class="shape" aria-hidden="true" viewBox="0 0 100 55" style="width:7rem;height:3.85rem;left:24%;bottom:5%;background:none" fill="none" stroke-linecap="round">
+    <path d="M8 52a42 42 0 0 1 84 0" stroke="var(--pink)" stroke-width="9"/>
+    <path d="M20 52a30 30 0 0 1 60 0" stroke="var(--amber)" stroke-width="9"/>
+    <path d="M32 52a18 18 0 0 1 36 0" stroke="var(--blue)" stroke-width="9"/>
+  </svg>
+
   <div class="shell">
-    <div class="split split--wide-right split--center">
-      <div class="stack stack-6">
-        ${sectionHeading({
-          eyebrow: "Parent dashboard",
-          title: "Learning That Parents Love.<br>Progress You Can See.",
-          description:
-            "You see what your child worked on, which skills are growing and where they need another week of practice — without asking them a single question.",
-        })}
-        <a class="btn btn--white btn--lg w-fit" href="${url("parents.html", depth)}">
-          Explore the dashboard ${icon("arrow-right")}
-        </a>
+    <div class="dash-band__grid">
+      <div class="stack stack-5">
+        <h2>Learning That Parents Love.<br>Progress You Can See.</h2>
+        <p class="lead">Our parent dashboard helps you stay connected with your child's learning journey.</p>
+        <a class="dash-band__link" href="${url(cta.href, depth)}">${esc(cta.label)} ${icon("arrow-right")}</a>
       </div>
 
       <div class="dash reveal" data-dash>
-        <div class="dash__profile">
-          <div class="flex items-center gap-4">
-            <span class="dash__avatar" aria-hidden="true">🦊</span>
-            <div>
-              <p class="label">Hi, Parent! 👋</p>
-              <p class="h3" style="font-size:1.2rem">Aarav · 5 years</p>
-            </div>
-          </div>
-          <span class="pill pill--solid accent-green">Stage: Build</span>
-        </div>
+        <p class="dash__greet">Hi, Parent! <span aria-hidden="true">👋</span></p>
+        <p class="dash__sub">Here's what's happening with your child today.</p>
 
         <div class="dash__stats">
           ${stats
             .map(
-              (s) => `<div class="dash__stat accent-${s.accent}">
-            <span class="tile tile--sm">${icon(s.icon)}</span>
-            <b data-count-to="${s.value}">${s.value}</b>
-            <p>${esc(s.label)}</p>
+              (stat) => `<div class="dash__stat accent-${stat.accent}">
+            <span class="dash__stat-head">
+              <span>${icon(stat.icon)}</span>
+              <b>${esc(stat.label)}</b>
+            </span>
+            <p class="dash__stat-value" data-count-to="${stat.value}">${stat.value}</p>
           </div>`,
             )
             .join("\n          ")}
         </div>
 
-        <div class="dash__panel">
-          <div class="flex items-center justify-between">
-            <h3 class="h3" style="font-size:1.1rem">Learning progress</h3>
-            <span class="label">Last 7 days</span>
-          </div>
-          <div class="stack stack-4 mt-6">
-            ${skills
-              .map(
-                (skill) => `<div class="accent-${skill.accent}">
-              <div class="flex items-center justify-between small">
-                <span class="font-semibold">${esc(skill.label)}</span>
-                <span class="font-semibold muted" style="font-variant-numeric:tabular-nums">${skill.value}%</span>
-              </div>
-              <div class="meter"><span style="--value:${skill.value}%"></span></div>
-            </div>`,
-              )
-              .join("\n            ")}
-          </div>
-        </div>
+        <h3 class="dash__title">Recent Activity</h3>
+        <ul class="dash__activity">
+          ${recent
+            .map(
+              (item) => `<li class="dash__act accent-${item.accent}">
+            <span class="dash__act-thumb" aria-hidden="true">${item.emoji}</span>
+            <span class="dash__act-body">
+              <b>${esc(item.title)}</b>
+              <span>Completed · ${item.when}</span>
+            </span>
+            <span class="dash__act-progress accent-green">
+              <span class="meter"><span style="--value:${item.percent}%"></span></span>
+              <i>${item.percent}%</i>
+            </span>
+          </li>`,
+            )
+            .join("\n          ")}
+        </ul>
+      </div>
 
-        <div class="dash__panel">
-          <div class="flex items-center gap-2">
-            <span style="color:var(--violet);display:grid">${icon("award")}</span>
-            <h3 class="h3" style="font-size:1.1rem">Recent achievements</h3>
-          </div>
-          <div class="badge-row">
-            ${badges.map(([label, emoji]) => `<span><span aria-hidden="true">${emoji}</span>${esc(label)}</span>`).join("\n            ")}
-          </div>
-        </div>
-
-        <p class="tiny muted mt-4" style="padding-inline:0.5rem">Sample dashboard shown with example data.</p>
+      <div class="dash-band__photo">
+        <img src="${url("assets/img/parent-child.svg", depth)}" width="320" height="380"
+             alt="A parent and child looking at a tablet together" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
