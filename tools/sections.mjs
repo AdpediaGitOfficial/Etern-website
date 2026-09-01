@@ -394,33 +394,6 @@ export function howEternWorks() {
 </section>`;
 }
 
-/** Tiny illustrated scenes for the recent-activity tiles in the dashboard. */
-const DASH_ART = {
-  story: `<svg viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
-      <rect width="44" height="44" rx="12" fill="var(--violet-soft)"/>
-      <circle cx="33" cy="12" r="5" fill="var(--amber)"/>
-      <path d="M-2 33c6-6 11-6 16-1.5S25 36 30 30s10-5 16 1v15H-2z" fill="var(--green)" opacity="0.5"/>
-      <path d="M22 19.5c-2.7-2.2-6.3-2.4-9.4-1.2v13.4c3.1-1.2 6.7-1 9.4 1.2z" fill="#fff"/>
-      <path d="M22 19.5c2.7-2.2 6.3-2.4 9.4-1.2v13.4c-3.1-1.2-6.7-1-9.4 1.2z" fill="#fff"/>
-      <path d="M22 19.5v13.4" stroke="var(--violet)" stroke-width="1.4" stroke-linecap="round"/>
-    </svg>`,
-  space: `<svg viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
-      <rect width="44" height="44" rx="12" fill="var(--blue-soft)"/>
-      <circle cx="9" cy="11" r="1.6" fill="var(--blue)"/>
-      <circle cx="36" cy="31" r="1.4" fill="var(--violet)"/>
-      <circle cx="12" cy="34" r="1.1" fill="var(--pink)"/>
-      <circle cx="33" cy="12" r="4.6" fill="var(--amber)"/>
-      <ellipse cx="33" cy="12" rx="7.6" ry="2.3" stroke="var(--orange)" stroke-width="1.5"
-               transform="rotate(-18 33 12)"/>
-      <path d="M17 26l-3.4 6 3.4-1.7z" fill="var(--pink)"/>
-      <path d="M23 26l3.4 6-3.4-1.7z" fill="var(--pink)"/>
-      <path d="M20 15.5c3.6 3 4.9 8.7 3.5 15h-7c-1.4-6.3-.1-12 3.5-15z" fill="#fff"
-            stroke="var(--blue)" stroke-width="1.3" stroke-linejoin="round"/>
-      <circle cx="20" cy="22.5" r="2.1" fill="var(--blue)"/>
-      <path d="M20 32c1.3 1.9 1.3 3.8 0 5.7-1.3-1.9-1.3-3.8 0-5.7z" fill="var(--orange)"/>
-    </svg>`,
-};
-
 /**
  * The parent dashboard band: copy, the dashboard card itself, and a picture of
  * a parent and child sitting on the bottom edge of the violet ground.
@@ -434,8 +407,20 @@ export function dashboardPreview(depth = 0, cta = { href: "parents.html", label:
   ];
 
   const recent = [
-    { art: "story", title: "Story: The Little Explorer", when: "1 hr ago", percent: 100, accent: "violet" },
-    { art: "space", title: "Puzzle: Space Journey", when: "4 hrs ago", percent: 80, accent: "blue" },
+    {
+      art: "assets/img/activity-stories.webp",
+      title: "Story: The Little Explorer",
+      when: "1 hr ago",
+      percent: 100,
+      accent: "violet",
+    },
+    {
+      art: "assets/img/activity-self-help.webp",
+      title: "Self Help: Big Feelings",
+      when: "4 hrs ago",
+      percent: 80,
+      accent: "amber",
+    },
   ];
 
   return `<section class="section section--solid accent-violet dash-band">
@@ -481,7 +466,8 @@ export function dashboardPreview(depth = 0, cta = { href: "parents.html", label:
           ${recent
             .map(
               (item) => `<li class="dash__act accent-${item.accent}">
-            <span class="dash__act-thumb" aria-hidden="true">${DASH_ART[item.art]}</span>
+            <img class="dash__act-thumb" src="${url(item.art, depth)}" width="128" height="128"
+                 alt="" loading="lazy" decoding="async">
             <span class="dash__act-body">
               <b>${esc(item.title)}</b>
               <span>Completed · ${item.when}</span>

@@ -135,6 +135,13 @@ and finally the illustration.
 - To shift what survives the crop, change `object-position` on
   `.dash-band__photo img` in `assets/css/etern.css`.
 
+The two Recent Activity rows in the same card use the app's own artwork,
+`assets/img/activity-stories.webp` and `assets/img/activity-self-help.webp` —
+128 x 128 square crops of the full cards kept beside them as
+`activity-stories-card.png` and `activity-self-help-card.png`. Swap a row's
+picture by pointing its `art` path at another file in `dashboardPreview()`
+(`tools/sections.mjs`); the tile crops whatever it is to a rounded square.
+
 ## Design system
 
 `assets/css/etern.css` holds the whole thing: colour tokens in `oklch`, the
