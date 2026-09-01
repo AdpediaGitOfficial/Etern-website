@@ -173,6 +173,28 @@ The two Recent Activity rows in the same card use the app's own artwork,
 picture by pointing its `art` path at another file in `dashboardPreview()`
 (`tools/sections.mjs`); the tile crops whatever it is to a rounded square.
 
+## Icons
+
+Every mark on the site is an inline SVG from `tools/icons.mjs` — one 24 x 24
+grid, a 1.75 stroke, round caps and joins, no icon font and no network request.
+`icon(name)` returns the markup; unknown names throw at build time, so a typo
+never ships as a blank.
+
+Nothing in the page chrome is an emoji. Activities, journal topics and the five
+method moves each name an icon (`icon:` in `tools/content-activities.mjs`,
+`TOPIC_ICON` and `METHOD_STYLE` in `tools/sections.mjs`), and marks are set in
+one of two ways:
+
+- `.tile--duo` — the hue washed across a rounded tile, a hairline ring, a
+  highlight in the top left and the mark in the family's ink. Used wherever an
+  icon labels a card.
+- `.cover` — a larger plate for card artwork, with the mark on a white
+  medallion in the middle.
+
+The emoji that remain are inside the activities themselves — the apples,
+animals and faces a child chooses between, and the confetti when they get one
+right. Those are content, not interface, and they are meant to be picture-first.
+
 ## Design system
 
 `assets/css/etern.css` holds the whole thing: colour tokens in `oklch`, the

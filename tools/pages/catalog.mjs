@@ -128,7 +128,7 @@ export function programDetailPage(program) {
               .map(
                 (a) => `<a class="card card-link flex items-center gap-4" style="border-radius:var(--radius-md);padding:1rem;flex-direction:row"
               href="${url(`activities/${a.slug}.html`, d)}">
-              <span class="tile" style="background:var(--surface);font-size:1.5rem">${a.emoji}</span>
+              <span class="tile tile--duo">${icon(a.icon)}</span>
               <span class="grow">
                 <span class="font-semibold" style="display:block">${esc(a.title)}</span>
                 <span class="tiny muted" style="display:block">${a.difficulty} · ${a.points} stars</span>
@@ -298,7 +298,7 @@ export function activityDetailPage(activity) {
       <a class="back-link" href="${url("activities.html", d)}">${icon("arrow-left")} All activities</a>
       <span class="eyebrow">${esc(activity.category)} · ${activity.difficulty} · Ages ${activity.ageMin}–${activity.ageMax}</span>
       <h1 class="flex items-center gap-4" style="font-size:clamp(2.2rem,1.4rem+2.6vw,3rem)">
-        <span class="tile" style="width:4rem;height:4rem;border-radius:1.5rem;font-size:1.875rem" aria-hidden="true">${activity.emoji}</span>
+        <span class="tile tile--xl tile--duo">${icon(activity.icon)}</span>
         ${esc(activity.title)}
       </h1>
       <p class="lead" style="max-width:38rem">${esc(activity.longDescription)}</p>
@@ -353,7 +353,7 @@ export function activityDetailPage(activity) {
         .map(
           (a) => `<a class="card card-link flex items-center gap-4" style="border-radius:var(--radius-3xl);padding:1.25rem;flex-direction:row"
         href="${url(`activities/${a.slug}.html`, d)}">
-        <span class="tile" style="background:var(--surface);font-size:1.5rem">${a.emoji}</span>
+        <span class="tile tile--duo">${icon(a.icon)}</span>
         <span class="grow">
           <span class="font-semibold" style="display:block">${esc(a.title)}</span>
           <span class="tiny muted" style="display:block">${esc(a.category)}</span>
@@ -404,7 +404,7 @@ export function journalIndexPage() {
         <p class="tiny muted">${formatDate(featured.date)} · ${featured.readingMinutes} min read</p>
         <span class="link-arrow">Read the article ${icon("arrow-right")}</span>
       </div>
-      <div class="cover" aria-hidden="true">📖</div>
+      <div class="cover">${icon("book-open")}</div>
     </a>
 
     <div class="flex flex-wrap items-center justify-between gap-5 mt-12">

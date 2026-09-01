@@ -1,6 +1,7 @@
 import { icon } from "../icons.mjs";
 import { esc, url, sectionHeading, demoCta, decor, rainbow } from "../layout.mjs";
 import {
+  CATEGORY_HUE,
   HERO_ART,
   ageJourney,
   dashboardPreview,
@@ -107,8 +108,8 @@ function tryLesson() {
 
   const tabs = featured
     .map(
-      (a, i) => `<button type="button" class="try-chip" data-lesson-tab="${a.slug}" aria-pressed="${i === 0}">
-          <span aria-hidden="true">${a.emoji}</span> ${esc(a.title)}
+      (a, i) => `<button type="button" class="try-chip accent-${CATEGORY_HUE[a.category] ?? "violet"}" data-lesson-tab="${a.slug}" aria-pressed="${i === 0}">
+          ${icon(a.icon)} ${esc(a.title)}
         </button>`,
     )
     .join("\n        ");

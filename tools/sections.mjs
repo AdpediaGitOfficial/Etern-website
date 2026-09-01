@@ -64,6 +64,18 @@ export const TOPIC_HUE = {
   Creative: "pink",
 };
 
+/** The mark each journal topic carries on its card. */
+export const TOPIC_ICON = {
+  Parenting: "hand-heart",
+  Activities: "scissors",
+  Learning: "cards",
+  "Child Development": "seedling",
+  Safety: "shield-check",
+  Creativity: "palette",
+  Lessons: "book-open",
+  Creative: "palette",
+};
+
 export const hueFor = (map, key, fallback = "violet") => map[key] ?? fallback;
 
 /** The four age stages, in the reference's colour order. */
@@ -107,11 +119,11 @@ export const HERO_ART =
 
 /** The five method moves. */
 const METHOD_STYLE = [
-  { hue: "violet", emoji: "🔍" },
-  { hue: "blue", emoji: "🤲" },
-  { hue: "pink", emoji: "🎨" },
-  { hue: "amber", emoji: "💬" },
-  { hue: "green", emoji: "🌱" },
+  { hue: "violet", icon: "search" },
+  { hue: "blue", icon: "hand-heart" },
+  { hue: "pink", icon: "palette" },
+  { hue: "amber", icon: "message-heart" },
+  { hue: "green", icon: "seedling" },
 ];
 
 export function formatDate(value) {
@@ -155,7 +167,7 @@ export function activityCard(activity, depth = 0) {
    data-difficulty="${activity.difficulty}"
    data-age-min="${activity.ageMin}" data-age-max="${activity.ageMax}">
   <div class="flex items-start justify-between">
-    <span class="tile tile--lg" style="background:oklch(1 0 0 / 0.7);font-size:1.85rem" aria-hidden="true">${activity.emoji}</span>
+    <span class="tile tile--lg tile--duo">${icon(activity.icon)}</span>
     <span class="pill" style="background:oklch(1 0 0 / 0.65)">Ages ${activity.ageMin}–${activity.ageMax}</span>
   </div>
   <div>
@@ -165,7 +177,7 @@ export function activityCard(activity, depth = 0) {
   <div class="chip-row">
     <span class="pill pill--solid">${esc(activity.category)}</span>
     <span class="pill" style="background:oklch(1 0 0 / 0.65)">${activity.difficulty}</span>
-    <span class="pill" style="background:oklch(1 0 0 / 0.65)">${activity.points} ⭐</span>
+    <span class="pill pill--stars" style="background:oklch(1 0 0 / 0.65)">${icon("star")}${activity.points}</span>
   </div>
   <span class="link-arrow">Play now ${icon("arrow-right")}</span>
 </a>`;
@@ -179,11 +191,7 @@ export function journalCard(post, depth = 0) {
    data-keywords="${esc(post.excerpt.toLowerCase())}"
    data-category="${esc(post.category)}">
   <a class="card card-link stack-4" href="${url(`journal/${post.slug}.html`, depth)}">
-    <span class="cover" style="aspect-ratio:16/9;border-radius:1.25rem;font-size:2.6rem;background:linear-gradient(140deg, var(--accent-soft), oklch(1 0 0))" aria-hidden="true">${
-      { Parenting: "🫶", Activities: "✂️", Learning: "🧠", "Child Development": "🌱", Safety: "🛡️", Creativity: "🎨" }[
-        post.category
-      ] ?? "📖"
-    }</span>
+    <span class="cover cover--wide">${icon(TOPIC_ICON[post.category] ?? "book-open")}</span>
     <div class="flex items-center gap-3 tiny muted">
       <span class="pill pill--solid">${esc(post.category)}</span>
       <span>${formatDate(post.date)} · ${post.readingMinutes} min</span>
@@ -324,12 +332,12 @@ export function methodSection() {
   const step = (i) => METHOD_STYLE[i] ?? METHOD_STYLE[0];
 
   const nodes = METHOD_STEPS.map((move, i) => {
-    const { hue, emoji } = step(i);
+    const { hue, icon: mark } = step(i);
     const angle = (360 / METHOD_STEPS.length) * i;
     return `<button type="button" class="wheel__node" data-move="${move.number}"
         aria-pressed="${i === 0}" aria-controls="move-detail"
         style="--angle:${angle}deg;--node-ink:var(--${hue}-ink);--node-solid:var(--${hue})">
-        <span aria-hidden="true">${emoji}</span>
+        <span class="wheel__mark">${icon(mark)}</span>
         ${esc(move.title)}
       </button>`;
   }).join("\n      ");
@@ -489,7 +497,7 @@ export function dashboardPreview(depth = 0, cta = { href: "parents.html", label:
       </div>
 
       <div class="dash reveal" data-dash>
-        <p class="dash__greet">Hi, Parent! <span aria-hidden="true">👋</span></p>
+        <p class="dash__greet">Hi, Parent!</p>
         <p class="dash__sub">Here's what's happening with your child today.</p>
 
         <div class="dash__stats">

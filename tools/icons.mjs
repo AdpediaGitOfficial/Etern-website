@@ -6,7 +6,7 @@
  * request. `icon(name)` returns markup ready to drop into a template.
  */
 
-const STROKE = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+const STROKE = 'fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"';
 const FILL = 'fill="currentColor" stroke="none"';
 
 /** name -> [innerMarkup, isFilled] */
@@ -32,6 +32,17 @@ const PATHS = {
   "shield-check": '<path d="M12 21.5s8-3.8 8-9.5V5.2L12 2.5 4 5.2V12c0 5.7 8 9.5 8 9.5z"/><path d="M9 11.8l2.2 2.2 4-4"/>',
   "bar-chart": '<path d="M12 20V9.5"/><path d="M18 20V4"/><path d="M6 20v-5"/>',
   heart: '<path d="M20.6 5a5.2 5.2 0 0 0-7.4 0L12 6.2 10.8 5A5.2 5.2 0 0 0 3.4 12.4l1.2 1.2L12 21l7.4-7.4 1.2-1.2A5.2 5.2 0 0 0 20.6 5z"/>',
+  "target-dot": '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.4" fill="currentColor" stroke="none"/>',
+  shapes: '<circle cx="7.5" cy="7.5" r="4.4"/><rect x="12.8" y="12.8" width="8.4" height="8.4" rx="2.2"/><path d="M16.6 3.2l3.9 6.6h-7.8z"/>',
+  "letter-a": '<path d="M6.5 19.5L12 4.5l5.5 15"/><path d="M8.6 14.4h6.8"/>',
+  cards: '<rect x="3" y="7.5" width="8" height="11" rx="2"/><rect x="13" y="7.5" width="8" height="11" rx="2"/><path d="M7 12.2v2.2M5.9 13.3h2.2"/><path d="M15 13.3h4"/>',
+  paw: '<ellipse cx="6.4" cy="10.6" rx="2.1" ry="2.6"/><ellipse cx="17.6" cy="10.6" rx="2.1" ry="2.6"/><ellipse cx="9.9" cy="6.6" rx="2" ry="2.5"/><ellipse cx="14.1" cy="6.6" rx="2" ry="2.5"/><path d="M12 13.2c3.1 0 5.3 2 5.3 4.2 0 1.7-1.4 2.8-3.2 2.6-1.4-.2-2.8-.2-4.2 0-1.8.2-3.2-.9-3.2-2.6 0-2.2 2.2-4.2 5.3-4.2z"/>',
+  smile: '<circle cx="12" cy="12" r="9"/><path d="M8.4 14.2a4.4 4.4 0 0 0 7.2 0"/><path d="M9 9.6h.01M15 9.6h.01"/>',
+  puzzle: '<path d="M9.6 4.5h4.8v2a1.9 1.9 0 1 0 3.8 0v-2h1.3v4.8h-2a1.9 1.9 0 1 0 0 3.8h2v6.4H14v-2a1.9 1.9 0 1 0-3.8 0v2H4.5v-6.4h2a1.9 1.9 0 1 0 0-3.8h-2V4.5h5.1z"/>',
+  seedling: '<path d="M12 20.5v-7.2"/><path d="M12 13.3C12 9.8 9.4 7.2 5.9 7.2c0 3.5 2.6 6.1 6.1 6.1z"/><path d="M12 13.3c0-3.9 2.9-6.8 6.8-6.8 0 3.9-2.9 6.8-6.8 6.8z"/>',
+  scissors: '<circle cx="6.4" cy="6.4" r="2.6"/><circle cx="6.4" cy="17.6" r="2.6"/><path d="M8.6 8.2L20 18.4"/><path d="M8.6 15.8L20 5.6"/>',
+  "message-heart": '<path d="M20.5 12.4c0 4-3.8 7.2-8.5 7.2-1 0-2-.2-2.9-.4l-5.1 1.8 1.7-4.3a6.8 6.8 0 0 1-1.7-4.3c0-4 3.8-7.2 8-7.2s8.5 3.2 8.5 7z"/><path d="M14.5 10.2c-.7-.8-1.9-.8-2.6 0-.7-.8-1.9-.8-2.6 0-.7.9-.4 2 .3 2.7l2.3 2.2 2.3-2.2c.7-.7 1-1.8.3-2.7z"/>',
+  "hand-heart": '<path d="M3.5 13.4l3-1.2a3 3 0 0 1 2.5.2l2.3 1.2h2.4a1.6 1.6 0 0 1 0 3.2h-3"/><path d="M3.5 13.4v6.1l3.7 1a4 4 0 0 0 2.6-.2l7.3-3.2a1.9 1.9 0 0 0-.2-3.5"/><path d="M15.9 3.6c-1-1-2.6-1-3.5 0-1-1-2.6-1-3.5 0-1 1.1-.6 2.7.3 3.6l3.2 3.1 3.2-3.1c1-.9 1.3-2.5.3-3.6z"/>',
   palette: '<path d="M12 2.5a9.5 9.5 0 1 0 0 19 1.9 1.9 0 0 0 1.9-1.9c0-.5-.2-1-.5-1.3a1.9 1.9 0 0 1 1.4-3.2h2.2a4.5 4.5 0 0 0 4.5-4.5c0-4.4-4.3-8.1-9.5-8.1z"/><circle cx="7.5" cy="10.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="7.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="10" r="1.1" fill="currentColor" stroke="none"/>',
   "book-open": '<path d="M12 7.5v13"/><path d="M2.5 4.5H8a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2.5z"/><path d="M21.5 4.5H16a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h6.5z"/>',
   "heart-handshake": '<path d="M20.6 5a5.2 5.2 0 0 0-7.4 0L12 6.2 10.8 5A5.2 5.2 0 0 0 3.4 12.4l1.2 1.2L12 21l7.4-7.4 1.2-1.2A5.2 5.2 0 0 0 20.6 5z"/><path d="M9 11.5l2 2 1.4-1.4 2.1 2.1"/>',

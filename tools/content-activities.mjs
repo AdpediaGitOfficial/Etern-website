@@ -18,7 +18,7 @@ export const ACTIVITIES = [
     difficulty: "Easy",
     points: 10,
     skills: ["Colour recognition", "Listening", "Focus"],
-    emoji: "🔴",
+    icon: "target-dot",
     featuredOnHome: true,
     rounds: [
       {
@@ -63,7 +63,7 @@ export const ACTIVITIES = [
     difficulty: "Easy",
     points: 15,
     skills: ["Early numeracy", "One-to-one matching", "Counting"],
-    emoji: "⭐",
+    icon: "star",
     featuredOnHome: true,
     rounds: [
       {
@@ -108,7 +108,7 @@ export const ACTIVITIES = [
     difficulty: "Easy",
     points: 15,
     skills: ["Shape recognition", "Visual discrimination", "Matching"],
-    emoji: "🔷",
+    icon: "shapes",
     featuredOnHome: true,
     rounds: [
       {
@@ -153,7 +153,7 @@ export const ACTIVITIES = [
     difficulty: "Medium",
     points: 20,
     skills: ["Letter recognition", "Phonics", "Listening"],
-    emoji: "🅰️",
+    icon: "letter-a",
     featuredOnHome: true,
     rounds: [
       {
@@ -198,7 +198,7 @@ export const ACTIVITIES = [
     difficulty: "Medium",
     points: 25,
     skills: ["Working memory", "Concentration", "Patience"],
-    emoji: "🧠",
+    icon: "cards",
     featuredOnHome: true,
     pairs: ["🐘", "🦊", "🐢", "🦜", "🐝", "🐬"],
   },
@@ -214,7 +214,7 @@ export const ACTIVITIES = [
     difficulty: "Easy",
     points: 15,
     skills: ["Listening", "Vocabulary", "Matching"],
-    emoji: "🦁",
+    icon: "paw",
     rounds: [
       {
         prompt: "Who says 'moo'?",
@@ -258,7 +258,7 @@ export const ACTIVITIES = [
     difficulty: "Medium",
     points: 20,
     skills: ["Emotional literacy", "Empathy", "Vocabulary"],
-    emoji: "😊",
+    icon: "smile",
     rounds: [
       {
         prompt: "Maya's ice cream fell on the floor. How does she feel? 😢",
@@ -302,7 +302,7 @@ export const ACTIVITIES = [
     difficulty: "Challenge",
     points: 25,
     skills: ["Patterns", "Logic", "Prediction"],
-    emoji: "🧩",
+    icon: "puzzle",
     rounds: [
       {
         prompt: "🔺 ⚫ 🔺 ⚫ 🔺 … what comes next?",
@@ -346,7 +346,7 @@ export const ACTIVITIES = [
     difficulty: "Challenge",
     points: 25,
     skills: ["Colour theory", "Prediction", "Creative thinking"],
-    emoji: "🎨",
+    icon: "palette",
     rounds: [
       {
         prompt: "Blue 💙 + Yellow 💛 makes…",
