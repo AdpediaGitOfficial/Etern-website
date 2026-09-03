@@ -107,6 +107,9 @@ export const PROGRAMS = [
   },
   {
     slug: "safety-and-wellbeing",
+    image: "staysafe",
+    imageAlt:
+      "A teacher showing a child a Stay Safe chart — stop, think, stay with a grown-up, speak up.",
     title: "Safety & Wellbeing",
     shortDescription:
       "Teaching safety awareness, body confidence, and healthy habits to help children stay aware, safe, and cared for.",
