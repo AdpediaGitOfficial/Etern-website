@@ -6,7 +6,7 @@
  * bundle in assets/js.
  */
 
-import { icon } from "./icons.mjs";
+import { icon, brandMark } from "./icons.mjs";
 import { BRAND } from "./content-etern.mjs";
 
 export const SITE_URL = "https://www.eternlearning.com";
@@ -140,8 +140,39 @@ function header(active, depth) {
   <div class="mobile-menu__cta">
     <a class="btn btn--primary btn--lg btn--block" href="${url("book-demo.html", depth)}">Book a Free Demo</a>
     <a class="btn btn--outline btn--lg btn--block" href="${BRAND.whatsapp}" target="_blank" rel="noreferrer noopener">Chat on WhatsApp</a>
+    ${storeBadges({ compact: true, class: "mobile-menu__apps" })}
   </div>
 </div>`;
+}
+
+/* ----------------------------------------------------------- store badges */
+
+/**
+ * The App Store / Google Play cards.
+ *
+ * Both marks are drawn inline, so the badges carry no external images and
+ * scale cleanly. `tone` picks the card colour: "ink" (default) sits on light
+ * ground, "light" sits on the coloured panels.
+ *
+ * @param {{tone?: "ink"|"light", class?: string, compact?: boolean}} [opts]
+ */
+export function storeBadges(opts = {}) {
+  const tone = opts.tone === "light" ? " store-badges--light" : "";
+  const compact = opts.compact ? " store-badges--compact" : "";
+  const extra = opts.class ? ` ${opts.class}` : "";
+  const badge = (href, mark, eyebrow, name, label) =>
+    `<a class="store-badge" href="${href}" target="_blank" rel="noreferrer noopener" aria-label="${label}">
+      <span class="store-badge__mark">${mark}</span>
+      <span class="store-badge__text">
+        <span class="store-badge__eyebrow">${eyebrow}</span>
+        <span class="store-badge__name">${name}</span>
+      </span>
+    </a>`;
+
+  return `<div class="store-badges${tone}${compact}${extra}">
+    ${badge(BRAND.apps.ios, brandMark("apple"), "Download on the", "App Store", "Download Etern Learning on the App Store")}
+    ${badge(BRAND.apps.android, brandMark("google-play"), "Get it on", "Google Play", "Get Etern Learning on Google Play")}
+  </div>`;
 }
 
 /* ----------------------------------------------------------------- footer */
@@ -174,6 +205,8 @@ function footer(depth) {
           <span aria-hidden="true">·</span>
           <a href="${BRAND.phoneHref}">${BRAND.phone}</a>
         </p>
+        <p class="foot-apps__label">Get the Etern Learning app</p>
+        ${storeBadges()}
       </div>
 
       <form class="foot-news newsletter" data-newsletter novalidate>
@@ -193,11 +226,9 @@ function footer(depth) {
     <div class="foot-base">
       <p>© <span data-year>${new Date().getFullYear()}</span> Etern Learning Private Limited · Kochi, India</p>
       <div class="foot-base__right">
-        <nav aria-label="Legal and apps">
+        <nav aria-label="Legal">
           <a href="${url("privacy.html", depth)}">Privacy</a>
           <a href="${url("terms.html", depth)}">Terms</a>
-          <a href="${BRAND.apps.ios}" target="_blank" rel="noreferrer noopener">App Store</a>
-          <a href="${BRAND.apps.android}" target="_blank" rel="noreferrer noopener">Google Play</a>
         </nav>
         <div class="social-row">
           ${socials}
@@ -324,6 +355,10 @@ export function demoCta(depth = 0) {
           <ul class="demo-panel__points">
             ${DEMO_POINTS.map((point) => `<li><span>${icon("check")}</span>${esc(point)}</li>`).join("\n            ")}
           </ul>
+          <div class="demo-panel__apps">
+            <p class="demo-panel__apps-label">Or start in the app — free to download</p>
+            ${storeBadges({ tone: "light" })}
+          </div>
         </div>
 
         <div class="demo-panel__card">

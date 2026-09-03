@@ -82,3 +82,27 @@ export function icon(name, opts = {}) {
   return `<svg${cls} width="${size}" height="${size}" viewBox="0 0 24 24" ${filled ? FILL : STROKE} aria-hidden="true" focusable="false">${inner}</svg>`;
 }
 
+
+/**
+ * Multi-colour brand marks.
+ *
+ * These are not part of the stroke icon set: store badges have to show the
+ * platform's own mark, so they keep their own geometry and their own colours
+ * rather than inheriting `currentColor`.
+ */
+const MARKS = {
+  apple: `<path fill="currentColor" d="M17.02 12.53c-.02-2.2 1.79-3.26 1.87-3.31-1.02-1.49-2.6-1.7-3.16-1.72-1.35-.14-2.63.79-3.31.79-.68 0-1.74-.77-2.86-.75-1.47.02-2.83.85-3.58 2.16-1.53 2.65-.39 6.57 1.1 8.72.73 1.05 1.6 2.23 2.73 2.19 1.1-.04 1.51-.71 2.83-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.83-1.22 1.18-2.4 1.2-2.46-.03-.01-2.3-.88-2.33-3.47z"/><path fill="currentColor" d="M14.85 5.87c.6-.73 1.01-1.75.9-2.77-.87.04-1.93.58-2.55 1.31-.55.64-1.04 1.68-.91 2.68.97.07 1.96-.5 2.56-1.22z"/>`,
+  "google-play": `<path fill="#00a0ff" d="M3.4 1.9 13.6 12 3.4 22.1a1.6 1.6 0 0 1-.4-1.1V3a1.6 1.6 0 0 1 .4-1.1z"/><path fill="#00d95f" d="M3.4 1.9c.3-.3.9-.3 1.4 0l12.1 7.93L13.6 12z"/><path fill="#ff3a44" d="M3.4 22.1 13.6 12l3.3 2.17-12.1 7.93c-.5.3-1.1.3-1.4 0z"/><path fill="#ffbc00" d="m16.9 9.83 3.3 2.17-3.3 2.17L13.6 12z"/>`,
+};
+
+/**
+ * @param {string} name  key from MARKS
+ * @param {{class?: string, size?: number}} [opts]
+ */
+export function brandMark(name, opts = {}) {
+  const inner = MARKS[name];
+  if (!inner) throw new Error(`Unknown brand mark: ${name}`);
+  const cls = opts.class ? ` class="${opts.class}"` : "";
+  const size = opts.size ?? 24;
+  return `<svg${cls} width="${size}" height="${size}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${inner}</svg>`;
+}

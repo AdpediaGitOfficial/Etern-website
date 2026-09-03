@@ -1,5 +1,5 @@
 import { icon } from "../icons.mjs";
-import { esc, url, sectionHeading, demoCta, decor, rainbow } from "../layout.mjs";
+import { esc, url, sectionHeading, demoCta, decor, rainbow, storeBadges } from "../layout.mjs";
 import {
   CATEGORY_HUE,
   HERO_ART,
@@ -60,6 +60,11 @@ function hero() {
       <div class="hero-cta">
         <a class="btn btn--primary btn--xl" href="programs.html">Explore Learning ${icon("arrow-right")}</a>
         <a class="btn btn--soft btn--xl" href="book-demo.html">Book a Free Demo ${icon("calendar-days")}</a>
+      </div>
+
+      <div class="hero-apps">
+        <p class="hero-apps__label">Also on mobile</p>
+        ${storeBadges({ compact: true })}
       </div>
     </div>
   </div>
