@@ -647,7 +647,9 @@ svg.shape { background: none; }
 
 /* ------------------------------------------------------------- 10. footer */
 
-.site-footer { border-top: 1px solid var(--border); background: var(--card); }
+/* The footer sits on its own pale tint (#e8f9ff) so the page ends on a band
+   rather than running white to the edge. */
+.site-footer { border-top: 1px solid var(--border); background: oklch(0.9713 0.0196 220.86); }
 .site-footer > .shell { padding-block: 3.5rem 5.5rem; }
 
 /* A minimal footer: the brand and the newsletter, one row of links, then a
