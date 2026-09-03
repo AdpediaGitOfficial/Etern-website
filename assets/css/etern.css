@@ -160,14 +160,6 @@ h1, h2, h3, h4 {
 }
 .skip-link:focus { left: 0; }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden; clip-path: inset(50%);
-  white-space: nowrap;
-}
-
 /* ------------------------------------------------------------- 3. layout */
 
 .shell {
@@ -656,25 +648,58 @@ svg.shape { background: none; }
 /* ------------------------------------------------------------- 10. footer */
 
 .site-footer { border-top: 1px solid var(--border); background: var(--card); }
-.site-footer > .shell { padding-block: 4rem; }
+.site-footer > .shell { padding-block: 3.5rem 2.5rem; }
 
-.footer-grid { display: grid; gap: 3rem; }
-@media (min-width: 1024px) {
-  .footer-grid { grid-template-columns: 1.3fr 0.8fr 0.8fr 1.1fr 1.2fr; }
+/* A minimal footer: the brand and the newsletter, one row of links, then a
+   quiet base line. No headed columns, no blocks of contact detail. */
+.foot-top { display: grid; gap: 2.5rem; align-items: start; }
+@media (min-width: 900px) { .foot-top { grid-template-columns: 1fr auto; gap: 4rem; } }
+
+.foot-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.foot-brand p { max-width: 26rem; font-size: 0.9375rem; color: var(--muted-foreground); }
+.foot-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.foot-contact a { font-weight: 600; color: var(--foreground); transition: color 0.2s; }
+.foot-contact a:hover { color: var(--violet-ink); }
+.foot-contact span { color: var(--border); }
+
+.foot-news { width: 100%; max-width: 26rem; }
+.foot-news label { font-size: 0.8125rem; color: var(--muted-foreground); }
+
+.foot-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.6rem;
+  margin-top: 2.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
 }
+.foot-nav a { font-size: 0.9375rem; font-weight: 500; color: var(--muted-foreground); transition: color 0.2s; }
+.foot-nav a:hover { color: var(--violet-ink); }
 
-.footer-links { display: flex; flex-direction: column; gap: 0.625rem; }
-.footer-links a { font-size: 0.9375rem; color: var(--muted-foreground); transition: color 0.2s, padding-left 0.2s; }
-.footer-links a:hover { color: var(--violet-ink); padding-left: 4px; }
+.foot-base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+.foot-base__right { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
+.foot-base nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+.foot-base a { color: var(--muted-foreground); transition: color 0.2s; }
+.foot-base a:hover { color: var(--violet-ink); }
 
-.social-row { display: flex; align-items: center; gap: 0.5rem; }
+.social-row { display: flex; align-items: center; gap: 0.35rem; }
 .social-row a {
   display: grid;
   place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.1rem;
+  height: 2.1rem;
   border-radius: 999px;
-  background: var(--card);
   color: var(--muted-foreground);
   transition: transform 0.2s var(--spring), background-color 0.2s, color 0.2s;
 }
@@ -682,24 +707,8 @@ svg.shape { background: none; }
 .social-row a:nth-child(2):hover { background: var(--blue); color: oklch(1 0 0); }
 .social-row a:nth-child(3):hover { background: var(--teal-ink); color: oklch(1 0 0); }
 .social-row a:nth-child(4):hover { background: var(--orange); color: oklch(1 0 0); }
-.social-row a:hover { transform: translateY(-3px); }
+.social-row a:hover { transform: translateY(-2px); }
 .social-row svg { width: 1rem; height: 1rem; }
-
-.contact-list { display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9375rem; }
-.contact-list li { display: flex; align-items: flex-start; gap: 0.625rem; }
-.contact-list svg { width: 1rem; height: 1rem; margin-top: 0.2rem; flex: none; color: var(--accent-ink, var(--violet-ink)); }
-.contact-list a:hover { color: var(--violet-ink); }
-
-.store-links { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 0.25rem; }
-.store-links a {
-  border-radius: 999px;
-  background: var(--card);
-  padding: 0.45rem 0.95rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  transition: transform 0.2s var(--spring), color 0.2s;
-}
-.store-links a:hover { transform: translateY(-2px); color: var(--violet-ink); }
 
 /* newsletter — the one form in the footer */
 .newsletter { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -718,22 +727,6 @@ svg.shape { background: none; }
 .newsletter__note { font-size: 0.8125rem; min-height: 1.2rem; }
 .newsletter__note.is-ok { color: var(--green-ink); font-weight: 600; }
 .newsletter__note.is-bad { color: var(--destructive); font-weight: 600; }
-
-.footer-bottom {
-  margin-top: 3.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  border-top: 1px solid var(--border);
-  padding-top: 1.5rem;
-  font-size: 0.8125rem;
-  color: var(--muted-foreground);
-}
-.footer-bottom a:hover { color: var(--violet-ink); }
-.footer-bottom nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
-@media (min-width: 640px) {
-  .footer-bottom { flex-direction: row; align-items: center; justify-content: space-between; }
-}
 
 /* ---------------------------------------------------------- 11. page hero */
 

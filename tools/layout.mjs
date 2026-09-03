@@ -20,25 +20,16 @@ const NAV_LINKS = [
   { to: "journal.html", label: "Journal" },
 ];
 
-const FOOTER_COLUMNS = [
-  {
-    title: "Explore",
-    links: [
-      { to: "about.html", label: "About Etern" },
-      { to: "how-it-works.html", label: "How It Works" },
-      { to: "videos.html", label: "Video Library" },
-      { to: "journal.html", label: "Etern Journal" },
-    ],
-  },
-  {
-    title: "Learning",
-    links: [
-      { to: "programs.html", label: "Programs" },
-      { to: "activities.html", label: "Activities" },
-      { to: "parents.html", label: "For Parents" },
-      { to: "book-demo.html", label: "Book a Free Demo" },
-    ],
-  },
+/** The footer keeps one row of links rather than headed columns. */
+const FOOTER_LINKS = [
+  { to: "programs.html", label: "Programs" },
+  { to: "how-it-works.html", label: "How it works" },
+  { to: "activities.html", label: "Activities" },
+  { to: "parents.html", label: "For parents" },
+  { to: "videos.html", label: "Videos" },
+  { to: "journal.html", label: "Journal" },
+  { to: "about.html", label: "About" },
+  { to: "book-demo.html", label: "Book a demo" },
 ];
 
 /** Escape text destined for an HTML text node or a double-quoted attribute. */
@@ -156,14 +147,9 @@ function header(active, depth) {
 /* ----------------------------------------------------------------- footer */
 
 function footer(depth) {
-  const columns = FOOTER_COLUMNS.map(
-    (col) => `<div class="stack stack-4">
-        <h2 class="label">${col.title}</h2>
-        <ul class="footer-links">
-          ${col.links.map((l) => `<li><a href="${url(l.to, depth)}">${l.label}</a></li>`).join("\n          ")}
-        </ul>
-      </div>`,
-  ).join("\n\n      ");
+  const links = FOOTER_LINKS.map(
+    (l) => `<a href="${url(l.to, depth)}">${l.label}</a>`,
+  ).join("\n        ");
 
   const socials = [
     ["instagram", BRAND.social.instagram, "Instagram"],
@@ -179,54 +165,44 @@ function footer(depth) {
 
   return `<footer class="site-footer">
   <div class="shell">
-    <div class="footer-grid">
-      <div class="stack stack-5">
+    <div class="foot-top">
+      <div class="foot-brand">
         ${logo(depth)}
-        <p class="small leading-relaxed muted" style="max-width:20rem">
-          A little curiosity today becomes a lifetime of possibilities. Early learning for children
-          aged 3–7, built on play, creativity and confidence.
+        <p>Early learning for children aged 3–7, built on play, creativity and confidence.</p>
+        <p class="foot-contact">
+          <a href="mailto:${BRAND.email}">${BRAND.email}</a>
+          <span aria-hidden="true">·</span>
+          <a href="${BRAND.phoneHref}">${BRAND.phone}</a>
         </p>
+      </div>
+
+      <form class="foot-news newsletter" data-newsletter novalidate>
+        <label for="newsletter-email">Occasional ideas for your child's learning — once a month.</label>
+        <div class="newsletter__row">
+          <input id="newsletter-email" name="email" type="email" placeholder="Your email" autocomplete="email" required>
+          <button class="btn btn--primary" type="submit">Subscribe</button>
+        </div>
+        <p class="newsletter__note" data-newsletter-note role="status"></p>
+      </form>
+    </div>
+
+    <nav class="foot-nav" aria-label="Footer">
+        ${links}
+    </nav>
+
+    <div class="foot-base">
+      <p>© <span data-year>${new Date().getFullYear()}</span> Etern Learning Private Limited · Kochi, India</p>
+      <div class="foot-base__right">
+        <nav aria-label="Legal and apps">
+          <a href="${url("privacy.html", depth)}">Privacy</a>
+          <a href="${url("terms.html", depth)}">Terms</a>
+          <a href="${BRAND.apps.ios}" target="_blank" rel="noreferrer noopener">App Store</a>
+          <a href="${BRAND.apps.android}" target="_blank" rel="noreferrer noopener">Google Play</a>
+        </nav>
         <div class="social-row">
           ${socials}
         </div>
       </div>
-
-      ${columns}
-
-      <div class="stack stack-4">
-        <h2 class="label">Contact</h2>
-        <ul class="contact-list">
-          <li>${icon("phone")}<a href="${BRAND.phoneHref}">${BRAND.phone}</a></li>
-          <li>${icon("mail")}<a href="mailto:${BRAND.email}">${BRAND.email}</a></li>
-          <li>${icon("map-pin")}<span class="leading-relaxed">${esc(BRAND.address)}</span></li>
-        </ul>
-        <div class="store-links">
-          <a href="${BRAND.apps.ios}" target="_blank" rel="noreferrer noopener">App Store</a>
-          <a href="${BRAND.apps.android}" target="_blank" rel="noreferrer noopener">Google Play</a>
-        </div>
-      </div>
-
-      <div class="stack stack-4">
-        <h2 class="label">Stay updated</h2>
-        <p class="small muted">Occasional ideas and activities for your child's learning — no more than once a month.</p>
-        <form class="newsletter" data-newsletter novalidate>
-          <div class="newsletter__row">
-            <label class="visually-hidden" for="newsletter-email">Email address</label>
-            <input id="newsletter-email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
-            <button class="btn btn--primary" type="submit">Subscribe</button>
-          </div>
-          <p class="newsletter__note" data-newsletter-note role="status"></p>
-        </form>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© <span data-year>${new Date().getFullYear()}</span> Etern Learning Private Limited. All rights reserved.</p>
-      <nav aria-label="Legal">
-        <a href="${url("privacy.html", depth)}">Privacy Policy</a>
-        <a href="${url("terms.html", depth)}">Terms &amp; Conditions</a>
-        <a href="${BRAND.whatsapp}" target="_blank" rel="noreferrer noopener">WhatsApp</a>
-      </nav>
     </div>
   </div>
 </footer>`;
