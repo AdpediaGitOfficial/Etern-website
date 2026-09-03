@@ -32,6 +32,9 @@ export const BRAND = {
 export const PROGRAMS = [
   {
     slug: "creative-skill-development",
+    image: "creative",
+    imageAlt:
+      "A child painting a picture at a classroom table, surrounded by brushes, crayons and paint pots.",
     title: "Creative Skill Development",
     shortDescription:
       "Nurturing imagination and problem-solving through fun activities that help children express themselves and build confidence.",

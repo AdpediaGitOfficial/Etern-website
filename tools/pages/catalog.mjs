@@ -2,6 +2,7 @@ import { icon } from "../icons.mjs";
 import { esc, url, pageHero, sectionHeading, demoCta, decor } from "../layout.mjs";
 import {
   PROGRAM_ICONS,
+  programArt,
   PROGRAM_HUE,
   CATEGORY_HUE,
   TOPIC_HUE,
@@ -92,9 +93,7 @@ export function programDetailPage(program) {
           <a class="btn btn--outline btn--lg" href="${url("book-demo.html", d)}">Book a Free Demo</a>
         </div>
       </div>
-      <div class="program-art" role="img" aria-label="${esc(program.title)}">
-        ${icon(PROGRAM_ICONS[program.icon] ?? "palette")}
-      </div>
+      ${programArt(program, d)}
     </div>
   </div>
 </section>

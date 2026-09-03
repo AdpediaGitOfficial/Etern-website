@@ -223,6 +223,23 @@ export function journalCard(post, depth = 0) {
 </article>`;
 }
 
+/**
+ * The art panel on a program's page.
+ *
+ * A program that has a photograph shows it; the rest keep the icon plate, in
+ * the same box so the four pages stay consistent.
+ */
+export function programArt(program, depth = 0) {
+  if (!program.image) {
+    return `<div class="program-art" role="img" aria-label="${esc(program.title)}">
+        ${icon(PROGRAM_ICONS[program.icon] ?? "palette")}
+      </div>`;
+  }
+  return `<img class="program-photo" src="${url(`assets/img/${program.image}.webp`, depth)}"
+       width="800" height="609" decoding="async"
+       alt="${esc(program.imageAlt ?? "")}">`;
+}
+
 /* --------------------------------------------------------------- sections */
 
 /**
