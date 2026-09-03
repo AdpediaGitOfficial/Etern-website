@@ -110,17 +110,78 @@
 
   const wheel = document.querySelector("[data-wheel]");
   if (wheel) {
+    const nodes = [...wheel.querySelectorAll("[data-move]")];
+    const panels = [...wheel.querySelectorAll("[data-move-panel]")];
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+    const DWELL = 5000;
+    let index = Math.max(0, nodes.findIndex((el) => el.getAttribute("aria-pressed") === "true"));
+    let timer = null;
+
+    function show(next) {
+      index = (next + nodes.length) % nodes.length;
+      const id = nodes[index].dataset.move;
+      nodes.forEach((el, i) => el.setAttribute("aria-pressed", String(i === index)));
+      for (const panel of panels) {
+        const on = panel.dataset.movePanel === id;
+        panel.hidden = !on;
+        if (!on) continue;
+        /* restart the entrance: the panel was display:none a moment ago, so a
+           transition has nothing to run from */
+        panel.classList.remove("is-in");
+        void panel.offsetWidth;
+        panel.classList.add("is-in");
+      }
+    }
+
+    const stop = () => {
+      clearInterval(timer);
+      timer = null;
+    };
+
+    const play = () => {
+      if (timer || reduced.matches) return;
+      timer = setInterval(() => show(index + 1), DWELL);
+    };
+
+    /* Reading beats rotating: any pointer or keyboard focus inside the wheel
+       holds the current move until it leaves. */
+    wheel.addEventListener("pointerenter", stop);
+    wheel.addEventListener("focusin", stop);
+    wheel.addEventListener("pointerleave", play);
+    wheel.addEventListener("focusout", (event) => {
+      if (!wheel.contains(event.relatedTarget)) play();
+    });
+
     wheel.addEventListener("click", (event) => {
       const node = event.target.closest("[data-move]");
       if (!node) return;
-      const id = node.dataset.move;
-      wheel.querySelectorAll("[data-move]").forEach((el) => {
-        el.setAttribute("aria-pressed", String(el === node));
-      });
-      wheel.querySelectorAll("[data-move-panel]").forEach((panel) => {
-        panel.hidden = panel.dataset.movePanel !== id;
-      });
+      show(nodes.indexOf(node));
+      stop();
     });
+
+    document.addEventListener("visibilitychange", () => (document.hidden ? stop() : play()));
+
+    /* Only turn while it is on screen, and only while the tab is in front. */
+    const inView = () => {
+      const box = wheel.getBoundingClientRect();
+      return box.top < innerHeight && box.bottom > 0;
+    };
+
+    if ("IntersectionObserver" in window) {
+      const watcher = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) play();
+            else stop();
+          }
+        },
+        { threshold: 0.3 },
+      );
+      watcher.observe(wheel);
+    }
+    if (inView()) play();
+
+    reduced.addEventListener?.("change", () => (reduced.matches ? stop() : play()));
   }
 
   /* ---------------------------------------------------------- carousels */

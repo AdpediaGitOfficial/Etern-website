@@ -84,7 +84,7 @@ add behaviour on top:
 
 | File | Adds |
 | --- | --- |
-| `site.js` | sticky header, mobile menu, scroll reveals, age-stage selector, method wheel, testimonial carousel, stat counters, newsletter, back-to-top |
+| `site.js` | sticky header, mobile menu, scroll reveals, age-stage selector, self-turning method wheel, testimonial carousel, stat counters, newsletter, back-to-top |
 | `activity-player.js` | the choice and memory games |
 | `filters.js` | search and filter chips on the activity, journal and video lists |
 | `article.js` | reading-progress bar and share button |
@@ -92,6 +92,12 @@ add behaviour on top:
 
 FAQs are `<details>` elements and need no JavaScript at all. The method wheel
 falls back to a plain list of the five moves when scripting is off.
+
+The wheel turns itself: each move is held for five seconds, then the next fades
+and lifts into place. It only runs while the wheel is on screen and the tab is
+in front, a pointer or keyboard focus anywhere inside it holds the current move
+until it leaves, tapping a move stops the rotation on that one, and reduced
+motion switches the turning off entirely.
 
 ## The booking form
 
