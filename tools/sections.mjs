@@ -183,6 +183,26 @@ export function activityCard(activity, depth = 0) {
 </a>`;
 }
 
+/**
+ * A journal cover.
+ *
+ * Posts that have a photograph show it; the rest keep the drawn plate, sized
+ * and framed identically so a mixed grid still reads as one system.
+ *
+ * @param {object} post
+ * @param {number} depth
+ * @param {"wide"|"tall"} [shape]
+ */
+export function journalCover(post, depth = 0, shape = "wide") {
+  const mod = shape === "wide" ? " cover--wide" : "";
+  if (!post.image) {
+    return `<span class="cover${mod}">${icon(TOPIC_ICON[post.category] ?? "book-open")}</span>`;
+  }
+  return `<img class="cover-photo${mod}" src="${url(`assets/img/${post.image}.webp`, depth)}"
+       width="720" height="410" loading="lazy" decoding="async"
+       alt="${esc(post.imageAlt ?? "")}">`;
+}
+
 export function journalCard(post, depth = 0) {
   const hue = hueFor(TOPIC_HUE, post.category);
   return `<article class="reveal accent-${hue}" style="height:100%"
@@ -191,7 +211,7 @@ export function journalCard(post, depth = 0) {
    data-keywords="${esc(post.excerpt.toLowerCase())}"
    data-category="${esc(post.category)}">
   <a class="card card-link stack-4" href="${url(`journal/${post.slug}.html`, depth)}">
-    <span class="cover cover--wide">${icon(TOPIC_ICON[post.category] ?? "book-open")}</span>
+    ${journalCover(post, depth)}
     <div class="flex items-center gap-3 tiny muted">
       <span class="pill pill--solid">${esc(post.category)}</span>
       <span>${formatDate(post.date)} · ${post.readingMinutes} min</span>

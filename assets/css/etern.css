@@ -1786,6 +1786,33 @@ textarea.field { height: auto; min-height: 6rem; border-radius: var(--radius-md)
   pointer-events: none;
 }
 
+/* A photographed cover sits in exactly the plate's box, so a grid that mixes
+   the two still reads as one row. */
+.cover-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  background: var(--accent-soft, var(--violet-soft));
+}
+.cover-photo.cover--wide { aspect-ratio: 16 / 9; border-radius: 1.25rem; }
+
+/* the article's own lead image */
+.article-cover {
+  margin: 0 auto;
+  max-width: 44rem;
+  margin-top: -3rem;
+}
+.article-cover img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  box-shadow: var(--shadow-lift);
+}
+
 .program-art {
   display: grid;
   place-items: center;

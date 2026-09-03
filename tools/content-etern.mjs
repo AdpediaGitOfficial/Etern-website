@@ -298,6 +298,9 @@ export const TESTIMONIALS = [
 export const JOURNAL_POSTS = [
   {
     slug: "early-learning-apps-child-development-ages-3-7",
+    image: "blog-1",
+    imageAlt:
+      "A child sitting with a tablet, surrounded by icons for thinking, looking and rewards.",
     title: "How Early Learning Apps Improve Child Development at Ages 3–7",
     excerpt:
       "Used well, a short guided session can build attention, vocabulary and confidence. Used badly, it is just screen time. Here is the difference.",
@@ -316,6 +319,9 @@ export const JOURNAL_POSTS = [
   },
   {
     slug: "why-activity-based-learning-helps-children-learn-faster",
+    image: "blog-2",
+    imageAlt:
+      "A parent and child building a tower from wooden blocks together at a table.",
     title: "Why Activity-Based Learning Helps Children Learn Faster",
     excerpt:
       "Young children understand with their hands first. Activity-based learning turns an abstract idea into something they can hold.",
@@ -334,6 +340,9 @@ export const JOURNAL_POSTS = [
   },
   {
     slug: "science-behind-visual-learning-why-kids-understand-better",
+    image: "blog-3",
+    imageAlt:
+      "A child holding up a picture card, with matching cards laid out on the desk.",
     title: "The Science Behind Visual Learning and Why Kids Understand Better",
     excerpt:
       "Children process images long before they decode words. Visual sequencing is why a well-made lesson lands in seconds.",

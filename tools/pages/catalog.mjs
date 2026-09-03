@@ -8,6 +8,7 @@ import {
   hueFor,
   activityCard,
   journalCard,
+  journalCover,
   programCard,
   formatDate,
 } from "../sections.mjs";
@@ -404,7 +405,7 @@ export function journalIndexPage() {
         <p class="tiny muted">${formatDate(featured.date)} · ${featured.readingMinutes} min read</p>
         <span class="link-arrow">Read the article ${icon("arrow-right")}</span>
       </div>
-      <div class="cover">${icon("book-open")}</div>
+      ${journalCover(featured, 0, "tall")}
     </a>
 
     <div class="flex flex-wrap items-center justify-between gap-5 mt-12">
@@ -488,7 +489,18 @@ export function journalDetailPage(post) {
     </div>
   </section>
 
-  <section class="section">
+  ${
+    post.image
+      ? `<div class="shell">
+    <figure class="article-cover">
+      <img src="${url(`assets/img/${post.image}.webp`, d)}" width="720" height="410"
+           decoding="async" alt="${esc(post.imageAlt ?? "")}">
+    </figure>
+  </div>`
+      : ""
+  }
+
+  <section class="section"${post.image ? ' style="padding-top:2.5rem"' : ""}>
     <div class="shell">
       <div class="prose" style="margin-inline:auto">
         <p class="article-lead">${esc(post.excerpt)}</p>
