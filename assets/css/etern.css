@@ -179,10 +179,10 @@ h1, h2, h3, h4 {
   overflow: hidden;
   background-color: var(--card);
 }
-.section > .shell { position: relative; padding-block: 5rem; }
+.section > .shell { position: relative; padding-block: 3.25rem; }
 
 @media (min-width: 768px) {
-  .section > .shell { padding-block: 7rem; }
+  .section > .shell { padding-block: 4.75rem; }
 }
 
 .section--surface,
@@ -740,11 +740,11 @@ svg.shape { background: none; }
   position: relative;
   overflow: hidden;
   background: var(--card);
-  padding-top: 8rem;
-  padding-bottom: 4rem;
+  padding-top: 7rem;
+  padding-bottom: 2.25rem;
 }
 @media (min-width: 768px) {
-  .page-hero { padding-top: 10rem; padding-bottom: 5rem; }
+  .page-hero { padding-top: 9rem; padding-bottom: 3rem; }
 }
 .page-hero .shell { position: relative; z-index: 1; }
 .page-hero__inner { display: flex; max-width: 48rem; flex-direction: column; align-items: flex-start; gap: 1.25rem; }
@@ -788,6 +788,15 @@ svg.shape { background: none; }
     padding-top: 7.5rem;
     padding-bottom: 3rem;
   }
+}
+
+@media (min-width: 1024px) and (max-height: 860px) {
+  .home-hero { min-height: 0; padding-top: 6.25rem; padding-bottom: 1.75rem; }
+  .home-hero__copy { gap: 0.85rem; }
+  .home-hero h1 { font-size: clamp(2.1rem, 1rem + 2.6vw, 3.1rem); }
+  .home-hero__keywords { font-size: 1.45rem; }
+  .home-hero .lead { font-size: 0.95rem; }
+  .hero-apps { margin-top: 0.6rem; }
 }
 
 .home-hero__art {
@@ -900,7 +909,7 @@ svg.shape { background: none; }
 .hero-cta { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; }
 @media (min-width: 640px) { .hero-cta { flex-direction: row; width: auto; } }
 
-.feature-strip { position: relative; z-index: 1; padding-bottom: 4rem; }
+.feature-strip { position: relative; z-index: 1; padding-bottom: 3rem; }
 .feature-strip ul {
   display: grid;
   gap: 1.5rem;
@@ -1282,8 +1291,8 @@ svg.shape { background: none; }
 
 /* A wide, shallow violet band: copy, the dashboard card, and a photo that
    sits on the bottom edge. */
-.dash-band > .shell { padding-block: 3.5rem; }
-@media (min-width: 768px) { .dash-band > .shell { padding-block: 4.5rem; } }
+.dash-band > .shell { padding-block: 2.75rem; }
+@media (min-width: 768px) { .dash-band > .shell { padding-block: 3.5rem; } }
 
 /* the small decor pieces land on the copy when the band gets tall and narrow,
    and the blue diamond lands on the picture once the panel appears */
@@ -1520,8 +1529,8 @@ svg.shape { background: none; }
 /* --------------------------------------------------------- 18. demo panel */
 
 .demo-cta { position: relative; overflow: hidden; background: var(--card); }
-.demo-cta > .shell { position: relative; z-index: 1; padding-block: 5rem; }
-@media (min-width: 768px) { .demo-cta > .shell { padding-block: 7rem; } }
+.demo-cta > .shell { position: relative; z-index: 1; padding-block: 3.25rem; }
+@media (min-width: 768px) { .demo-cta > .shell { padding-block: 4.75rem; } }
 
 .demo-panel {
   position: relative;
