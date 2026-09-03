@@ -106,7 +106,7 @@ html {
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--card);
   color: var(--foreground);
   font-family: var(--font-sans);
   font-size: 1rem;
@@ -180,10 +180,12 @@ h1, h2, h3, h4 {
 .page { display: flex; min-height: 100vh; flex-direction: column; }
 .page > main { flex: 1; }
 
+/* Sections sit on white; separation comes from the cards, shadows and hue
+   accents inside them rather than from tinted bands. */
 .section {
   position: relative;
   overflow: hidden;
-  background-color: var(--background);
+  background-color: var(--card);
 }
 .section > .shell { position: relative; padding-block: 5rem; }
 
@@ -191,8 +193,8 @@ h1, h2, h3, h4 {
   .section > .shell { padding-block: 7rem; }
 }
 
-.section--surface { background-color: var(--surface); }
-.section--cream { background-color: var(--cream); }
+.section--surface,
+.section--cream { background-color: var(--card); }
 
 /* a whole section wearing one hue */
 .section--solid {
@@ -653,7 +655,7 @@ svg.shape { background: none; }
 
 /* ------------------------------------------------------------- 10. footer */
 
-.site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+.site-footer { border-top: 1px solid var(--border); background: var(--card); }
 .site-footer > .shell { padding-block: 4rem; }
 
 .footer-grid { display: grid; gap: 3rem; }
@@ -738,7 +740,7 @@ svg.shape { background: none; }
 .page-hero {
   position: relative;
   overflow: hidden;
-  background: var(--cream);
+  background: var(--card);
   padding-top: 8rem;
   padding-bottom: 4rem;
 }
@@ -903,6 +905,7 @@ svg.shape { background: none; }
 .feature-strip ul {
   display: grid;
   gap: 1.5rem;
+  border: 1px solid var(--border);
   border-radius: 2rem;
   background: var(--card);
   padding: 1.75rem;
@@ -1191,6 +1194,7 @@ svg.shape { background: none; }
   height: 6rem;
   padding: 0.3rem;
   border-radius: 999px;
+  border: 1px solid var(--border);
   background: var(--card);
   box-shadow: var(--shadow-soft);
   font-family: var(--font-display);
@@ -1516,7 +1520,7 @@ svg.shape { background: none; }
 
 /* --------------------------------------------------------- 18. demo panel */
 
-.demo-cta { position: relative; overflow: hidden; background: var(--surface); }
+.demo-cta { position: relative; overflow: hidden; background: var(--card); }
 .demo-cta > .shell { position: relative; z-index: 1; padding-block: 5rem; }
 @media (min-width: 768px) { .demo-cta > .shell { padding-block: 7rem; } }
 
