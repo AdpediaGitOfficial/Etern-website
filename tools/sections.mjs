@@ -235,8 +235,10 @@ export function programArt(program, depth = 0) {
         ${icon(PROGRAM_ICONS[program.icon] ?? "palette")}
       </div>`;
   }
+  // The slot is pinned to 4:3 in CSS, so the attributes describe the box the
+  // browser should reserve rather than the file's own pixel size.
   return `<img class="program-photo" src="${url(`assets/img/${program.image}.webp`, depth)}"
-       width="800" height="609" decoding="async"
+       width="800" height="600" decoding="async"
        alt="${esc(program.imageAlt ?? "")}">`;
 }
 

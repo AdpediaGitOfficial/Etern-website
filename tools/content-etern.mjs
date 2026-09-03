@@ -55,6 +55,9 @@ export const PROGRAMS = [
   },
   {
     slug: "academic-foundation",
+    image: "accadamic",
+    imageAlt:
+      "A child writing sums in a workbook at a classroom desk, with school books and coloured pencils beside them.",
     title: "Academic Foundation",
     shortDescription:
       "Supporting children in building a strong base for lifelong learning, encouraging early understanding without any academic pressure.",
