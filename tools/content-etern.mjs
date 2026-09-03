@@ -84,6 +84,9 @@ export const PROGRAMS = [
   },
   {
     slug: "social-emotional-growth",
+    image: "social-life",
+    imageAlt:
+      "A child sitting cross-legged with a hand on their chest, surrounded by feeling faces and books on kindness, confidence and friendship.",
     title: "Social-Emotional Growth",
     shortDescription:
       "Helping children manage emotions, communicate effectively, and develop empathy and self-confidence.",
