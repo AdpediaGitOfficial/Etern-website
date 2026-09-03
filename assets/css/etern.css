@@ -48,7 +48,7 @@
 
   --teal: oklch(0.775 0.128 190);
   --teal-soft: oklch(0.945 0.048 190);
-  --teal-ink: oklch(0.5 0.09 190);
+  --teal-ink: oklch(0.555 0.099 190);
 
   --green: oklch(0.695 0.161 152);
   --green-soft: oklch(0.945 0.045 152);
@@ -56,15 +56,15 @@
 
   --amber: oklch(0.83 0.152 82);
   --amber-soft: oklch(0.955 0.048 84);
-  --amber-ink: oklch(0.53 0.115 68);
+  --amber-ink: oklch(0.575 0.124 68);
 
   --orange: oklch(0.685 0.192 42);
   --orange-soft: oklch(0.95 0.042 45);
-  --orange-ink: oklch(0.525 0.17 40);
+  --orange-ink: oklch(0.585 0.185 40);
 
   --pink: oklch(0.715 0.176 356);
   --pink-soft: oklch(0.95 0.038 356);
-  --pink-ink: oklch(0.545 0.17 356);
+  --pink-ink: oklch(0.585 0.18 356);
 
   /* --- roles ---------------------------------------------------------- */
   --primary: var(--orange);           /* the call to action */
@@ -75,13 +75,6 @@
   --destructive: oklch(0.577 0.19 27);
 
   --border: oklch(0.905 0.017 78);
-
-  /* the section ground and the ink that stays readable on it (>= 4.5:1) */
-  --section: #6cafe7;
-  --section-ink: oklch(0.24 0.062 267);
-  --section-ink-soft: oklch(0.295 0.055 267);
-  --section-link: oklch(0.33 0.15 293);
-  --muted-ink: oklch(0.525 0.038 267);
   --ring: var(--violet);
 
   /* legacy aliases, so older accent names keep resolving */
@@ -179,42 +172,12 @@ h1, h2, h3, h4 {
 .page { display: flex; min-height: 100vh; flex-direction: column; }
 .page > main { flex: 1; }
 
-/* Sections sit on the brand blue. It is a mid tone: white and the muted greys
-   both fail against it, so everything that sits directly on it is set in ink —
-   a navy dark enough to clear 4.5:1 — while the white cards inside keep the
-   ordinary palette. */
+/* Sections sit on white; separation comes from the cards, shadows and hue
+   accents inside them rather than from tinted bands. */
 .section {
   position: relative;
   overflow: hidden;
-  background-color: var(--section);
-  color: var(--section-ink);
-  /* on this ground the ordinary greys and the hue inks are all too light, so
-     they deepen; inside the light surfaces below they go back to normal */
-  --muted-foreground: var(--section-ink-soft);
-  --violet-ink: oklch(0.35 0.155 293);
-  --blue-ink: oklch(0.35 0.13 249);
-  --teal-ink: oklch(0.35 0.075 190);
-  --green-ink: oklch(0.35 0.105 152);
-  --amber-ink: oklch(0.35 0.085 68);
-  --orange-ink: oklch(0.35 0.125 40);
-  --pink-ink: oklch(0.35 0.14 356);
-}
-/* surfaces with their own light ground keep the ordinary palette */
-.section :is(.card, .dash, .quote-card, .stage-panel, .device__screen, .filters,
-  .demo-panel__card, .cover, .option, .memory-card, .foot-news, .wheel__node, .wheel__hub,
-  .tile, .pill, .chip, .eyebrow, .step-card, .method-row, .stat, .faq, .try-chip, .try-meta li) {
-  --muted-foreground: var(--muted-ink);
-  --violet-ink: oklch(0.47 0.19 293);
-  --blue-ink: oklch(0.5 0.15 249);
-  --teal-ink: oklch(0.5 0.09 190);
-  --green-ink: oklch(0.505 0.126 152);
-  --amber-ink: oklch(0.53 0.115 68);
-  --orange-ink: oklch(0.525 0.17 40);
-  --pink-ink: oklch(0.545 0.17 356);
-}
-.section .link-arrow,
-.section > .shell a:not(.btn):not(.card-link):not(.chip):not(.pill):not([class*="__"]) {
-  color: var(--section-link);
+  background-color: var(--card);
 }
 .section > .shell { position: relative; padding-block: 5rem; }
 
@@ -223,14 +186,14 @@ h1, h2, h3, h4 {
 }
 
 .section--surface,
-.section--cream { background-color: var(--section); }
+.section--cream { background-color: var(--card); }
 
 /* a whole section wearing one hue */
 .section--solid {
   background-color: var(--accent-solid, var(--violet));
   color: oklch(1 0 0);
 }
-.section--solid .lead, .section--solid .muted { color: oklch(1 0 0); }
+.section--solid .lead, .section--solid .muted { color: oklch(1 0 0 / 0.8); }
 .section--solid .eyebrow {
   background: oklch(1 0 0 / 0.16);
   color: oklch(1 0 0 / 0.95);
@@ -419,7 +382,6 @@ svg.shape { background: none; }
 /* takes whatever hue its section is wearing */
 .btn--accent {
   background: var(--accent-solid, var(--violet));
-  color: var(--accent-on-solid, oklch(1 0 0));
   color: oklch(1 0 0);
 }
 .btn--accent:hover { transform: translateY(-2px); filter: brightness(1.06); }
@@ -466,15 +428,13 @@ svg.shape { background: none; }
 
 /* ---------------------------------------------------- 7. accent families */
 
-/* --accent-on-solid is what reads on the family's own fill: white where the
-   fill is dark enough for it, the family's deepest ink where it is not. */
-.accent-violet { --accent-soft: var(--violet-soft); --accent-ink: var(--violet-ink); --accent-solid: var(--violet); --accent-on-solid: oklch(1 0 0); }
-.accent-blue   { --accent-soft: var(--blue-soft);   --accent-ink: var(--blue-ink);   --accent-solid: var(--blue);   --accent-on-solid: oklch(0.25 0.09 249); }
-.accent-teal   { --accent-soft: var(--teal-soft);   --accent-ink: var(--teal-ink);   --accent-solid: var(--teal);   --accent-on-solid: oklch(0.32 0.07 190); }
-.accent-green  { --accent-soft: var(--green-soft);  --accent-ink: var(--green-ink);  --accent-solid: var(--green);  --accent-on-solid: oklch(0.31 0.09 152); }
-.accent-amber  { --accent-soft: var(--amber-soft);  --accent-ink: var(--amber-ink);  --accent-solid: var(--amber);  --accent-on-solid: oklch(0.33 0.08 68); }
-.accent-orange { --accent-soft: var(--orange-soft); --accent-ink: var(--orange-ink); --accent-solid: var(--orange); --accent-on-solid: oklch(0.28 0.1 40); }
-.accent-pink   { --accent-soft: var(--pink-soft);   --accent-ink: var(--pink-ink);   --accent-solid: var(--pink);   --accent-on-solid: oklch(0.33 0.12 356); }
+.accent-violet { --accent-soft: var(--violet-soft); --accent-ink: var(--violet-ink); --accent-solid: var(--violet); }
+.accent-blue   { --accent-soft: var(--blue-soft);   --accent-ink: var(--blue-ink);   --accent-solid: var(--blue); }
+.accent-teal   { --accent-soft: var(--teal-soft);   --accent-ink: var(--teal-ink);   --accent-solid: var(--teal); }
+.accent-green  { --accent-soft: var(--green-soft);  --accent-ink: var(--green-ink);  --accent-solid: var(--green); }
+.accent-amber  { --accent-soft: var(--amber-soft);  --accent-ink: var(--amber-ink);  --accent-solid: var(--amber); }
+.accent-orange { --accent-soft: var(--orange-soft); --accent-ink: var(--orange-ink); --accent-solid: var(--orange); }
+.accent-pink   { --accent-soft: var(--pink-soft);   --accent-ink: var(--pink-ink);   --accent-solid: var(--pink); }
 
 /* names the content files already use, mapped onto the new families */
 
@@ -497,7 +457,7 @@ svg.shape { background: none; }
 .tile--lg svg { width: 1.75rem; height: 1.75rem; }
 .tile--xl { width: 4rem; height: 4rem; border-radius: 1.4rem; }
 .tile--xl svg { width: 2rem; height: 2rem; }
-.tile--solid { background: var(--accent-solid, var(--violet)); color: var(--accent-on-solid, oklch(1 0 0)); }
+.tile--solid { background: var(--accent-solid, var(--violet)); color: oklch(1 0 0); }
 
 /* Duotone: the hue washes across the tile, a hairline ring lifts it off the
    card, and the mark sits in the darker ink of the same family. It is what
@@ -531,7 +491,7 @@ svg.shape { background: none; }
   color: var(--accent-ink, var(--foreground));
 }
 .pill--plain { background: var(--surface); color: var(--muted-foreground); }
-.pill--solid { background: var(--accent-solid, var(--violet)); color: var(--accent-on-solid, oklch(1 0 0)); }
+.pill--solid { background: var(--accent-solid, var(--violet)); color: oklch(1 0 0); }
 .pill--stars svg { width: 0.85rem; height: 0.85rem; color: var(--amber); }
 
 /* --------------------------------------------------------------- 8. cards */
@@ -572,7 +532,7 @@ svg.shape { background: none; }
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--accent-ink, var(--violet-ink));
+  color: var(--accent-solid, var(--violet));
 }
 
 /* ------------------------------------------------------------- 9. navbar */
@@ -700,7 +660,7 @@ svg.shape { background: none; }
 .foot-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 .foot-contact a { font-weight: 600; color: var(--foreground); transition: color 0.2s; }
 .foot-contact a:hover { color: var(--violet-ink); }
-.foot-contact span { color: var(--muted-ink); }
+.foot-contact span { color: var(--border); }
 
 .foot-news { width: 100%; max-width: 26rem; }
 .foot-news label { font-size: 0.8125rem; color: var(--muted-foreground); }
@@ -926,10 +886,10 @@ svg.shape { background: none; }
   font-weight: 700;
 }
 @media (min-width: 640px) { .home-hero__keywords { font-size: 1.6rem; } }
-.home-hero__keywords .k1 { color: var(--violet-ink); }
-.home-hero__keywords .k2 { color: var(--blue-ink); }
-.home-hero__keywords .k3 { color: var(--orange-ink); }
-.home-hero__keywords .k4 { color: var(--green-ink); }
+.home-hero__keywords .k1 { color: var(--violet); }
+.home-hero__keywords .k2 { color: var(--blue); }
+.home-hero__keywords .k3 { color: var(--orange); }
+.home-hero__keywords .k4 { color: var(--green); }
 
 .hero-cta { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; }
 @media (min-width: 640px) { .hero-cta { flex-direction: row; width: auto; } }
@@ -1278,7 +1238,7 @@ svg.shape { background: none; }
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1;
-  color: var(--accent-ink, var(--violet-ink));
+  color: var(--accent-solid, var(--violet));
 }
 .wheel__detail h3 { font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.25rem); }
 .wheel__outcome {
@@ -1301,7 +1261,7 @@ svg.shape { background: none; }
 @media (min-width: 768px) {
   .method-row { grid-template-columns: 6rem 1fr 16rem; align-items: baseline; gap: 2.5rem; }
 }
-.method-row__num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--accent-ink); }
+.method-row__num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--accent-solid); }
 .method-row p.body { margin-top: 0.75rem; max-width: 36rem; line-height: 1.7; color: var(--muted-foreground); }
 .method-row p.outcome {
   border-radius: var(--radius-md);
@@ -1358,7 +1318,7 @@ svg.shape { background: none; }
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
-  color: oklch(1 0 0);
+  color: var(--amber);
 }
 .dash-band__link svg { width: 1.05rem; height: 1.05rem; transition: transform 0.3s var(--spring); }
 .dash-band__link:hover { color: oklch(1 0 0); }
@@ -1538,7 +1498,7 @@ svg.shape { background: none; }
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--accent-on-solid, oklch(1 0 0));
+  color: oklch(1 0 0);
 }
 
 .quotes__dots { display: flex; justify-content: center; gap: 0.45rem; margin-top: 1.5rem; }
